@@ -1,27 +1,7 @@
-<div align="center">
-<picture>v
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/img/logo_dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/img/logo_light.svg">
-  <img alt="Zeus logo" width="55%" src="docs/assets/img/logo_dark.svg">
-</picture>
-<h1>Deep Learning Energy Measurement and Optimization</h1>
+
+<h1>LAB 2 </h1>
 </div>
 
-[![NSDI23 paper](https://custom-icon-badges.herokuapp.com/badge/NSDI'23-paper-b31b1b.svg)](https://www.usenix.org/conference/nsdi23/presentation/you)
-[![Docker Hub](https://badgen.net/docker/pulls/symbioticlab/zeus?icon=docker&label=Docker%20pulls)](https://hub.docker.com/r/symbioticlab/zeus)
-[![Slack workspace](https://badgen.net/badge/icon/Join%20workspace/611f69?icon=slack&label=Slack)](https://join.slack.com/t/zeus-ml/shared_invite/zt-1najba5mb-WExy7zoNTyaZZfTlUWoLLg)
-[![Homepage build](https://github.com/SymbioticLab/Zeus/actions/workflows/deploy_homepage.yaml/badge.svg)](https://github.com/SymbioticLab/Zeus/actions/workflows/deploy_homepage.yaml)
-[![Apache-2.0 License](https://custom-icon-badges.herokuapp.com/github/license/SymbioticLab/Zeus?logo=law)](/LICENSE)
-
----
-**Project News** ⚡ 
-
-- \[2023/07\] [`ZeusMonitor`](https://ml.energy/zeus/reference/monitor/#zeus.monitor.ZeusMonitor) was used to profile GPU time and energy consumption for the [ML.ENERGY leaderboard & Colosseum](https://ml.energy/leaderboard).
-- \[2023/03\] [Chase](https://symbioticlab.org/publications/files/chase:ccai23/chase-ccai23.pdf), an automatic carbon optimization framework for DNN training, will appear at ICLR'23 workshop.
-- \[2022/11\] [Carbon-Aware Zeus](https://taikai.network/gsf/hackathons/carbonhack22/projects/cl95qxjpa70555701uhg96r0ek6/idea) won the **second overall best solution award** at Carbon Hack 22.
----
-
-Zeus is a framework for (1) measuring GPU energy consumption and (2) optimizing energy and time for DNN training.
 
 ### Measuring GPU energy
 
