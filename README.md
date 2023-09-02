@@ -167,7 +167,3 @@ The use of GPUs for training DNNs results in high carbon emissions and energy co
     year      = {2023}
 }
 ```
-
-## Contact
-Jae-Won Chung (jwnchung@umich.edu)
-
