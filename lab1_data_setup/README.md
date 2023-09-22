@@ -22,4 +22,4 @@
 
 ---
 NEXT
-- LAB2: [Design Planning](https://github.com/trong420/icc/tree/main/lab1_data_setup)
+- LAB2: [Design Planning](https://github.com/trong420/icc/tree/main/lab2_dp)
