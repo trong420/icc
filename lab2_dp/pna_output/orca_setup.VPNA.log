@@ -1,0 +1,47 @@
+
+Name of design : orca_setup
+Number of cell instances in the design : 48103
+Number of cell instance masters in the library : 110
+
+Processing power net VSS ...
+Number of power net wires : 1862
+Number of vias : 5425
+Average power dissipation in orca_setup :   350.00 mW
+Power supply voltage :     1.32 V
+Assigning vias begins
+Assigning power net wires ...
+Constructing virtual grid ..
+Performing virtual connection ...
+Reading virtual power pads
+Extracting power net VSS ...
+Number of power pad nodes connecting to power net VSS : 28
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 28
+Number of resistors in VSS : 66102
+Number of nodes in VSS : 62684
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in orca_setup : 300.13 mV
+Maximum current in orca_setup : 30.979 mA
+
+Processing power net VDD ...
+Number of power net wires : 1905
+Number of vias : 5831
+Average power dissipation in orca_setup :   350.00 mW
+Power supply voltage :     1.32 V
+Assigning vias begins
+Assigning power net wires ...
+Constructing virtual grid ..
+Performing virtual connection ...
+Reading virtual power pads
+Extracting power net VDD ...
+Number of power pad nodes connecting to power net VDD : 34
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 34
+Number of resistors in VDD : 67794
+Number of nodes in VDD : 64132
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in orca_setup : 257.28 mV
+Maximum current in orca_setup : 50.021 mA
+Overall takes     3.92 seconds

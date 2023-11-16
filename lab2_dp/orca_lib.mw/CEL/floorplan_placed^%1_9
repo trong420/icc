@@ -1,0 +1,107 @@
+vfplaceAutoConstraint v2.0 
+maxLineLength 804
+set_mpc_macro_array -name jxt_auto_array_0 -element [list  [get_cells I_ORCA_TOP/I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM I_ORCA_TOP/I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM]  [get_cells I_ORCA_TOP/I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM I_ORCA_TOP/I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM] ]
+isRpArray 0
+toBePacked 1
+cellInstsArea 113169168000.000000
+xRpOffset -1
+yRpOffset -1
+rpAnchorPoint 8
+LegalOrientation jxt_auto_array_0 R0 R0_MX R0_MY R180
+ElementRelativeOrientation 0 R0 R0
+ElementRelativeOrientation 1 R0 R0
+ElementOffsetLocation
+10000 10000 
+204160 10000 
+10000 192450 
+204160 192450 
+EndOffsetLocation
+ArraySize 388320 364900 
+set_mpc_macro_array -name jxt_auto_array_1 -element [list  [get_cells I_ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM]  [get_cells I_ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM] ] -vertical
+isRpArray 0
+toBePacked 1
+cellInstsArea 76775803200.000000
+xRpOffset -1
+yRpOffset -1
+rpAnchorPoint 8
+LegalOrientation jxt_auto_array_1 R0 R0_MX R0_MY R180
+ElementRelativeOrientation 0 R0
+ElementRelativeOrientation 1 R0
+ElementOffsetLocation
+10000 10000 
+10000 152130 
+EndOffsetLocation
+ArraySize 334320 284260 
+set_mpc_macro_array -name jxt_auto_array_2 -element [list  [get_cells I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5]  [get_cells I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 I_ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1] ]
+isRpArray 0
+toBePacked 1
+cellInstsArea 56320070400.000000
+xRpOffset -1
+yRpOffset -1
+rpAnchorPoint 8
+LegalOrientation jxt_auto_array_2 R270 R90
+ElementRelativeOrientation 0 R0 R0 R0 R0
+ElementRelativeOrientation 1 R0 R0 R0 R0
+ElementOffsetLocation
+10000 10000 
+99040 10000 
+188080 10000 
+277120 10000 
+10000 131970 
+99040 131970 
+188080 131970 
+277120 131970 
+EndOffsetLocation
+ArraySize 356160 243940 
+set_mpc_macro_array -name jxt_auto_array_3 -element [list  [get_cells I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5]  [get_cells I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 I_ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1] ]
+isRpArray 0
+toBePacked 1
+cellInstsArea 56320070400.000000
+xRpOffset -1
+yRpOffset -1
+rpAnchorPoint 8
+LegalOrientation jxt_auto_array_3 R90_MX R270 R90_MY R90
+ElementRelativeOrientation 0 R0 R0 R0 R0
+ElementRelativeOrientation 1 R0 R0 R0 R0
+ElementOffsetLocation
+10000 10000 
+99040 10000 
+188080 10000 
+277120 10000 
+10000 131970 
+99040 131970 
+188080 131970 
+277120 131970 
+EndOffsetLocation
+ArraySize 356160 243940 
+set_mpc_macro_array -name jxt_auto_array_4 -element [list  [get_cells I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_4 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_1]  [get_cells I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_4 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_1]  [get_cells I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_1]  [get_cells I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_4 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 I_ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_1] ]
+isRpArray 0
+toBePacked 1
+cellInstsArea 203380646400.000000
+xRpOffset -1
+yRpOffset -1
+rpAnchorPoint 8
+LegalOrientation jxt_auto_array_4 R0 R0_MX R0_MY R180
+ElementRelativeOrientation 0 R0 R0 R0 R0
+ElementRelativeOrientation 1 R0 R0 R0 R0
+ElementRelativeOrientation 2 R0 R0 R0 R0
+ElementRelativeOrientation 3 R0 R0 R0 R0
+ElementOffsetLocation
+10000 10000 
+134080 10000 
+258160 10000 
+382240 10000 
+10000 152130 
+134080 152130 
+258160 152130 
+382240 152130 
+10000 294260 
+134080 294260 
+258160 294260 
+382240 294260 
+10000 436390 
+134080 436390 
+258160 436390 
+382240 436390 
+EndOffsetLocation
+ArraySize 496320 568520 
