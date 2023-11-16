@@ -1,0 +1,1012 @@
+#@ # 
+#@ # Running icc_shell Version L-2016.03-SP1 for linux64 -- Apr 11, 2016
+#@ # Date:   Sun May 14 01:18:55 2023
+#@ # Run by: sinhvien@crazy_one
+#@ 
+
+#@ # -- Starting source .synopsys_dc.setup
+
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Suppress known and/or annoying messages
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ suppress_message {TIM-112 TIM-052 OPT-170 PSYN-025 UID-401}
+#@ suppress_message {PSYN-850 PSYN-087 PSYN-040 PSYN-088}
+#@ 
+#@ # "Information" about changing wire load model and Warning about 12 high fanout nets
+#@ # during sourcing of opt_ctrl.tcl file:
+#@ suppress_message {OPT-171 TIM-134}
+#@ 
+#@ # "Information" about 'SNPS_LOGIC0/1' having no connections 
+#@ # during create_fp_placement:
+#@ suppress_message {MWDC-040}
+#@ 
+#@ # During congestion analysis:
+#@ suppress_message {ZRT-026 ZRT-027}
+#@ 
+#@ # Inconsistent lib data + idela and high fanout net warnings during report_timing:
+#@ suppress_message {RCEX-018 RCEX-020 RCEX-021 TIM-134}
+#@ 
+#@ # AHFS warning during optimize_fp_timing:
+#@ suppress_message {PSYN-1002}
+#@ 
+#@ # "Extra braces" warning during write_floorplan:
+#@ suppress_message {MWUI-041}
+#@ 
+#@ # Warnings during 2nd pass data setup and loading of DEF:
+#@ suppress_message {TFCHK-049 TFCHK-050 TFCHK-055 TFCHK-084 MWDEFR-159 DDEFR 054 DDEFR-010 DDEFR-011 DDEFR-012}
+#@ 
+#@ # Warning during final "legalize_placement" that the MACROS are "not integer multiples of min site height"
+#@ suppress_message {PSYN-523}
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Load useful "functions" or procedures, like "view"
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ source ../ref/tools/procs.tcl
+#@ # -- Starting source ../ref/tools/procs.tcl
+
+#@ # Synopsys Customer Education Services
+#@ # IC Compiler Workshop series
+#@ #
+#@ # Tcl procedures to simplify life...
+#@ 
+#@ puts "\#\#\# Processing procs.tcl..."
+#@ 
+#@ create_command_group CES_procs
+#@ 
+#@ # Get command results/reports in separate graphical tk window
+#@ # This expects view.tk to be in the path, which is the other half
+#@ # of this procedure!
+#@ # Examples: view man compile,  view report_timing -max_paths 20
+#@ #======================================================  
+#@ proc view {args} {
+#@ 	if {$args == ""} { puts "view: Please provide a command."; return }
+#@ 	set tmpfile tmpfile[pid][expr int(rand()*10000)]
+#@ 	redirect $tmpfile {uplevel $args}
+#@ 	# Without redirect, exec echos the PID of the new process to the screen
+#@     #	redirect /dev/null {exec ../ref/tools/view.tk $tmpfile "$args" &}
+#@ #  per Amin, 2/16/10
+#@     redirect /dev/null {exec ../ref/tools/view.tk $tmpfile "$args" true &}
+#@ }
+#@ define_proc_attributes view 	-info "Display output of any command in a separate Tk window." 	-command_group CES_procs 	-define_args {
+#@ 		{args "Command with arguments" args}
+#@ 	}
+#@ 
+#@ 
+#@ proc report_placement_blockages {} {
+#@ 	foreach_in_collection item [get_placement_blockages -quiet] {
+#@ 		puts "Name:   [get_attribute $item name]"
+#@ 		puts "  Type: [get_attribute $item type]"
+#@ 		puts "  bbox: [get_attribute $item bbox]\n"
+#@ 	}
+#@ }
+#@ define_proc_attributes report_placement_blockages 	-info "Display a summary of all placement blockages in the design" 	-command_group CES_procs
+#@ 
+#@ proc report_route_guides {} {
+#@ 	suppress_message ATTR-3
+#@ 	foreach_in_collection item [get_route_guides -quiet] {
+#@ 		puts "Name:   [get_attribute $item name]"
+#@ 		puts "  switch_preferred_direction: [get_attribute $item switch_preferred_direction]"
+#@ 		puts "  no_preroute_layers:         [get_attribute $item no_preroute_layers]"
+#@ 		puts "  no_signal_layers:           [get_attribute $item no_signal_layers]"
+#@ 		puts "  bbox:                       [get_attribute $item bbox]"
+#@ 	}
+#@ 	unsuppress_message ATTR-3
+#@ }
+#@ define_proc_attributes report_route_guides 	-info "Display a summary of all route guides in the design" 	-command_group CES_procs
+#@ 
+#@ 
+#@ proc async_domain {args} {
+#@ 	parse_proc_arguments -args $args procargs
+#@ 	set clk1 $procargs(clock1)
+#@ 	set clk2 $procargs(clock2)
+#@     set_false_path -from [get_clocks $clk1] -to [get_clocks $clk2]
+#@     set_false_path -from [get_clocks $clk2] -to [get_clocks $clk1]
+#@ }
+#@ define_proc_attributes async_domain 	-info "set false paths between 2 clocks in both directions" 	-command_group CES_procs 	-define_args {
+#@ 		{clock1 "First clock name" clock1}
+#@ 		{clock2 "Second clock name" clock2}
+#@ 	}
+#@ 
+#@ # Generates statistics on the current session:
+#@ #   hostname
+#@ #   uname -a
+#@ #   date
+#@ #   location of current exec
+#@ proc host_stats {} {
+#@ 	uplevel {
+#@ 	puts "##### Session information:"
+#@ 	puts "hostname:  [exec hostname]"
+#@ 	puts "uname -a:  [exec uname -a]"
+#@ 	puts "date:      [date]"
+#@ 	puts "bin path:  $bin_path"
+#@ 	puts "##### End session information\n"
+#@ 	}
+#@ }
+#@ define_proc_attributes host_stats 	-info "Display statistics of the current host (server)" 	-command_group CES_procs
+#@ 
+#@ 
+#@ # Generates timing, constraint and qor reports in the "reports/" directory
+#@ # under the current dir.
+#@ proc gen_reports {args} {
+#@ 
+#@ 	# Defaults:
+#@ 	set procargs(-verbose) false
+#@ 	set procargs(-dir) "./reports"
+#@ 
+#@ 	parse_proc_arguments -args $args procargs
+#@ 	set verbose $procargs(-verbose)
+#@ 	set prefix $procargs(-prefix)
+#@ 	set dir $procargs(-dir)
+#@ 
+#@ 	file mkdir $dir
+#@ 	update_timing
+#@ 	if ($verbose) { puts "##### Writing $dir/$prefix.constraint" }
+#@ 	redirect $dir/$prefix.constraint {report_constraint -nosplit -all} 
+#@ 	if ($verbose) { puts "##### Writing $dir/$prefix.timing" }
+#@ 	redirect $dir/$prefix.timing {report_timing -nosplit}
+#@ 	if ($verbose) { puts "##### Writing $dir/$prefix.min.timing" }
+#@ 	redirect $dir/$prefix.min.timing {report_timing -delay min -nosplit}
+#@ 	if ($verbose) { puts "##### Writing $dir/$prefix.qor" }
+#@ 	redirect $dir/$prefix.qor {report_qor}
+#@ }
+#@ 
+#@ define_proc_attributes gen_reports 	-info "Generates min/max timing, constraint and qor reports" 	-command_group CES_procs 	-define_args {
+#@ 		{-prefix "Prefix for report files" "<name>" string required}
+#@ 		{-verbose "Be verbose!" "" boolean optional}
+#@ 		{-dir "Destination directory. Default: ./reports" "dest_dir" string optional}
+#@ 	}
+#@ 
+#@ 
+#@ proc reset_timer {timer_name} {
+#@     global $timer_name
+#@     redirect /dev/null {set $timer_name [clock seconds]}
+#@ }
+#@ define_proc_attributes reset_timer 	-info "Resets a named timer" 	-command_group CES_procs 	-define_args {
+#@ 		{timer_name "Name of timer" timer_name}
+#@ 	}
+#@ 
+#@ proc report_timer {timer_name message} {
+#@     upvar $timer_name time
+#@ 
+#@     set mins [expr ([clock seconds] - $time) / 60]
+#@     set secs [expr ([clock seconds] - $time) % 60]
+#@     echo [format "####----#### Runtime: %3d:%02d minutes for \"$message\"" $mins $secs]
+#@ }
+#@ define_proc_attributes report_timer 	-info "report the elapsed time of a named timer" 	-command_group CES_procs 	-define_args {
+#@ 		{timer_name "Name of timer" timer_name}
+#@ 		{message "message to display with the value of the timer" message}
+#@ 	}
+#@ 
+#@ 
+#@ proc measure_time {args} {
+#@     set time [clock seconds]
+#@ 	set command [join $args]
+#@     echo "##### Started timer for command \"$command\""
+#@     uplevel $args
+#@     set mins [expr ([clock seconds] - $time) / 60]
+#@     set secs [expr ([clock seconds] - $time) % 60]
+#@     echo [format "####----#### Runtime: %3d:%02d minutes for command \"$command\"" $mins $secs]
+#@ }
+#@ define_proc_attributes measure_time 	-info "Run a command while measuring the time it takes" 	-command_group CES_procs 	-define_args {
+#@ 		{script "Tcl-commands to time (and run)" args}
+#@ 	}
+#@ 
+#@ proc gui {} {
+#@ 	uplevel {
+#@ 		if {$in_gui_session == false} {
+#@ 			gui_start
+#@ 		} else {
+#@ 			gui_stop
+#@ 			echo "... or just 'gui'"
+#@ 		}
+#@ 	}
+#@ }
+#@ define_proc_attributes gui 	-info "Start or stop the GUI" 	-command_group CES_procs
+#@ 
+#@ proc vman {cmd} {
+#@ 	if {$::in_gui_session == false} {
+#@ 		view man $cmd
+#@ 	} else {
+#@ 		gui_show_man_page $cmd
+#@ 	}
+#@ }
+#@ define_proc_attributes vman 	-info "Display a man page using the GUI man reader or Tcl/TK." 	-dont_abbrev 	-command_group CES_procs 	-define_args {
+#@ 		{cmd "command-name" cmd}
+#@ 	}
+#@ 
+#@ 
+#@ 
+#@ #
+#@ # Always Ask
+#@ # This useful procedure is on solvnet, Doc Id  012959
+#@ #
+#@ proc aa {args} {
+#@ 
+#@    parse_proc_arguments -args $args results
+#@ 
+#@    echo "*********  Commands **********"
+#@    help *$results(pattern)*
+#@ 
+#@    echo "********* Variables **********"
+#@    uplevel "printvar *$results(pattern)*"
+#@ 
+#@    if {[info exists results(-verbose)]} {
+#@       echo "********* -help *************"
+#@       apropos *$results(pattern)*
+#@    }
+#@ }; # end proc
+#@ 
+#@ define_proc_attributes aa -info "always ask - Searches Synopsys help for both commands and variables" 	-command_group CES_procs 	-define_args {
+#@ 		{pattern "Pattern to search for" pattern string required}
+#@ 		{-verbose "Search -help as well" "" boolean optional}
+#@ 	}
+#@ 
+#@ # Idea for a quick power ring proc...
+#@ 
+#@ proc ring_it {args} {
+#@ 	# Defaults:
+#@ 	set procargs(-cells) ""
+#@ 	set procargs(-nets) "VDD VSS"
+#@ 	set procargs(-location) "5"
+#@ 	set procargs(-horiz_layer) "METAL3"
+#@ 	set procargs(-vert_layer) "METAL2"
+#@ 	set procargs(-width) "4"
+#@ 	set procargs(-full) "false"
+#@ 
+#@ 	parse_proc_arguments -args $args procargs
+#@ 	set cells $procargs(-cells)
+#@ 	set nets  $procargs(-nets)
+#@ 	set location $procargs(-location)
+#@ 	set horiz_layer $procargs(-horiz_layer)
+#@ 	set vert_layer $procargs(-vert_layer)
+#@ 	set width $procargs(-width)
+#@ 	set full $procargs(-full)
+#@ 
+#@ 
+#@ 	if {$cells == ""} {
+#@ 		puts "ERROR:  no cells specified!"
+#@ 		return
+#@ 	}
+#@ 
+#@ #-location {1 2 3 4 5 6 7 8 9} matrix 1= bottom left, 2 bottom middle, ..., 9 is top right.
+#@ #create connections to core ring based on location - we assume that if any number but 5 (default) is given,
+#@ #we will create connections to the ring around the core! (-extend_xy)
+#@ 
+#@ 
+#@ 	switch $location {
+#@ 		1 { set extend "-extend_tl -extend_rl"; set skip "-skip_left_side -skip_bottom_side" }
+#@ 		2 { set extend "-extend_ll -extend_rl"; set skip "-skip_bottom_side" }
+#@ 		3 { set extend "-extend_th -extend_ll"; set skip "-skip_right_side -skip_bottom_side" }
+#@ 		4 { set extend "-extend_tl -extend_bl"; set skip "-skip_left_side" }
+#@ 		5 { set extend ""; set skip "" }
+#@ 		6 { set extend "-extend_bh -extend_th"; set skip "-skip_right_side" }
+#@ 		7 { set extend "-extend_rh -extend_bl"; set skip "-skip_top_side -skip_left_side" }
+#@ 		8 { set extend "-extend_lh -extend_rh"; set skip "-skip_top_side" }
+#@ 		9 { set extend "-extend_lh -extend_bh"; set skip "-skip_top_side -skip_right_side" }
+#@ 		default { set extend ""; set skip "" }
+#@ 	}
+#@ 
+#@ 	if {$full} {
+#@ 		set skip "";
+#@ 		switch $location {
+#@ 			1 { set extend "$extend -extend_bl -extend_ll" }
+#@ 			2 {  }
+#@ 			3 { set extend "$extend -extend_rl -extend_bh" }
+#@ 			4 {  }
+#@ 			5 {  }
+#@ 			6 {  }
+#@ 			7 { set extend "$extend -extend_tl -extend_lh" }
+#@ 			8 {  }
+#@ 			9 { set extend "$extend -extend_rh -extend_th" }
+#@ 			default {  }
+#@ 		}
+#@ 	}
+#@ 
+#@ 	puts "Using $horiz_layer for horizontal ring sections."
+#@ 	puts "Using $vert_layer for vertical ring sections."
+#@ 	puts "Routing power nets $nets."
+#@ 	puts "Ring width: $width"
+#@ 
+#@ 	eval create_rectangular_rings -nets {$nets} -around specified_as_group -cells $cells $extend -left_segment_layer $vert_layer -right_segment_layer $vert_layer -top_segment_layer $horiz_layer -bottom_segment_layer $horiz_layer $skip -left_segment_width $width -right_segment_width $width -bottom_segment_width $width -top_segment_width $width
+#@ 
+#@ }
+#@ 
+#@ 
+#@ define_proc_attributes ring_it 	-info "Creates a simple power ring around macros" 	-command_group CES_procs 	-define_args {
+#@ 		{-cells "Macro cells to create ring around" "<cells>" string required}
+#@ 		{-nets "names of power/ground nets. Default: VDD VSS" "<pgnets>" string optional}
+#@ 		{-location "location of macro, 1-9. 1 is lower left, 9 upper right corner. Default: 5" "<1-9>" string optional}
+#@ 		{-horiz_layer "Layer to use for horizontal ring sections. Default: METAL3" "string" string optional}
+#@ 		{-vert_layer "Layer to use for vertical ring sections. Default: METAL2" "string" string optional}
+#@ 		{-width "Width of ring. Default: 4" "integer" string optional}
+#@ 		{-full "Create a complete ring (we assume we'll re-use the core ring otherwise)" "" boolean optional}
+#@ 	}
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # Display all customer procedures:
+#@ echo "The following procedures are defined for use in this workshop."
+#@ echo "They are NOT standard IC Compiler commands."
+#@ help CES_procs
+#@ # -- End source ../ref/tools/procs.tcl
+
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # General useful settings
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Disable more-like page mode
+#@ set enable_page_mode false
+#@ # Don't want to see CMD-041 when creating new variables
+#@ set sh_new_variable_message false
+#@ # Increase history buffer from 20 commands to 100
+#@ history keep 100
+#@ 
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Enable logging of commands and everything by date/shell
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ set timestamp [clock format [clock scan now] -format "%Y-%m-%d_%H-%M"]
+#@ # -- Starting source /opt/synopsys/icc_2016/auxx/tcllib/lib/tcl8.6/msgcat/msgcat.tcl
+
+#@ # msgcat.tcl --
+#@ #
+#@ #	This file defines various procedures which implement a
+#@ #	message catalog facility for Tcl programs.  It should be
+#@ #	loaded with the command "package require msgcat".
+#@ #
+#@ # Copyright (c) 1998-2000 by Ajuba Solutions.
+#@ # Copyright (c) 1998 by Mark Harrison.
+#@ #
+#@ # See the file "license.terms" for information on usage and redistribution
+#@ # of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+#@ 
+#@ package require Tcl 8.5
+#@ # When the version number changes, be sure to update the pkgIndex.tcl file,
+#@ # and the installation directory in the Makefiles.
+#@ package provide msgcat 1.5.2
+#@ 
+#@ namespace eval msgcat {
+#@     namespace export mc mcload mclocale mcmax mcmset mcpreferences mcset 	    mcunknown mcflset mcflmset
+#@ 
+#@     # Records the current locale as passed to mclocale
+#@     variable Locale ""
+#@ 
+#@     # Records the list of locales to search
+#@     variable Loclist {}
+#@ 
+#@     # Records the locale of the currently sourced message catalogue file
+#@     variable FileLocale
+#@ 
+#@     # Records the mapping between source strings and translated strings.  The
+#@     # dict key is of the form "<locale> <namespace> <src>", where locale and
+#@     # namespace should be themselves dict values and the value is
+#@     # the translated string.
+#@     variable Msgs [dict create]
+#@ 
+#@     # Map of language codes used in Windows registry to those of ISO-639
+#@     if {[info sharedlibextension] eq ".dll"} {
+#@ 	variable WinRegToISO639 [dict create  {*}{
+#@ 	    01 ar 0401 ar_SA 0801 ar_IQ 0c01 ar_EG 1001 ar_LY 1401 ar_DZ
+#@ 		  1801 ar_MA 1c01 ar_TN 2001 ar_OM 2401 ar_YE 2801 ar_SY
+#@ 		  2c01 ar_JO 3001 ar_LB 3401 ar_KW 3801 ar_AE 3c01 ar_BH
+#@ 		  4001 ar_QA
+#@ 	    02 bg 0402 bg_BG
+#@ 	    03 ca 0403 ca_ES
+#@ 	    04 zh 0404 zh_TW 0804 zh_CN 0c04 zh_HK 1004 zh_SG 1404 zh_MO
+#@ 	    05 cs 0405 cs_CZ
+#@ 	    06 da 0406 da_DK
+#@ 	    07 de 0407 de_DE 0807 de_CH 0c07 de_AT 1007 de_LU 1407 de_LI
+#@ 	    08 el 0408 el_GR
+#@ 	    09 en 0409 en_US 0809 en_GB 0c09 en_AU 1009 en_CA 1409 en_NZ
+#@ 		  1809 en_IE 1c09 en_ZA 2009 en_JM 2409 en_GD 2809 en_BZ
+#@ 		  2c09 en_TT 3009 en_ZW 3409 en_PH
+#@ 	    0a es 040a es_ES 080a es_MX 0c0a es_ES@modern 100a es_GT 140a es_CR
+#@ 		  180a es_PA 1c0a es_DO 200a es_VE 240a es_CO 280a es_PE
+#@ 		  2c0a es_AR 300a es_EC 340a es_CL 380a es_UY 3c0a es_PY
+#@ 		  400a es_BO 440a es_SV 480a es_HN 4c0a es_NI 500a es_PR
+#@ 	    0b fi 040b fi_FI
+#@ 	    0c fr 040c fr_FR 080c fr_BE 0c0c fr_CA 100c fr_CH 140c fr_LU
+#@ 		  180c fr_MC
+#@ 	    0d he 040d he_IL
+#@ 	    0e hu 040e hu_HU
+#@ 	    0f is 040f is_IS
+#@ 	    10 it 0410 it_IT 0810 it_CH
+#@ 	    11 ja 0411 ja_JP
+#@ 	    12 ko 0412 ko_KR
+#@ 	    13 nl 0413 nl_NL 0813 nl_BE
+#@ 	    14 no 0414 no_NO 0814 nn_NO
+#@ 	    15 pl 0415 pl_PL
+#@ 	    16 pt 0416 pt_BR 0816 pt_PT
+#@ 	    17 rm 0417 rm_CH
+#@ 	    18 ro 0418 ro_RO 0818 ro_MO
+#@ 	    19 ru 0819 ru_MO
+#@ 	    1a hr 041a hr_HR 081a sr_YU 0c1a sr_YU@cyrillic
+#@ 	    1b sk 041b sk_SK
+#@ 	    1c sq 041c sq_AL
+#@ 	    1d sv 041d sv_SE 081d sv_FI
+#@ 	    1e th 041e th_TH
+#@ 	    1f tr 041f tr_TR
+#@ 	    20 ur 0420 ur_PK 0820 ur_IN
+#@ 	    21 id 0421 id_ID
+#@ 	    22 uk 0422 uk_UA
+#@ 	    23 be 0423 be_BY
+#@ 	    24 sl 0424 sl_SI
+#@ 	    25 et 0425 et_EE
+#@ 	    26 lv 0426 lv_LV
+#@ 	    27 lt 0427 lt_LT
+#@ 	    28 tg 0428 tg_TJ
+#@ 	    29 fa 0429 fa_IR
+#@ 	    2a vi 042a vi_VN
+#@ 	    2b hy 042b hy_AM
+#@ 	    2c az 042c az_AZ@latin 082c az_AZ@cyrillic
+#@ 	    2d eu
+#@ 	    2e wen 042e wen_DE
+#@ 	    2f mk 042f mk_MK
+#@ 	    30 bnt 0430 bnt_TZ
+#@ 	    31 ts 0431 ts_ZA
+#@ 	    32 tn
+#@ 	    33 ven 0433 ven_ZA
+#@ 	    34 xh 0434 xh_ZA
+#@ 	    35 zu 0435 zu_ZA
+#@ 	    36 af 0436 af_ZA
+#@ 	    37 ka 0437 ka_GE
+#@ 	    38 fo 0438 fo_FO
+#@ 	    39 hi 0439 hi_IN
+#@ 	    3a mt 043a mt_MT
+#@ 	    3b se 043b se_NO
+#@ 	    043c gd_UK 083c ga_IE
+#@ 	    3d yi 043d yi_IL
+#@ 	    3e ms 043e ms_MY 083e ms_BN
+#@ 	    3f kk 043f kk_KZ
+#@ 	    40 ky 0440 ky_KG
+#@ 	    41 sw 0441 sw_KE
+#@ 	    42 tk 0442 tk_TM
+#@ 	    43 uz 0443 uz_UZ@latin 0843 uz_UZ@cyrillic
+#@ 	    44 tt 0444 tt_RU
+#@ 	    45 bn 0445 bn_IN
+#@ 	    46 pa 0446 pa_IN
+#@ 	    47 gu 0447 gu_IN
+#@ 	    48 or 0448 or_IN
+#@ 	    49 ta
+#@ 	    4a te 044a te_IN
+#@ 	    4b kn 044b kn_IN
+#@ 	    4c ml 044c ml_IN
+#@ 	    4d as 044d as_IN
+#@ 	    4e mr 044e mr_IN
+#@ 	    4f sa 044f sa_IN
+#@ 	    50 mn
+#@ 	    51 bo 0451 bo_CN
+#@ 	    52 cy 0452 cy_GB
+#@ 	    53 km 0453 km_KH
+#@ 	    54 lo 0454 lo_LA
+#@ 	    55 my 0455 my_MM
+#@ 	    56 gl 0456 gl_ES
+#@ 	    57 kok 0457 kok_IN
+#@ 	    58 mni 0458 mni_IN
+#@ 	    59 sd
+#@ 	    5a syr 045a syr_TR
+#@ 	    5b si 045b si_LK
+#@ 	    5c chr 045c chr_US
+#@ 	    5d iu 045d iu_CA
+#@ 	    5e am 045e am_ET
+#@ 	    5f ber 045f ber_MA
+#@ 	    60 ks 0460 ks_PK 0860 ks_IN
+#@ 	    61 ne 0461 ne_NP 0861 ne_IN
+#@ 	    62 fy 0462 fy_NL
+#@ 	    63 ps
+#@ 	    64 tl 0464 tl_PH
+#@ 	    65 div 0465 div_MV
+#@ 	    66 bin 0466 bin_NG
+#@ 	    67 ful 0467 ful_NG
+#@ 	    68 ha 0468 ha_NG
+#@ 	    69 nic 0469 nic_NG
+#@ 	    6a yo 046a yo_NG
+#@ 	    70 ibo 0470 ibo_NG
+#@ 	    71 kau 0471 kau_NG
+#@ 	    72 om 0472 om_ET
+#@ 	    73 ti 0473 ti_ET
+#@ 	    74 gn 0474 gn_PY
+#@ 	    75 cpe 0475 cpe_US
+#@ 	    76 la 0476 la_VA
+#@ 	    77 so 0477 so_SO
+#@ 	    78 sit 0478 sit_CN
+#@ 	    79 pap 0479 pap_AN
+#@ 	}]
+#@     }
+#@ }
+#@ 
+#@ # msgcat::mc --
+#@ #
+#@ #	Find the translation for the given string based on the current
+#@ #	locale setting. Check the local namespace first, then look in each
+#@ #	parent namespace until the source is found.  If additional args are
+#@ #	specified, use the format command to work them into the traslated
+#@ #	string.
+#@ #
+#@ # Arguments:
+#@ #	src	The string to translate.
+#@ #	args	Args to pass to the format command
+#@ #
+#@ # Results:
+#@ #	Returns the translated string.  Propagates errors thrown by the
+#@ #	format command.
+#@ 
+#@ proc msgcat::mc {src args} {
+#@     # Check for the src in each namespace starting from the local and
+#@     # ending in the global.
+#@ 
+#@     variable Msgs
+#@     variable Loclist
+#@     variable Locale
+#@ 
+#@     set ns [uplevel 1 [list ::namespace current]]
+#@ 
+#@     while {$ns != ""} {
+#@ 	foreach loc $Loclist {
+#@ 	    if {[dict exists $Msgs $loc $ns $src]} {
+#@ 		if {[llength $args] == 0} {
+#@ 		    return [dict get $Msgs $loc $ns $src]
+#@ 		} else {
+#@ 		    return [format [dict get $Msgs $loc $ns $src] {*}$args]
+#@ 		}
+#@ 	    }
+#@ 	}
+#@ 	set ns [namespace parent $ns]
+#@     }
+#@     # we have not found the translation
+#@     return [uplevel 1 [list [namespace origin mcunknown] 	    $Locale $src {*}$args]]
+#@ }
+#@ 
+#@ # msgcat::mclocale --
+#@ #
+#@ #	Query or set the current locale.
+#@ #
+#@ # Arguments:
+#@ #	newLocale	(Optional) The new locale string. Locale strings
+#@ #			should be composed of one or more sublocale parts
+#@ #			separated by underscores (e.g. en_US).
+#@ #
+#@ # Results:
+#@ #	Returns the current locale.
+#@ 
+#@ proc msgcat::mclocale {args} {
+#@     variable Loclist
+#@     variable Locale
+#@     set len [llength $args]
+#@ 
+#@     if {$len > 1} {
+#@ 	return -code error "wrong # args: should be		\"[lindex [info level 0] 0] ?newLocale?\""
+#@     }
+#@ 
+#@     if {$len == 1} {
+#@ 	set newLocale [lindex $args 0]
+#@ 	if {$newLocale ne [file tail $newLocale]} {
+#@ 	    return -code error "invalid newLocale value \"$newLocale\":		    could be path to unsafe code."
+#@ 	}
+#@ 	set Locale [string tolower $newLocale]
+#@ 	set Loclist {}
+#@ 	set word ""
+#@ 	foreach part [split $Locale _] {
+#@ 	    set word [string trim "${word}_${part}" _]
+#@ 	    if {$word ne [lindex $Loclist 0]} {
+#@ 		set Loclist [linsert $Loclist 0 $word]
+#@ 	    }
+#@ 	}
+#@ 	lappend Loclist {}
+#@ 	set Locale [lindex $Loclist 0]
+#@     }
+#@     return $Locale
+#@ }
+#@ 
+#@ # msgcat::mcpreferences --
+#@ #
+#@ #	Fetch the list of locales used to look up strings, ordered from
+#@ #	most preferred to least preferred.
+#@ #
+#@ # Arguments:
+#@ #	None.
+#@ #
+#@ # Results:
+#@ #	Returns an ordered list of the locales preferred by the user.
+#@ 
+#@ proc msgcat::mcpreferences {} {
+#@     variable Loclist
+#@     return $Loclist
+#@ }
+#@ 
+#@ # msgcat::mcload --
+#@ #
+#@ #	Attempt to load message catalogs for each locale in the
+#@ #	preference list from the specified directory.
+#@ #
+#@ # Arguments:
+#@ #	langdir		The directory to search.
+#@ #
+#@ # Results:
+#@ #	Returns the number of message catalogs that were loaded.
+#@ 
+#@ proc msgcat::mcload {langdir} {
+#@     variable FileLocale
+#@     # Save the file locale if we are recursively called
+#@     if {[info exists FileLocale]} {
+#@ 	set nestedFileLocale $FileLocale
+#@     }
+#@     set x 0
+#@     foreach p [mcpreferences] {
+#@ 	if {$p eq {}} {
+#@ 	    set p ROOT
+#@ 	}
+#@ 	set langfile [file join $langdir $p.msg]
+#@ 	if {[file exists $langfile]} {
+#@ 	    incr x
+#@ 	    set FileLocale [string tolower [file tail [file rootname $langfile]]]
+#@ 	    if {"root" eq $FileLocale} {
+#@ 		set FileLocale ""
+#@ 	    }
+#@ 	    uplevel 1 [list ::source -encoding utf-8 $langfile]
+#@ 	    unset FileLocale
+#@ 	}
+#@     }
+#@     if {[info exists nestedFileLocale]} {
+#@ 	set FileLocale $nestedFileLocale
+#@     }
+#@     return $x
+#@ }
+#@ 
+#@ # msgcat::mcset --
+#@ #
+#@ #	Set the translation for a given string in a specified locale.
+#@ #
+#@ # Arguments:
+#@ #	locale		The locale to use.
+#@ #	src		The source string.
+#@ #	dest		(Optional) The translated string.  If omitted,
+#@ #			the source string is used.
+#@ #
+#@ # Results:
+#@ #	Returns the new locale.
+#@ 
+#@ proc msgcat::mcset {locale src {dest ""}} {
+#@     variable Msgs
+#@     if {[llength [info level 0]] == 3} { ;# dest not specified
+#@ 	set dest $src
+#@     }
+#@ 
+#@     set ns [uplevel 1 [list ::namespace current]]
+#@ 
+#@     set locale [string tolower $locale]
+#@ 
+#@     dict set Msgs $locale $ns $src $dest
+#@     return $dest
+#@ }
+#@ 
+#@ # msgcat::mcflset --
+#@ #
+#@ #	Set the translation for a given string in the current file locale.
+#@ #
+#@ # Arguments:
+#@ #	src		The source string.
+#@ #	dest		(Optional) The translated string.  If omitted,
+#@ #			the source string is used.
+#@ #
+#@ # Results:
+#@ #	Returns the new locale.
+#@ 
+#@ proc msgcat::mcflset {src {dest ""}} {
+#@     variable FileLocale
+#@     variable Msgs
+#@ 
+#@     if {![info exists FileLocale]} {
+#@ 	return -code error 	    "must only be used inside a message catalog loaded with ::msgcat::mcload"
+#@     }
+#@     if {[llength [info level 0]] == 2} { ;# dest not specified
+#@ 	set dest $src
+#@     }
+#@ 
+#@     set ns [uplevel 1 [list ::namespace current]]
+#@     dict set Msgs $FileLocale $ns $src $dest
+#@     return $dest
+#@ }
+#@ 
+#@ # msgcat::mcmset --
+#@ #
+#@ #	Set the translation for multiple strings in a specified locale.
+#@ #
+#@ # Arguments:
+#@ #	locale		The locale to use.
+#@ #	pairs		One or more src/dest pairs (must be even length)
+#@ #
+#@ # Results:
+#@ #	Returns the number of pairs processed
+#@ 
+#@ proc msgcat::mcmset {locale pairs} {
+#@     variable Msgs
+#@ 
+#@     set length [llength $pairs]
+#@     if {$length % 2} {
+#@ 	return -code error "bad translation list:		 should be \"[lindex [info level 0] 0] locale {src dest ...}\""
+#@     }
+#@ 
+#@     set locale [string tolower $locale]
+#@     set ns [uplevel 1 [list ::namespace current]]
+#@ 
+#@     foreach {src dest} $pairs {
+#@ 	dict set Msgs $locale $ns $src $dest
+#@     }
+#@ 
+#@     return [expr {$length / 2}]
+#@ }
+#@ 
+#@ # msgcat::mcflmset --
+#@ #
+#@ #	Set the translation for multiple strings in the mc file locale.
+#@ #
+#@ # Arguments:
+#@ #	pairs		One or more src/dest pairs (must be even length)
+#@ #
+#@ # Results:
+#@ #	Returns the number of pairs processed
+#@ 
+#@ proc msgcat::mcflmset {pairs} {
+#@     variable FileLocale
+#@     variable Msgs
+#@ 
+#@     if {![info exists FileLocale]} {
+#@ 	return -code error 	    "must only be used inside a message catalog loaded with ::msgcat::mcload"
+#@     }
+#@     set length [llength $pairs]
+#@     if {$length % 2} {
+#@ 	return -code error "bad translation list:		should be \"[lindex [info level 0] 0] locale {src dest ...}\""
+#@     }
+#@ 
+#@     set ns [uplevel 1 [list ::namespace current]]
+#@     foreach {src dest} $pairs {
+#@ 	dict set Msgs $FileLocale $ns $src $dest
+#@     }
+#@     return [expr {$length / 2}]
+#@ }
+#@ 
+#@ # msgcat::mcunknown --
+#@ #
+#@ #	This routine is called by msgcat::mc if a translation cannot
+#@ #	be found for a string.  This routine is intended to be replaced
+#@ #	by an application specific routine for error reporting
+#@ #	purposes.  The default behavior is to return the source string.
+#@ #	If additional args are specified, the format command will be used
+#@ #	to work them into the traslated string.
+#@ #
+#@ # Arguments:
+#@ #	locale		The current locale.
+#@ #	src		The string to be translated.
+#@ #	args		Args to pass to the format command
+#@ #
+#@ # Results:
+#@ #	Returns the translated value.
+#@ 
+#@ proc msgcat::mcunknown {locale src args} {
+#@     if {[llength $args]} {
+#@ 	return [format $src {*}$args]
+#@     } else {
+#@ 	return $src
+#@     }
+#@ }
+#@ 
+#@ # msgcat::mcmax --
+#@ #
+#@ #	Calculates the maximum length of the translated strings of the given
+#@ #	list.
+#@ #
+#@ # Arguments:
+#@ #	args	strings to translate.
+#@ #
+#@ # Results:
+#@ #	Returns the length of the longest translated string.
+#@ 
+#@ proc msgcat::mcmax {args} {
+#@     set max 0
+#@     foreach string $args {
+#@ 	set translated [uplevel 1 [list [namespace origin mc] $string]]
+#@ 	set len [string length $translated]
+#@ 	if {$len>$max} {
+#@ 	    set max $len
+#@ 	}
+#@     }
+#@     return $max
+#@ }
+#@ 
+#@ # Convert the locale values stored in environment variables to a form
+#@ # suitable for passing to [mclocale]
+#@ proc msgcat::ConvertLocale {value} {
+#@     # Assume $value is of form: $language[_$territory][.$codeset][@modifier]
+#@     # Convert to form: $language[_$territory][_$modifier]
+#@     #
+#@     # Comment out expanded RE version -- bugs alleged
+#@     # regexp -expanded {
+#@     #	^		# Match all the way to the beginning
+#@     #	([^_.@]*)	# Match "lanugage"; ends with _, ., or @
+#@     #	(_([^.@]*))?	# Match (optional) "territory"; starts with _
+#@     #	([.]([^@]*))?	# Match (optional) "codeset"; starts with .
+#@     #	(@(.*))?	# Match (optional) "modifier"; starts with @
+#@     #	$		# Match all the way to the end
+#@     # } $value -> language _ territory _ codeset _ modifier
+#@     if {![regexp {^([^_.@]+)(_([^.@]*))?([.]([^@]*))?(@(.*))?$} $value 	    -> language _ territory _ codeset _ modifier]} {
+#@ 	return -code error "invalid locale '$value': empty language part"
+#@     }
+#@     set ret $language
+#@     if {[string length $territory]} {
+#@ 	append ret _$territory
+#@     }
+#@     if {[string length $modifier]} {
+#@ 	append ret _$modifier
+#@     }
+#@     return $ret
+#@ }
+#@ 
+#@ # Initialize the default locale
+#@ proc msgcat::Init {} {
+#@     global env
+#@ 
+#@     #
+#@     # set default locale, try to get from environment
+#@     #
+#@     foreach varName {LC_ALL LC_MESSAGES LANG} {
+#@ 	if {[info exists env($varName)] && ("" ne $env($varName))} {
+#@ 	    if {![catch {
+#@ 		mclocale [ConvertLocale $env($varName)]
+#@ 	    }]} {
+#@ 		return
+#@ 	    }
+#@ 	}
+#@     }
+#@     #
+#@     # On Darwin, fallback to current CFLocale identifier if available.
+#@     #
+#@     if {[info exists ::tcl::mac::locale] && $::tcl::mac::locale ne ""} {
+#@ 	if {![catch {
+#@ 	    mclocale [ConvertLocale $::tcl::mac::locale]
+#@ 	}]} {
+#@ 	    return
+#@ 	}
+#@     }
+#@     #
+#@     # The rest of this routine is special processing for Windows or
+#@     # Cygwin. All other platforms, get out now.
+#@     #
+#@     if {([info sharedlibextension] ne ".dll")
+#@ 	    || [catch {package require registry}]} {
+#@ 	mclocale C
+#@ 	return
+#@     }
+#@     #
+#@     # On Windows or Cygwin, try to set locale depending on registry
+#@     # settings, or fall back on locale of "C".
+#@     #
+#@ 
+#@     # On Vista and later:
+#@     # HCU/Control Panel/Desktop : PreferredUILanguages is for language packs,
+#@     # HCU/Control Pannel/International : localName is the default locale.
+#@     #
+#@     # They contain the local string as RFC5646, composed of:
+#@     # [a-z]{2,3} : language
+#@     # -[a-z]{4}  : script (optional, translated by table Latn->latin)
+#@     # -[a-z]{2}|[0-9]{3} : territory (optional, numerical region codes not used)
+#@     # (-.*)* : variant, extension, private use (optional, not used)
+#@     # Those are translated to local strings.
+#@     # Examples: de-CH -> de_ch, sr-Latn-CS -> sr_cs@latin, es-419 -> es
+#@     #
+#@     foreach key {{HKEY_CURRENT_USER\Control Panel\Desktop} {HKEY_CURRENT_USER\Control Panel\International}}	    value {PreferredUILanguages localeName} {
+#@ 	if {![catch {registry get $key $value} localeName]
+#@ 		&& [regexp {^([a-z]{2,3})(?:-([a-z]{4}))?(?:-([a-z]{2}))?(?:-.+)?$}		    [string tolower $localeName] match locale script territory]} {
+#@ 	    if {"" ne $territory} {
+#@ 		append locale _ $territory
+#@ 	    }
+#@ 	    set modifierDict [dict create latn latin cyrl cyrillic]
+#@ 	    if {[dict exists $modifierDict $script]} {
+#@ 		append locale @ [dict get $modifierDict $script]
+#@ 	    }
+#@ 	    if {![catch {mclocale [ConvertLocale $locale]}]} {
+#@ 		return
+#@ 	    }
+#@ 	}
+#@     }
+#@ 
+#@     # then check value locale which contains a numerical language ID
+#@     if {[catch {
+#@ 	set locale [registry get $key "locale"]
+#@     }]} {
+#@ 	mclocale C
+#@ 	return
+#@     }
+#@     #
+#@     # Keep trying to match against smaller and smaller suffixes
+#@     # of the registry value, since the latter hexadigits appear
+#@     # to determine general language and earlier hexadigits determine
+#@     # more precise information, such as territory.  For example,
+#@     #     0409 - English - United States
+#@     #     0809 - English - United Kingdom
+#@     # Add more translations to the WinRegToISO639 array above.
+#@     #
+#@     variable WinRegToISO639
+#@     set locale [string tolower $locale]
+#@     while {[string length $locale]} {
+#@ 	if {![catch {
+#@ 	    mclocale [ConvertLocale [dict get $WinRegToISO639 $locale]]
+#@ 	}]} {
+#@ 	    return
+#@ 	}
+#@ 	set locale [string range $locale 1 end]
+#@     }
+#@     #
+#@     # No translation known.  Fall back on "C" locale
+#@     #
+#@     mclocale C
+#@ }
+#@ msgcat::Init
+#@ # -- End source /opt/synopsys/icc_2016/auxx/tcllib/lib/tcl8.6/msgcat/msgcat.tcl
+
+#@ set sh_output_log_file "${synopsys_program_name}.log.[pid].$timestamp"
+#@ set sh_command_log_file "${synopsys_program_name}.cmd.[pid].$timestamp"
+#@ 
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Aliases
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ alias v view
+#@ alias rt  "report_timing -nosplit"
+#@ alias rtm "report_timing -nosplit -delay min"
+#@ alias rc  "report_constraint -all_violators -nosplit"
+#@ alias rq report_qor
+#@ alias h history
+#@ alias _ measure_time
+#@ 
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Define tie-high/tie-low (logic 1 and logic 0) net names
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ #set mw_logic0_net "VSS"
+#@ #set mw_logic1_net "VDD"
+#@ 
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # Logic Library settings
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ lappend search_path ../ref/db ../ref/tlup
+#@ set_app_var target_library "sc_max.db"
+#@ set_app_var link_library "* sc_max.db io_max.db special_max.db ram16x128_max.db ram4x32_max.db ram8x64_max.db ram32x64_max.db"
+#@ set_min_library sc_max.db -min_version sc_min.db
+#@ set_min_library io_max.db -min_version io_min.db
+#@ set_min_library special_max.db -min_version special_min.db
+#@ set_min_library ram16x128_max.db -min_version ram16x128_min.db
+#@ set_min_library ram4x32_max.db -min_version ram4x32_min.db
+#@ set_min_library ram8x64_max.db -min_version ram8x64_min.db
+#@ set_min_library ram32x64_max.db -min_version ram32x64_min.db
+#@ 
+#@ 
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ # ORCA setup variables
+#@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#@ set my_mw_lib    orca_lib.mw
+#@ set mw_path      "../ref/mw_lib"
+#@ set tech_file    "../ref/tech/cb13_6m.tf"
+#@ set tlup_map     "../ref/tlup/cb13_6m.map"
+#@ set tlup_max     "../ref/tlup/cb13_6m_max.tluplus"
+#@ set tlup_min     "../ref/tlup/cb13_6m_min.tluplus"
+#@ set top_design   "ORCA"
+#@ set verilog_file "./design_data/RISC_CHIP.v"
+#@ set sdc_file     "./design_data/RISC_CHIP.sdc"
+#@ set def_file     "./design_data/RISC_CHIP.def"
+#@ set ctrl_file    "./scripts/opt_ctrl.tcl"
+#@ set derive_pg_file    "./scripts/derive_pg.tcl"
+#@ set libs         {sc io special ram4x32 ram8x64 ram32x64 ram16x128}
+#@ set mw_ref_libs ""
+#@ foreach lib $libs {
+#@         lappend mw_ref_libs $mw_path/$lib
+#@ }
+#@ # -- End source .synopsys_dc.setup
+
+icc_shell -gui
+start -gui
+icc_start -gui
+-gui
+icc_shell - gui

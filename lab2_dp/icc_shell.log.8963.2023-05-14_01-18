@@ -1,0 +1,26 @@
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/io_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/io_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/special_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/special_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram4x32_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram4x32_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram32x64_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram32x64_min.db'
+icc_shell> icc_shell -gui
+Error: unknown command 'icc_shell' (CMD-005)
+icc_shell> start -gui
+Error: unknown option '-gui' (CMD-010)
+icc_shell> icc_start -gui
+Error: unknown command 'icc_start' (CMD-005)
+icc_shell> -gui
+Error: unknown option '-gui' (CMD-010)
+Error: unknown command '-gui' (CMD-005)
+icc_shell> icc_shell - gui
+Error: unknown command 'icc_shell' (CMD-005)
+icc_shell> 
