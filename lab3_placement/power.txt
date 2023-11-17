@@ -1,0 +1,53 @@
+****************************************
+Report : power
+        -analysis_effort low
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 05:50:31 2023
+****************************************
+
+
+Library(s) Used:
+
+    cb13fs120_tsmc_max (File: /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_max.db)
+    ram8x64_max (File: /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_max.db)
+    ram16x128_max (File: /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_max.db)
+
+
+Operating Conditions: cb13fs120_tsmc_max   Library: cb13fs120_tsmc_max
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+ORCA_TOP               ForQA             cb13fs120_tsmc_max
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  33.6679 mW  (100%)
+  Net Switching Power  =  81.4785 uW    (0%)
+                         ---------
+Total Dynamic Power    =  33.7494 mW  (100%)
+
+Cell Leakage Power     = 425.4395 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory            33.4860        1.1804e-02        2.5159e+08           33.7493  (  98.75%)
+black_box          0.0000            0.0000        4.9104e+04        4.9104e-05  (   0.00%)
+clock_network  1.2702e-02            0.0000        3.7890e+05        1.3081e-02  (   0.04%)
+register       -8.9401e-03        1.0952e-02        8.8974e+07        9.0985e-02 (   0.27%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.1782        5.8723e-02        8.4443e+07            0.3214  (   0.94%)
+--------------------------------------------------------------------------------------------------
+Total             33.6679 mW     8.1478e-02 mW     4.2544e+08 pW        34.1748 mW

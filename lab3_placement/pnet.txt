@@ -1,0 +1,23 @@
+****************************************
+  Report : pnet options
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 05:25:17 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL      none          ---         ---       via additive      ---
+METAL2     partial       ---         ---       via additive      ---
+METAL3     partial       ---         ---       via additive      ---
+METAL4     partial       ---         ---       via additive      ---
+METAL5     none          ---         ---       via additive      ---
+METAL6     none          ---         ---       via additive      ---
+
+Route types considered:
+           pg ring, pg strap, pg macro io pin connection, clock ring
+           clock strap, path
+
+--------------------------------------------------------------------
