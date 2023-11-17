@@ -38,7 +38,7 @@ report_ignored_layers
 ```bash
 report_pnet_options
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
+- See this report: [report_pnet](https://github.com/trong420/icc/blob/main/lab3_placement/pnet.txt)
 
 
 - During design planning both soft and hard placement keepouts were applied. Verify that these variables are still set and are not the default value of zero: 
@@ -148,19 +148,17 @@ report_congestion -grc_based -by_layer \-routing_stage global
 ```bash
 report_design -physical
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 - Generate a QoR (quality of results) report: 
 ```bash
 report_qor 
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
+- See this report: [report_qor](https://github.com/trong420/icc/blob/main/lab3_placement/report_qor.txt)
 
 - Report the power dissipation: 
 ```bash
 report_power 
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 **3. Incremental Optimization** 
 
@@ -186,13 +184,13 @@ Global Route Congestion -> Reload -> OK
 ```bash
 report_design -physical
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
+- See this report: [report_design - physical](https://github.com/trong420/icc/blob/main/lab3_placement/report_design_physical.txt)
 
 - Report the power dissipation:
 ```bash
 report_power
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
+- See this report: [report_power](https://github.com/trong420/icc/blob/main/lab3_placement/power.txt)
 
 - Save the design and exit IC Compiler: 
 ```bash
