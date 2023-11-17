@@ -1,0 +1,167 @@
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/PopEnbl   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/PopEnbl
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/PopEnbl   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/PopEnbl
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/PopEnbl   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/PopEnbl
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/PopEnbl   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/PopEnbl
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I_STACK_FSM } -equivalent { I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/PopEnbl  ~ I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/IN0 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_CONTROL/Zro_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_CONTROL/Zro_Flag
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/Zro_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/Zro_Flag
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Zro_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Zro_Flag
+guide_constraints -body { I_RISC_CORE/I_CONTROL } -equivalent { I_RISC_CORE/I_CONTROL/Zro_Flag  ~ I_RISC_CORE/I_CONTROL/IN0 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Zro_Flag  ~ I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/IN0 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/Zro_Flag  ~ I_RISC_CORE/I_PRGRM_CNT_TOP/IN0 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_CONTROL/Neg_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_CONTROL/Neg_Flag
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/Neg_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/Neg_Flag
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Neg_Flag   $svf_impl/ORCA_TOP/I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Neg_Flag
+guide_constraints -body { I_RISC_CORE/I_CONTROL } -equivalent { I_RISC_CORE/I_CONTROL/Neg_Flag  ~ I_RISC_CORE/I_CONTROL/IN1 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/Neg_Flag  ~ I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_DECODE/IN1 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/Neg_Flag  ~ I_RISC_CORE/I_PRGRM_CNT_TOP/IN1 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[13]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[13]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[5]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[5]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[14]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[14]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[6]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[6]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[8]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[8]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[0]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[9]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[9]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[1]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[8]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[8]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[0]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[9]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[9]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[1]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[11]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[11]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[3]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[3]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[12]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[12]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[4]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[4]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[10]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[10]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[2]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[2]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_170/B[10]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_170/B[10]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_174/b[2]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_174/b[2]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[11]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[11]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[3]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[3]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[12]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[12]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[4]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[4]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[13]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[13]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[5]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[5]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/sub_171/B[14]   $svf_impl/ORCA_TOP/I_BLENDER_1/sub_171/B[14]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_BLENDER_1/mult_173/b[6]   $svf_impl/ORCA_TOP/I_BLENDER_1/mult_173/b[6]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[1]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[1]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[1]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[1]
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[1]  ~ I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN0 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[1]  ~ I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN0 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[1]  ~ I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/IN0 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/TOS[2]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I_STACK_FSM/TOS[2]
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[2]  ~ I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN1 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[2]  ~ I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN1 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[2]  ~ I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/IN1 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_DATA_PATH/Reset_AluRegs   $svf_impl/ORCA_TOP/I_RISC_CORE/I_DATA_PATH/Reset_AluRegs
+guide_constraints -body { I_RISC_CORE/I_INSTRN_LAT } -equivalent { I_RISC_CORE/I_INSTRN_LAT/Latch_Instr  ~ I_RISC_CORE/I_INSTRN_LAT/IN0 }
+guide_constraints -body { I_RISC_CORE/I_DATA_PATH } -equivalent { I_RISC_CORE/I_DATA_PATH/Reset_AluRegs  ~ I_RISC_CORE/I_DATA_PATH/IN0 ~ I_RISC_CORE/I_DATA_PATH/IN1 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[0]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[0]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[0]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[0]
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/TOS[0]  ~ I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN2 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/TOS[0]  ~ I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN2 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/TOS[0]  ~ I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/IN2 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/Stack_Full   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/Stack_Full
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/Stack_Full   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/Stack_Full
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/Stack_Full   $svf_impl/ORCA_TOP/I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/Stack_Full
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_SDRAM_TOP/I_SDRAM_IF/sd_wfifo_empty   $svf_impl/ORCA_TOP/I_SDRAM_TOP/I_SDRAM_IF/sd_wfifo_empty
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_IF } -equivalent { I_SDRAM_TOP/I_SDRAM_IF/sd_wfifo_empty  ~ I_SDRAM_TOP/I_SDRAM_IF/IN0 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[14]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[14]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[14]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[14]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[0]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[0]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[0]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[1]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[1]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[1]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[3]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[3]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[3]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[3]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[4]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[4]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[4]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[4]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[5]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[5]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[5]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[5]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[2]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[2]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[2]  ~ I_RISC_CORE/I_ALU/add_86/IN0 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[6]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[6]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[6]  ~ I_RISC_CORE/I_ALU/add_86/IN1 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[3]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[3]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[3]  ~ I_RISC_CORE/I_ALU/add_86/IN2 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[7]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[7]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[7]  ~ I_RISC_CORE/I_ALU/add_86/IN3 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[6]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[6]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[6]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[6]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[2]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[2]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[2]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[2]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[7]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[7]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[7]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[7]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_95/A[4]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_95/A[4]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[4]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[4]
+guide_constraints -body { I_RISC_CORE/I_ALU/sub_95 } -equivalent { I_RISC_CORE/I_ALU/sub_95/A[4]  ~ I_RISC_CORE/I_ALU/sub_95/IN0 }
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[4]  ~ I_RISC_CORE/I_ALU/add_86/IN4 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[5]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[5]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[5]  ~ I_RISC_CORE/I_ALU/add_86/IN5 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[11]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[11]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[11]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[11]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[8]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[8]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[8]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[8]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[9]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[9]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[9]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[9]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[10]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_89/B[10]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[10]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/sub_1_root_sub_92/B[10]
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[8]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[8]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[8]  ~ I_RISC_CORE/I_ALU/add_86/IN6 }
+set_user_match   -inverted   $svf_ref/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[9]   $svf_impl/ORCA_TOP/I_RISC_CORE/I_ALU/add_86/A[9]
+guide_constraints -body { I_RISC_CORE/I_ALU/add_86 } -equivalent { I_RISC_CORE/I_ALU/add_86/A[9]  ~ I_RISC_CORE/I_ALU/add_86/IN7 }
+guide_constraints -body { I_PARSER } -equivalent { I_PARSER/test_se    I_PARSER/IN0   I_PARSER/IN1   I_PARSER/IN2   I_PARSER/IN3   I_PARSER/IN4   I_PARSER/IN5   I_PARSER/IN6   I_PARSER/IN7   I_PARSER/IN8   I_PARSER/IN9 }
+guide_constraints -body { I_BLENDER_1 } -equivalent { I_BLENDER_1/test_se    I_BLENDER_1/IN0   I_BLENDER_1/IN1   I_BLENDER_1/IN2   I_BLENDER_1/IN3   I_BLENDER_1/IN4   I_BLENDER_1/IN5   I_BLENDER_1/IN6   I_BLENDER_1/IN7   I_BLENDER_1/IN8   I_BLENDER_1/IN9   I_BLENDER_1/IN10   I_BLENDER_1/IN11 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/test_se    I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN0   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN1   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN2   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN3   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN4   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN5   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN6   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN7   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN8   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN9   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN10   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN11   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN12   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN13   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN14   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN15   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN16 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_IF } -equivalent { I_SDRAM_TOP/I_SDRAM_IF/test_se    I_SDRAM_TOP/I_SDRAM_IF/IN1   I_SDRAM_TOP/I_SDRAM_IF/IN2   I_SDRAM_TOP/I_SDRAM_IF/IN3   I_SDRAM_TOP/I_SDRAM_IF/IN4   I_SDRAM_TOP/I_SDRAM_IF/IN5   I_SDRAM_TOP/I_SDRAM_IF/IN6   I_SDRAM_TOP/I_SDRAM_IF/IN7   I_SDRAM_TOP/I_SDRAM_IF/IN8   I_SDRAM_TOP/I_SDRAM_IF/IN9   I_SDRAM_TOP/I_SDRAM_IF/IN10   I_SDRAM_TOP/I_SDRAM_IF/IN11   I_SDRAM_TOP/I_SDRAM_IF/IN12   I_SDRAM_TOP/I_SDRAM_IF/IN13   I_SDRAM_TOP/I_SDRAM_IF/IN14   I_SDRAM_TOP/I_SDRAM_IF/IN15 }
+guide_constraints -body { I_RISC_CORE } -equivalent { I_RISC_CORE/test_se    I_RISC_CORE/IN1   I_RISC_CORE/IN2   I_RISC_CORE/IN3   I_RISC_CORE/IN4   I_RISC_CORE/IN5   I_RISC_CORE/IN6   I_RISC_CORE/IN7   I_RISC_CORE/IN8   I_RISC_CORE/IN9   I_RISC_CORE/IN10   I_RISC_CORE/IN11   I_RISC_CORE/IN12   I_RISC_CORE/IN13   I_RISC_CORE/IN14   I_RISC_CORE/IN15   I_RISC_CORE/IN16   I_RISC_CORE/IN17   I_RISC_CORE/IN18   I_RISC_CORE/IN19   I_RISC_CORE/IN20   I_RISC_CORE/IN21   I_RISC_CORE/IN22   I_RISC_CORE/IN23 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_FSM } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_FSM/test_se    I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_FSM/IN0 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/test_se    I_RISC_CORE/I_PRGRM_CNT_TOP/IN2   I_RISC_CORE/I_PRGRM_CNT_TOP/IN3   I_RISC_CORE/I_PRGRM_CNT_TOP/IN4 }
+guide_constraints -body { I_RISC_CORE/I_INSTRN_LAT } -equivalent { I_RISC_CORE/I_INSTRN_LAT/test_se    I_RISC_CORE/I_INSTRN_LAT/IN1   I_RISC_CORE/I_INSTRN_LAT/IN2   I_RISC_CORE/I_INSTRN_LAT/IN3   I_RISC_CORE/I_INSTRN_LAT/IN4 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/test_se    I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN3   I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN4   I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN5   I_RISC_CORE/I_STACK_TOP/I1_STACK_MEM/IN6 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP } -equivalent { I_RISC_CORE/I_STACK_TOP/test_se    I_RISC_CORE/I_STACK_TOP/IN0   I_RISC_CORE/I_STACK_TOP/IN1   I_RISC_CORE/I_STACK_TOP/IN2   I_RISC_CORE/I_STACK_TOP/IN3   I_RISC_CORE/I_STACK_TOP/IN4   I_RISC_CORE/I_STACK_TOP/IN5   I_RISC_CORE/I_STACK_TOP/IN6   I_RISC_CORE/I_STACK_TOP/IN7   I_RISC_CORE/I_STACK_TOP/IN8   I_RISC_CORE/I_STACK_TOP/IN9   I_RISC_CORE/I_STACK_TOP/IN10 }
+guide_constraints -body { I_RISC_CORE/I_ALU } -equivalent { I_RISC_CORE/I_ALU/test_se    I_RISC_CORE/I_ALU/IN0 }
+guide_constraints -body { I_RISC_CORE/I_DATA_PATH } -equivalent { I_RISC_CORE/I_DATA_PATH/test_se    I_RISC_CORE/I_DATA_PATH/IN2   I_RISC_CORE/I_DATA_PATH/IN3   I_RISC_CORE/I_DATA_PATH/IN4 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/test_se    I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/IN3   I_RISC_CORE/I_STACK_TOP/I3_STACK_MEM/IN4 }
+guide_constraints -body { I_SDRAM_TOP } -equivalent { I_SDRAM_TOP/test_se    I_SDRAM_TOP/IN0   I_SDRAM_TOP/IN1   I_SDRAM_TOP/IN2   I_SDRAM_TOP/IN3   I_SDRAM_TOP/IN4   I_SDRAM_TOP/IN5   I_SDRAM_TOP/IN6   I_SDRAM_TOP/IN7   I_SDRAM_TOP/IN8   I_SDRAM_TOP/IN9   I_SDRAM_TOP/IN10   I_SDRAM_TOP/IN11   I_SDRAM_TOP/IN12   I_SDRAM_TOP/IN13   I_SDRAM_TOP/IN14   I_SDRAM_TOP/IN15   I_SDRAM_TOP/IN16   I_SDRAM_TOP/IN17   I_SDRAM_TOP/IN18   I_SDRAM_TOP/IN19   I_SDRAM_TOP/IN20   I_SDRAM_TOP/IN21   I_SDRAM_TOP/IN22 }
+guide_constraints -body { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1 } -equivalent { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/test_se    I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/IN0   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/IN1   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/IN2 }
+guide_constraints -body { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL } -equivalent { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/test_se    I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN0   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN1   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN2   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN3   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN4   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/IN5 }
+guide_constraints -body { I_PCI_TOP/I_PCI_READ_FIFO } -equivalent { I_PCI_TOP/I_PCI_READ_FIFO/test_se    I_PCI_TOP/I_PCI_READ_FIFO/IN0   I_PCI_TOP/I_PCI_READ_FIFO/IN1   I_PCI_TOP/I_PCI_READ_FIFO/IN2   I_PCI_TOP/I_PCI_READ_FIFO/IN3   I_PCI_TOP/I_PCI_READ_FIFO/IN4   I_PCI_TOP/I_PCI_READ_FIFO/IN5 }
+guide_constraints -body { I_PCI_TOP } -equivalent { I_PCI_TOP/test_se    I_PCI_TOP/IN0   I_PCI_TOP/IN1   I_PCI_TOP/IN2   I_PCI_TOP/IN3   I_PCI_TOP/IN4   I_PCI_TOP/IN5   I_PCI_TOP/IN6   I_PCI_TOP/IN7   I_PCI_TOP/IN8   I_PCI_TOP/IN9   I_PCI_TOP/IN10   I_PCI_TOP/IN11   I_PCI_TOP/IN12   I_PCI_TOP/IN13 }
+guide_constraints -body { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U2 } -equivalent { I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U2/test_se    I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U2/IN0   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U2/IN1   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U2/IN2 }
+guide_constraints -body { I_RISC_CORE/I_CONTROL } -equivalent { I_RISC_CORE/I_CONTROL/test_se    I_RISC_CORE/I_CONTROL/IN2 }
+guide_constraints -body { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM } -equivalent { I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/test_se    I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN3   I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN4   I_RISC_CORE/I_STACK_TOP/I2_STACK_MEM/IN5 }
+guide_constraints -body { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_CNT } -equivalent { I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_CNT/test_se    I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_CNT/IN0   I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_CNT/IN1 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U1 } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U1/test_se    I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U1/IN1   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U1/IN2   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U1/IN3 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/test_se    I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN1   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN2   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN3   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN4   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN5 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2 } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2/test_se    I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2/IN0   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2/IN1 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1 } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/test_se    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/IN1   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/IN2 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/test_se    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN2   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN3   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN4   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN5 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/test_se    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN1   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN2   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN3   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN4   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN5   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN6   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN7 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2 } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/test_se    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/IN1   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/IN2 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2 } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/test_se    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/IN0   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/IN1 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/test_se    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN0   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN1   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN2   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN3 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/test_se    I_PCI_TOP/I_PCI_WRITE_FIFO/IN0   I_PCI_TOP/I_PCI_WRITE_FIFO/IN1   I_PCI_TOP/I_PCI_WRITE_FIFO/IN2   I_PCI_TOP/I_PCI_WRITE_FIFO/IN3 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1 } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/test_se    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/IN0   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/IN1 }
+guide_constraints -body { I_PCI_TOP/I_PCI_CORE } -equivalent { I_PCI_TOP/I_PCI_CORE/test_se    I_PCI_TOP/I_PCI_CORE/IN0   I_PCI_TOP/I_PCI_CORE/IN1 }
+guide_constraints -body { I_PARSER } -equivalent { I_PARSER/sys_rst_n    I_PARSER/IN10   I_PARSER/IN11   I_PARSER/IN12 }
+guide_constraints -body { I_BLENDER_1 } -equivalent { I_BLENDER_1/reset_n    I_BLENDER_1/IN12   I_BLENDER_1/IN13   I_BLENDER_1/IN14   I_BLENDER_1/IN15   I_BLENDER_1/IN16   I_BLENDER_1/IN17 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/fifo_rst_n    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN8   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN9   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN10   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN11   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN12   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/IN13 }
+guide_constraints -body { I_SDRAM_TOP } -equivalent { I_SDRAM_TOP/sys_rst_n    I_SDRAM_TOP/IN23   I_SDRAM_TOP/IN24   I_SDRAM_TOP/IN25   I_SDRAM_TOP/IN26   I_SDRAM_TOP/IN27   I_SDRAM_TOP/IN28 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1 } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/rst_n    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/IN3   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U1/IN4 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/rst_n    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN6   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN7   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN8   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/IN9 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2 } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/rst_n    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/IN2   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/IN3 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/rst_n    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN4   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN5   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN6   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/IN7 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/fifo_rst_n    I_PCI_TOP/I_PCI_WRITE_FIFO/IN4   I_PCI_TOP/I_PCI_WRITE_FIFO/IN5   I_PCI_TOP/I_PCI_WRITE_FIFO/IN6   I_PCI_TOP/I_PCI_WRITE_FIFO/IN7 }
+guide_constraints -body { I_PCI_TOP } -equivalent { I_PCI_TOP/sys_rst_n    I_PCI_TOP/IN14   I_PCI_TOP/IN15   I_PCI_TOP/IN16   I_PCI_TOP/IN17 }
+guide_constraints -body { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1 } -equivalent { I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/rst_n    I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/IN2   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U1/IN3 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2 } -equivalent { I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/rst_n    I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/IN3   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_CTL/U2/IN4 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_IF } -equivalent { I_SDRAM_TOP/I_SDRAM_IF/sdram_rst_n    I_SDRAM_TOP/I_SDRAM_IF/IN16   I_SDRAM_TOP/I_SDRAM_IF/IN17   I_SDRAM_TOP/I_SDRAM_IF/IN18   I_SDRAM_TOP/I_SDRAM_IF/IN19   I_SDRAM_TOP/I_SDRAM_IF/IN20 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/fifo_rst_n    I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN17   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN18   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN19   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN20   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN21   I_SDRAM_TOP/I_SDRAM_READ_FIFO/IN22 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/rst_n    I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN6   I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/IN7 }
+guide_constraints -body { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2 } -equivalent { I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2/rst_n    I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_CTL/U2/IN2 }
+guide_constraints -body { I_PCI_TOP/I_PCI_CORE } -equivalent { I_PCI_TOP/I_PCI_CORE/pci_rst_n    I_PCI_TOP/I_PCI_CORE/IN2 }
+
+#-------------------------------------------------------------------
+
