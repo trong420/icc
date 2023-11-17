@@ -38,6 +38,7 @@ report_ignored_layers
 ```bash
 report_pnet_options
 ```
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 
 - During design planning both soft and hard placement keepouts were applied. Verify that these variables are still set and are not the default value of zero: 
@@ -73,6 +74,8 @@ check_physical_constraints
 report_scan_chain 
 ```
 
+
+
 - The report is empty, which means that no scan chain annotation exists.
 
 - Load the SCANDEF file (which was generated during synthesis, after scan insertion): 
@@ -85,7 +88,6 @@ read_def design_data/ORCA_TOP.scandef
 ```bash
 report_scan_chain
 ```
-
 
 
 - We do not have a simulator-generated SAIF file, which is preferred, so instead we will read in a user-generated toggle-rate file.
@@ -146,19 +148,19 @@ report_congestion -grc_based -by_layer \-routing_stage global
 ```bash
 report_design -physical
 ```
-
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 - Generate a QoR (quality of results) report: 
 ```bash
 report_qor 
 ```
-
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 - Report the power dissipation: 
 ```bash
 report_power 
 ```
-
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 **3. Incremental Optimization** 
 
@@ -184,13 +186,13 @@ Global Route Congestion -> Reload -> OK
 ```bash
 report_design -physical
 ```
-
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 - Report the power dissipation:
 ```bash
 report_power
 ```
-
+- See this report: [report_pnet](https://github.com/trong420/icc/tree/main/lab4_cts)
 
 - Save the design and exit IC Compiler: 
 ```bash
