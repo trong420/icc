@@ -4,200 +4,238 @@
 </div>
 
 
-**1. Pre-placement Setting and Checks** 
+**1. Load the design** 
 
-- Open the design library, open the ORCA_floorplanned design cell:
-
+- Change to the lab2_dp directory, invoke IC Compiler and start the GUI:
 ```bash
-open_mw_lib orca_lib.mw 
-open_mw_cel ORCA_floorplanned
+UNIX% cd lab2_dp
+UNIX% icc_shell -gui
 ```
+- Open the orca_setup cell from the orca_lib.mw design library
+![image](https://github.com/trong420/icc/assets/90754954/b4ba1cbf-77b9-462c-8fff-39ea39cea014)
 
-
-![image](https://github.com/trong420/icc/assets/90754954/b5ece38c-e73b-4298-901a-51ffd46b3d19)
-
-- Apply timing and optimization controls:
+- Apply timing and optimization controls which are specified
 
 ```bash
 source scripts/opt_ctrl.tcl
 ```
 
 
-- Macro placement is usually defined and “fixed” during design planning
+**2. Initialize the floorplan** 
+
+- Create the corner and P/G cells and define all pad cell positions using a provided script:
 ```bash
-set_dont_touch_placement [all_macro_cells] 
+source -echo scripts/pad_cell_cons.tcl 
 ```
+- Initialize the floorplan: 
+Select Floorplan -> Initialize Floorplan… 
+Change the Core utilization to 0.8 (80%). 
+Change the Core to left/right/bottom/top spacing to 30. 
+Click OK.
+
+![image](https://github.com/trong420/icc/assets/90754954/11422fd5-7079-4434-8d19-5fa14ac57e04)
+![image](https://github.com/trong420/icc/assets/90754954/8d44358c-e10e-4376-9b58-d42539aef249)
 
 
-- Verify that all process metal layers are available for routing - there should be no ignored layers:
+
+- Insert the pad fillers to fill the gaps between the pads.
+
 ```bash
-report_ignored_layers
+scripts/insert_pad_filler.tcl
 ```
-![image](https://github.com/trong420/icc/assets/90754954/24d1c682-39d7-4a8e-9ffa-261d74514201)
+![image](https://github.com/trong420/icc/assets/90754954/affdee1f-9559-4167-92be-f85783eab96c)
 
-- Verify that standard cells are allowed to be placed under the METAL2 – METAL4 power nets, as long as no DRC violations occur (partial blockage): 
+
+- After insert pad filler
+
+![image](https://github.com/trong420/icc/assets/90754954/5025e9f4-9723-402d-910a-d1e40359453b)
+
+- Make the “logical” connection (no physical routing) between the power/ground signals and all power/ground pins of the I/O pads, macros and standard cells
 ```bash
-report_pnet_options
+source -echo scripts/connect_pg.tcl 
 ```
-- See this report: [report_pnet](https://github.com/trong420/icc/blob/main/lab3_placement/pnet.txt)
 
 
-- During design planning both soft and hard placement keepouts were applied. Verify that these variables are still set and are not the default value of zero: 
+- Build the PAD area power supply ring: 
 ```bash
-printvar physopt_hard_keepout_distance 
-printvar placer_soft_keepout_channel_width
+create_pad_rings 
 ```
- 
-![image](https://github.com/trong420/icc/assets/90754954/729362f3-be7c-465b-b0d4-b013d630e514)
+![image](https://github.com/trong420/icc/assets/90754954/0bcadc31-3106-4bf8-ac6e-3be40ea362cf)
 
-- The clock nets will be constrained to be routed on METAL3 – METAL6, with double-spacing rules. Non-default routing (NDR) rules affect congestion, which can affect placement. Apply the non-default routing rules for all clock nets, as shown below, by sourcing the ndr.tcl file
+- Save the design as “floorplan_init”:
 ```bash
-source scripts/ndr.tcl
+save_mw_cel –as floorplan_init 
 ```
 
+**3. Preplace the macros connected to I/O pads** 
 
-![image](https://github.com/trong420/icc/assets/90754954/edb2a5bb-31b0-435e-96ff-274ad91698a7)
+- In this task you will identify the macros that are connected to I/O pad cells and you 
+will manually place them in the core area such that their connections to the I/O pads 
+are as short as possible
 
-- Verify that the floorplanned design is ready for placement:
+- To ensure that the macros are placed as expected, you can source the following script:
 ```bash
-check_physical_design -stage pre_place_opt
+source -echo scripts/preplace_macros.tcl
 ```
+- Picture of Macro:
+  
+![image](https://github.com/trong420/icc/assets/90754954/0b61cc45-e82c-4c2c-b4a0-3a58fd630ab7)
 
 
-- Execute a different pre-placement check: 
+- After Preplace with Script above:
+  
+![image](https://github.com/trong420/icc/assets/90754954/35289c74-a290-4ed1-8961-03e0d2627a4c)
+
+
+
+**4. Perform Virtual Flat Placement**
+
+- Apply a sliver size of 10 to prevent standard cells from being placed in narrow channels (< 10 um) between macros:
+  
 ```bash
-check_physical_constraints
+set_fp_placement_strategy -sliver_size 10
 ```
 
-
-- Execute the following command to confirm that no scan chain information exists: 
+- Execute a timing-driven VF placement with “no hierarchy gravity” (to ensure that the “logical hierarchy” does not affect placement of this non-hierarchical or flat layout): 
 ```bash
-report_scan_chain 
+create_fp_placement -timing_driven \-no_hierarchy_gravity
 ```
+![image](https://github.com/trong420/icc/assets/90754954/ced5d645-3844-42f5-af6d-c22d861fcedf)
 
-
-
-- The report is empty, which means that no scan chain annotation exists.
-
-- Load the SCANDEF file (which was generated during synthesis, after scan insertion): 
-```bash
-read_def design_data/ORCA_TOP.scandef 
-```
-
-
-- Generate another scan chain report. Use the “view” TCL procedure:
-```bash
-report_scan_chain
-```
-
-
-- We do not have a simulator-generated SAIF file, which is preferred, so instead we will read in a user-generated toggle-rate file.
- ```bash
-source scripts/inputs_toggle_rate.tcl 
-report_saif
-```
-
-
-![image](https://github.com/trong420/icc/assets/90754954/7f321005-f5f4-43f2-874c-4511b19834be)
-
-- We do not have multi-Vth libraries, so there is no need to modify the logical and physical library settings. Even without the multi-Vth libraries IC Compiler can still achieve some leakage power reduction by cell down-sizing and buffer removal. Leakage power optimization is enabled by default. You can confirm this with: 
-```bash
-report_power
-```
-
-
-- Enable low-power placement (LPP) dynamic power optimization. Gate-level dynamic power optimization (GLPO) will be enabled after place_opt, just before psynopt:
-```bash
-set_power_options -low_power_placement true 
-report_power
-```
-
-
-- Save the current design with its pre-placement settings:
-```bash
-save_mw_cel -as ORCA_preplace_setup
-```
-
-
-**2. Placement and Optimization** 
-
-- Invoke placement and optimization using the appropriate options - congestion was not an issue during design planning:
-```bash
-place_opt -area_recovery -optimize_dft -power
-```
-
-
-![image](https://github.com/trong420/icc/assets/90754954/b8d5ffbd-50d6-45d5-b567-1acf18121cd0)
-
-- Save the current design:
-```bash
-save_mw_cel -as ORCA_place_opt 
-```
-
-
-- Generate a congestion map from the LayoutWindow: 
-Global Route Congestion -> Reload -> OK 
-The GUI step is the same as executing the following command: 
+- Examine the global route congestion map: 
 ```bash
 report_congestion -grc_based -by_layer \-routing_stage global 
 ```
 
 
-![image](https://github.com/trong420/icc/assets/90754954/b31f9630-662e-4604-89fa-163c7045b269)
-
-- Generate a physical design report and scroll to the top of the output: 
+- Routing of power and ground straps and macro rings for this design can be 
+made easier if we turn some of the macros into arrays. 
 ```bash
-report_design -physical
+source -echo scripts/macro_place_cons.tcl
 ```
 
-- Generate a QoR (quality of results) report: 
+- Double check your settings. Suggestion: Use the up-arrow in the icc_shell window to find and re-execute the “strategy” command:
 ```bash
-report_qor 
+report_fp_placement_strategy 
+report_fp_macro_options 
 ```
+- Source the following script to set a hard keepout margin of 10 microns around 
+all macros. This will make it easier to create P/G rings around the macros and 
+avoid congestion as well as signal routing DRCs around the macros:
+```bash
+source -echo scripts/keepout.tcl 
+```
+
+- Take one last look at the macro placement before running the VF placer again: 
+```bash
+create_fp_placement -timing_driven \-no_hierarchy_gravity
+```
+
+![image](https://github.com/trong420/icc/assets/90754954/5f21c673-3939-42e3-a491-a006e653c871)
+
+
+
+
+**5. Create P/G Ring Around Macros Groups**
+
+- We have created a script to create P/G rings around six groups of macros.
+
+```bash
+source ./scripts/macro_pg_rings.tcl
+```
+- 
+
+![image](https://github.com/trong420/icc/assets/90754954/e734e1e1-d497-4c3c-b4dc-cc1a1085a7c2)
+
+
+
+**6. Incremental Optimization**
+
+- Apply the strap constraints: 
+Preroute -> Power Network Constraints -> Strap Layers Constraints... 
+Note: 
+If you don‟t see this menu switch the task menu to Design 
+Planning: File -> Task -> Design Planning 
+Select the METAL5 Layer and set the Direction to Horizontal. 
+Set the “By strap number” Max to 24 and Min to 2. 
+Set the Width Max to 4 and the Min to 2. 
+Set the PG Spacing to Microns and enter 0.6. 
+Click the Set button. 
+Repeat the steps for METAL4 with direction Vertical, with the same 
+min/max number of straps, min/max widths, and spacing. 
+Set then Close the dialog.
+
+![image](https://github.com/trong420/icc/assets/90754954/81ec0884-972c-461e-80f9-20bb5bd801ef)
+
+
+- To complete power plan we need to hook up the power pins on all macros, and create the standard cell power rails. Execute the following commands to accomplish this:
+
+```bash
+preroute_instances 
+preroute_standard_cells -fill_empty_rows \-remove_floating_pieces
+```
+
+![image](https://github.com/trong420/icc/assets/90754954/b0038ee0-df32-4aa6-8d12-7d7c41dfdbc2)
+
+ - Now analyze the completed power plan using PrerouteAnalyze Power 
+Network… 
+Enter the same values for Power Ground nets (VDD VSS), Power budget 
+(350 mW), Supply voltage (1.32 V), and Specified pad masters (pv0i pvdi) 
+that were used previously for Power Network Synthesis, then press OK. 
+You will see another heat map.
+
+![image](https://github.com/trong420/icc/assets/90754954/9dd70b8d-fe87-4232-91da-80c25d58f8a1)
+
+
+
+**7. Check the timing**
+
+- PNS created many straps on METAL4 and METAL5, which were placed over the standard cells
+  
+```bash
+set_pnet_options -complete "METAL4 METAL5" 
+create_fp_placement -timing_driven \-no_hierarchy_gravity
+```
+
+
+- Since we are about to check timing, perform actual global routing by running the following command:
+
+```bash
+route_zrt_global
+```
+![image](https://github.com/trong420/icc/assets/90754954/d31d4fca-f5bf-447c-b104-1a46e79b3227)
+
+- Bring up the global route congestion map (no need to “Reload).
+![image](https://github.com/trong420/icc/assets/90754954/357fd7cc-a87e-4029-8de7-119017e1789f)
+
+- Generate a maximum-delay (setup) timing report using the “view” procedure (it will take a few seconds to update the timing and generate the report):
+```bash
+report_timing
+```
+
+- To fix any timing violations (and design rule violations),
+```bash
+optimize_fp_timing -fix_design_rule
+```
+- Save the cell as floorplan_complete.
+
+
+**8. Write out the DEF Floorplan File**
+
+- Remove all the placed standard cells then write out the floorplan file in DEF format.
+
+```bash
+remove_placement -object_type standard_cell 
+write_def -version 5.6 -placed -all_vias -blockages \-routed_nets -rows_tracks_gcells -specialnets \-output design_data/ORCA.def 
+```
+
+![image](https://github.com/trong420/icc/assets/90754954/a83b9f2c-ef95-4bcf-a2d4-21e24981276b)
+
+
+![image](https://github.com/trong420/icc/assets/90754954/da2e1ab4-77be-41fd-99ca-ce993bd5ee3d)
+
+
 - See this report: [report_qor](https://github.com/trong420/icc/blob/main/lab3_placement/report_qor.txt)
-
-- Report the power dissipation: 
-```bash
-report_power 
-```
-
-**3. Incremental Optimization** 
-
-- Enable gate-level dynamic power optimization (GLPO):
-```bash
-set_optimize_pre_cts_power_options
-```
-
-
-- Perform incremental logic optimization, using appropriate options:
-```bash
-psynopt -area_recovery -power
-```
-
-
-- Generate a congestion map and verify that it is about the same as before: 
-Global Route Congestion -> Reload -> OK
-
-![image](https://github.com/trong420/icc/assets/90754954/5059ede8-ecdc-49d2-9944-086859663326)
-
-
-- Generate a physical design report and scroll to the top of the output: 
-```bash
-report_design -physical
-```
-- See this report: [report_design - physical](https://github.com/trong420/icc/blob/main/lab3_placement/report_design_physical.txt)
-
-- Report the power dissipation:
-```bash
-report_power
-```
-- See this report: [report_power](https://github.com/trong420/icc/blob/main/lab3_placement/power.txt)
-
-- Save the design and exit IC Compiler: 
-```bash
-save_mw_cel -as ORCA_placed 
-```
-
 ---
 NEXT
 - LAB3: [Design Planning](https://github.com/trong420/icc/tree/main/lab3_placement)
