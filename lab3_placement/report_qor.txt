@@ -1,0 +1,162 @@
+report_qor 
+****************************************
+Report : qor
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:38:21 2023
+****************************************
+
+
+  Timing Path Group 'COMBO'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.25
+  Critical Path Slack:           2.90
+  Critical Path Clk Period:      7.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'INPUTS'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           2.80
+  Critical Path Clk Period:      7.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'OUTPUTS'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.54
+  Critical Path Slack:           2.61
+  Critical Path Clk Period:      7.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'PCI_CLK'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.41
+  Critical Path Slack:           6.79
+  Critical Path Clk Period:     15.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.14
+  Total Hold Violation:         -6.34
+  No. of Hold Violations:       48.00
+  -----------------------------------
+
+  Timing Path Group 'SDRAM_CLK'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.55
+  Critical Path Slack:           2.63
+  Critical Path Clk Period:      7.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'SYS_2x_CLK'
+  -----------------------------------
+  Levels of Logic:              17.00
+  Critical Path Length:          3.16
+  Critical Path Slack:           0.01
+  Critical Path Clk Period:      3.75
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.11
+  Total Hold Violation:         -3.63
+  No. of Hold Violations:       42.00
+  -----------------------------------
+
+  Timing Path Group 'SYS_CLK'
+  -----------------------------------
+  Levels of Logic:              25.00
+  Critical Path Length:          7.06
+  Critical Path Slack:           0.02
+  Critical Path Clk Period:      7.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         74
+  Hierarchical Port Count:       5171
+  Leaf Cell Count:              10670
+  Buf/Inv Cell Count:            1105
+  Buf Cell Count:                 119
+  Inv Cell Count:                 986
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      8682
+  Sequential Cell Count:         1988
+  Macro Count:                     12
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    18419.750000
+  Noncombinational Area: 17072.000000
+  Buf/Inv Area:            969.000000
+  Total Buffer Area:           121.50
+  Total Inverter Area:         847.50
+  Macro/Black Box Area:  35512.060547
+  Net Area:               8866.619545
+  Net XLength        :      251824.47
+  Net YLength        :      251339.42
+  -----------------------------------
+  Cell Area:             71003.810547
+  Design Area:           79870.430092
+  Net Length        :       503163.88
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         12666
+  Nets With Violations:            51
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  Max Fanout Violations:           51
+  -----------------------------------
+
+
+  Hostname: crazy_one
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:               13.97
+  -----------------------------------------
+  Overall Compile Time:               14.34
+  Overall Compile Wall Clock Time:    14.42
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.14  TNS: 9.98  Number of Violating Paths: 90
+
+  --------------------------------------------------------------------

@@ -1,0 +1,169 @@
+****************************************
+Report : design
+        -physical
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:37:28 2023
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Sun May 14 06:37:28 2023
+Machine Host Name: crazy_one
+Working Directory: /home/crazy/Work/IC_Compiler_2010.12-SP2/lab3_placement
+Library Name:      orca_lib.mw
+Cell Name:         ORCA_floorplanned.CEL;1
+Design Statistics:
+    Number of Macro Cells:         12
+    Number of Module Cells:        10658
+    Number of Pins:                64686
+    Number of IO Pins:             144
+    Number of Nets:                12664
+    Average Pins Per Net (Signal): 3.41929
+
+Chip Utilization:
+    Total Macro Cell Area:         220296.39
+    Total Std Cell Area:           214827.26
+    Total Blockage Area:           240339.29
+    Core Size:     width 711.35, height 708.48; area 503977.25
+    Chip Size:     width 751.76, height 748.48; area 562677.32
+    Std cells utilization:         81.49% 
+    Cell/Core Ratio:               86.34%
+    Cell/Chip Ratio:               77.33%
+    Number of Cell Rows:            192
+
+Master Instantiation:
+        MasterName      Type    InstCount
+        =================================
+        nr02d0          STD     2223
+        ad01d0          STD     1474
+        senrq1          STD     723
+        inv0d0          STD     708
+        sdcrq1          STD     527
+        nd02d0          STD     524
+        nd12d0          STD     494
+        sdnrq1          STD     446
+        xr02d1          STD     340
+        xn02d1          STD     306
+        an02d0          STD     193
+        ah01d0          STD     190
+        aoi2222d1       STD     183
+        nd02d1          STD     177
+        oai21d1         STD     173
+        aor22d1         STD     172
+        inv0d1          STD     171
+        aor222d1        STD     138
+        or02d0          STD     132
+        nd03d0          STD     112
+        buffd1          STD     109
+        sdcfq1          STD     96
+        aoi21d1         STD     94
+        xr03d1          STD     73
+        nr03d0          STD     72
+        aor21d1         STD     66
+        mx02d0          STD     59
+        sdcrq2          STD     55
+        nd04d0          STD     53
+        invbd7          STD     53
+        an12d1          STD     45
+        sdcrq4          STD     39
+        or02d1          STD     37
+        nr04d0          STD     34
+        invbd2          STD     34
+        an02d1          STD     28
+        an03d0          STD     27
+        aor221d1        STD     26
+        sdnrn1          STD     25
+        sdcrn1          STD     22
+        invbd4          STD     20
+        mx02d4          STD     18
+        aor211d1        STD     17
+        sdnfb1          STD     16
+        an04d0          STD     14
+        aoim22d1        STD     11
+        ora21d1         STD     11
+        an03d1          STD     10
+        secrq4          STD     10
+        buffd2          STD     10
+        senrq2          STD     9
+        nr03d1          STD     8
+        or03d0          STD     6
+        ad01d1          STD     5
+        lanlq1          STD     4
+        oai221d1        STD     4
+        ad01d2          STD     4
+        aor31d1         STD     3
+        an04d1          STD     3
+        nd23d1          STD     3
+        nd12d1          STD     3
+        or04d0          STD     3
+        secrq1          STD     3
+        aon211d1        STD     1
+        slnlq1          STD     1
+        ah01d1          STD     1
+        nr02d1          STD     1
+        nr03d2          STD     1
+        oaim211d1       STD     1
+        mi02d0          STD     1
+        oan211d1        STD     1
+        nr23d1          STD     1
+        cg01d0          STD     1
+        ram8x64         MACRO   8
+        ram16x128       MACRO   4
+        =================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+
+Track Assignment Information:
+
+Detailed Routing Information:
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+    metal2 Wire Length(count):               2237.91(8)
+    metal3 Wire Length(count):               5212.88(12)
+    metal4 Wire Length(count):               2993.92(4)
+  ==============================================
+    Total Wire Length(count):               10444.71(24)
+    Number of via2 Contacts:             16
+    Number of via3 Contacts:             14
+  ==============================================
+    Total Number of Contacts:       30
+
+Stripe Wiring Statistics:
+    metal3 Wire Length(count):              10105.32(30)
+    metal4 Wire Length(count):              10725.18(30)
+  ==============================================
+    Total Wire Length(count):               20830.50(60)
+    Number of via2 Contacts:             38
+    Number of via3 Contacts:            268
+  ==============================================
+    Total Number of Contacts:      306
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+    metal1 Wire Length(count):             102989.85(425)
+    metal2 Wire Length(count):                 76.21(39)
+    metal3 Wire Length(count):                153.47(58)
+    metal4 Wire Length(count):                  0.59(1)
+    metal5 Wire Length(count):                 11.56(1)
+  ==============================================
+    Total Wire Length(count):              103231.68(524)
+    Number of via1 Contacts:           1648
+    Number of via2 Contacts:           1358
+    Number of via3 Contacts:           1272
+    Number of via4 Contacts:              2
+  ==============================================
+    Total Number of Contacts:     4280
+
+Signal Wiring Statistics:
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+  ==============================================================
+Total              0.00                      0.00
