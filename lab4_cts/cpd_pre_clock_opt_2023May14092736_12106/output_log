@@ -1,0 +1,312 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: ../ref/tlup/cb13_6m_max.tluplus
+ min_tlu+: ../ref/tlup/cb13_6m_min.tluplus
+ mapping_file: ../ref/tlup/cb13_6m.map
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: orca_lib.mw
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+20.000 20.000 731.350 728.480
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+No ignored layers specified.
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:27:36 2023
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL                        Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+METAL6                       Vertical            Vertical            Vertical
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:27:36 2023
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL5             X         0.805          774       0.970           
+METAL6             X         0.805          774       0.970           
+METAL6             Y         0.765          923       0.810           
+METAL4             Y         0.765          923       0.810           
+METAL5             Y         0.765          923       0.810           
+METAL5             X         0.635          1458      0.515           
+METAL3             X         0.635          1458      0.515           
+METAL4             X         0.635          1458      0.515           
+METAL4             Y         0.525          1824      0.410           
+METAL2             Y         0.525          1824      0.410           
+METAL3             Y         0.525          1824      0.410           
+METAL3             X         0.525          1831      0.410           
+METAL              X         0.525          1831      0.410           
+METAL2             X         0.525          1831      0.410           
+METAL2             Y         0.525          1824      0.410           
+METAL              Y         0.525          1824      0.410           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: ::check_database 
+************************************************************
+CHECK_DATABASE RESULTS FOR CELL : clock_opt.CEL
+************************************************************
+MWUHIER: Checking for hierarchical internal netlist and flat internal netlist consistency ... 
+MWUHIER: Done with checking hierarchical internal netlist and flat internal netlist consistency. 
+Information: MWUHIER: Number of errors = 0 (MW-348)
+End PG consistent checking.. PG_Pass
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+
+Start UPF checking.
+No UPF infomation. Finish UPF checking.
+1
+End CPD check: ::check_database
+Start CPD check: report_taint -dump_errors 
+
+****************************************
+  Report : Suggestions
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 09:27:37 2023
+****************************************
+
+Information: No suggestion for current design. (PSYN-1068)
+
+1
+End CPD check: report_taint -dump_errors
+Start CPD check: check_for_HFN_ideal 
+
+End CPD check: check_for_HFN_ideal
+Start CPD check: check_for_dont_touch_net_with_drc_violation 
+
+End CPD check: check_for_dont_touch_net_with_drc_violation
+Start CPD check: check_block_abstraction -stage pre_clock_opt 
+Information: No blocks with abstraction information found
+1
+End CPD check: check_block_abstraction -stage pre_clock_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 09:27:38 2023
+****************************************
+Std cell utilization: 79.96%  (142290/(333120-155172))
+(Non-fixed + Fixed)
+Std cell utilization: 79.90%  (141746/(333120-155716))
+(Non-fixed only)
+Chip area:            333120   sites, bbox (20.00 20.00 731.35 728.48) um
+Std cell area:        142290   sites, (non-fixed:141746 fixed:544)
+                      10742    cells, (non-fixed:10698  fixed:44)
+Macro cell area:      145612   sites
+                      12       cells
+Placement blockages:  155172   sites, (excluding fixed std cells)
+                      155716   sites, (include fixed std cells & chimney area)
+                      0        sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      82742    sites, (routing blockages and signal pre-route)
+Lib cell count:       67 
+Avg. std cell width:  5.48 um 
+Site array:           unit     (width: 0.41 um, height: 3.69 um, rows: 192)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 09:27:38 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL      none          ---         ---       via additive      ---
+METAL2     partial     7.38        1.84        via additive      ---
+METAL3     partial     10000.00    10000.00    via additive      ---
+METAL4     partial     10000.00    10000.00    via additive      ---
+METAL5     none          ---         ---       via additive      ---
+METAL6     none          ---         ---       via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 63 (7.05%)
+Number of regions with placement utilization 0.125 - 0.25 is 6 (0.67%)
+Number of regions with placement utilization 0.25 - 0.375 is 14 (1.57%)
+Number of regions with placement utilization 0.375 - 0.5 is 20 (2.24%)
+Number of regions with placement utilization 0.5 - 0.625 is 39 (4.37%)
+Number of regions with placement utilization 0.625 - 0.75 is 92 (10.30%)
+Number of regions with placement utilization 0.75 - 0.875 is 377 (42.22%)
+Number of regions with placement utilization 0.875 - 1 is 282 (31.58%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: check_legality_violation 
+
+  Loading design 'ORCA_TOP'
+
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+Warning: Die area is not integer multiples of min site height (3690), object's width and height(751760,748480). (PSYN-523)
+Warning: Die area is not integer multiples of min site width (410), object's width and height(751760,748480). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+
+**************************************************** 
+Check_legality: Report for Fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+**************************************************** 
+(fixed placement) Cells Not on Row            : 0
+(fixed placement) Cell Overlaps               : 0
+(fixed placement) Cells overlapping blockages : 0
+(fixed placement) Orientation Violations      : 0
+(fixed placement) Site Violations             : 0
+(fixed placement) Power Strap Violations      : 0
+****************************************************** 
+
+****************************************************** 
+Check_legality: Report for Non-fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+****************************************************** 
+Number of Cells Not on Row            : 0
+Number of Cell Overlaps               : 0
+Number of Cells overlapping blockages : 0
+Number of Orientation Violations      : 0
+Number of Site Violations             : 0
+Number of Power Strap Violations      : 0
+******************************************** 
+
+  Total moveable cell area: 214447.5
+  Total fixed cell area: 215682.5
+  Total physical cell area: 430130.0
+  Core area: (20000 20000 731350 728480)
+1
+
+
+End CPD check: check_legality_violation
+Start CPD check: cpd_check_tie_connection 
+0
+End CPD check: cpd_check_tie_connection
+Start CPD check: cpd_check_cells_restrictions 
+0
+End CPD check: cpd_check_cells_restrictions
+Start CPD check: check_unplaced_cells 
+1
+End CPD check: check_unplaced_cells
+Start CPD check: check_clock_tree 
+Information: Updating design information... (UID-85)
+
+Warning: The clock 'SD_DDR_CLK' defined at port 'sd_CK' loops to itself. (CTS-832)
+  0:  sd_CK
+  1:  sd_CK
+Information: The clock 'SD_DDR_CLK' defined at port 'sd_CK' has no synchronous pins. (CTS-831)
+Warning: There are multiple arcs between input and output pins for cb13fs120_tsmc_max/mx02d4. (CTS-851)
+Warning: There are multiple arcs between input and output pins for cb13fs120_tsmc_max/mx02d2. (CTS-851)
+Warning: There are multiple arcs between input and output pins for cb13fs120_tsmc_max/mx02d1. (CTS-851)
+Warning: There are multiple arcs between input and output pins for cb13fs120_tsmc_max/mx02d0. (CTS-851)
+
+*********************** Check_Clock_Tree Summary Report ************************
+CTS-831:      1
+CTS-832:      1
+CTS-851:      4
+******************** End of Check_Clock_Tree Summary Report ********************
+0
+End CPD check: check_clock_tree
+Start CPD check: check_net_routing_rules 
+
+****************************************
+Report : net routing rules
+Design : clock_opt
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:27:41 2023
+****************************************
+
+
+ ---------- All nets use DEFAULT routing rule ----------
+ -------------------------------------------------------
+
+1
+End CPD check: check_net_routing_rules
