@@ -1,0 +1,44 @@
+****************************************
+Report : clocks
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:50:21 2023
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+PCI_CLK         15.00   {0 7.5}                       {pclk}
+SDRAM_CLK        7.50   {0 3.75}                      {sdram_clk}
+SD_DDR_CLK       7.50   {0 3.75}            G         {sd_CK}
+SYS_2x_CLK       4.00   {0 2}                         {sys_2x_clk}
+SYS_CLK          8.00   {0 4}                         {sys_clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+SD_DDR_CLK    sdram_clk      {sd_CK}        SDRAM_CLK      divide_by(1)
+--------------------------------------------------------------------------------
+ 
+****************************************
+Report : clock_skew
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:50:21 2023
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+SYS_CLK             -         -         -         -      0.10      0.20
+PCI_CLK             -         -         -         -      0.20      0.30
+SYS_2x_CLK          -         -         -         -      0.10      0.20
+SDRAM_CLK           -         -         -         -      0.10      0.10
+SD_DDR_CLK       1.00      1.00      1.00      1.00      0.05      0.05

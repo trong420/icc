@@ -1,0 +1,668 @@
+
+****************************************
+Report : constraint
+        -all_violators
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 08:53:46 2023
+****************************************
+
+
+   min_delay/hold ('PCI_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[1]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_4_/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/almost_full_int_reg/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_3_/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__11_/SD
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_3_/SD
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_0_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_valid_reg/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_3_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_2_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/D
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_en_reg/D
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/almost_empty_int_reg/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_6_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_0_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_3_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_1_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_2_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_valid_reg/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/half_full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_valid_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_0_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/almost_full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_9_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_17_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_22_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_20_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_13_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__11_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__11_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__0_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__14_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__10_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__8_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__13_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_6_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__3_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__4_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__2_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__1_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__10_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__8_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__15_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_3_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/empty_int_reg/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/empty_int_reg/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_6_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/half_full_int_reg/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_0_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_1_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_3_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_2_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_2_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_1_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_3_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_5_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_6_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_15_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_4_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_0_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_8_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_14_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_9_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_7_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_1_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_10_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_12_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_11_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_13_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_2_/D
+                                0.15           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_0_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_4_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_6_/SD
+                                0.16           0.14 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_0_/SD
+                                0.16           0.14 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/almost_empty_int_reg/SD
+                                0.16           0.15 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_5_/SD
+                                0.16           0.16 f         0.00  (VIOLATED: increase significant digits)
+
+
+   min_delay/hold ('SYS_2x_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[4]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[6]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[5]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[3]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[4]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[6]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[5]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[3]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[2]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[2]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[1]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[0]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[1]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[0]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[5]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[4]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[6]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[2]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[3]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[0]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[5]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[4]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[6]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[2]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[3]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[0]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[1]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[1]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+
+
+   min_delay/hold ('SYS_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   ORCA_TOP                     0.00       79310.61       -79310.61 (VIOLATED)
+

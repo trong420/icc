@@ -1,0 +1,316 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:45:50 2023
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: cb13fs120_tsmc_max   Library: cb13fs120_tsmc_max
+        Parasitic source    : LPE
+        Parasitic mode      : RealRVirtualC
+        Extraction mode     : MIN_MAX
+        Extraction derating : -40/25/125
+
+Information: Percent of Arnoldi-based delays =  4.79%
+
+  Startpoint: sdram_clk (clock source 'SDRAM_CLK')
+  Endpoint: sd_DQ_out[12]
+            (output port clocked by SD_DDR_CLK)
+  Path Group: COMBO
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SDRAM_CLK (fall edge)                             3.75       3.75
+  sdram_clk (in)                                          0.06 @     3.81 f
+  I_SDRAM_TOP/sdram_clk (SDRAM_TOP)                       0.00       3.81 f
+  I_SDRAM_TOP/I_SDRAM_IF/sdram_clk (SDRAM_IF)             0.00       3.81 f
+  I_SDRAM_TOP/I_SDRAM_IF/bufbdk_G1IP/Z (bufbd1)           0.39 @     4.20 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_12/Z (mx02d4)      0.85 *     5.05 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_DQ_out[12] (SDRAM_IF)         0.00       5.05 f
+  I_SDRAM_TOP/sd_DQ_out[12] (SDRAM_TOP)                   0.00       5.05 f
+  sd_DQ_out[12] (out)                                     0.01 *     5.06 f
+  data arrival time                                                  5.06
+
+  clock SD_DDR_CLK (rise edge)                            7.50       7.50
+  clock network delay (ideal)                             1.56       9.06
+  clock uncertainty                                      -0.05       9.01
+  output external delay                                  -2.00       7.01
+  data required time                                                 7.01
+  --------------------------------------------------------------------------
+  data required time                                                 7.01
+  data arrival time                                                 -5.06
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.95
+
+
+  Startpoint: sd_DQ_in[14]
+              (input port clocked by SDRAM_CLK)
+  Endpoint: I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_14_
+            (falling edge-triggered flip-flop clocked by SDRAM_CLK)
+  Path Group: INPUTS
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SDRAM_CLK (rise edge)                             0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.00       3.00 f
+  sd_DQ_in[14] (in)                                       0.00       3.00 f
+  I_SDRAM_TOP/sd_DQ_in[14] (SDRAM_TOP)                    0.00       3.00 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_DQ_in[14] (SDRAM_IF)          0.00       3.00 f
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_14_/D (sdnfb1)       0.00 *     3.00 f
+  data arrival time                                                  3.00
+
+  clock SDRAM_CLK (fall edge)                             3.75       3.75
+  clock network delay (propagated)                        0.25       4.00
+  clock uncertainty                                      -0.10       3.90
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_14_/CPN (sdnfb1)     0.00       3.90 f
+  library setup time                                     -0.21       3.69
+  data required time                                                 3.69
+  --------------------------------------------------------------------------
+  data required time                                                 3.69
+  data arrival time                                                 -3.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.68
+
+
+  Startpoint: I_SDRAM_TOP/I_SDRAM_IF/DQ_out_1_reg_11_
+              (falling edge-triggered flip-flop clocked by SDRAM_CLK)
+  Endpoint: sd_DQ_out[11]
+            (output port clocked by SD_DDR_CLK)
+  Path Group: OUTPUTS
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SDRAM_CLK (fall edge)                             3.75       3.75
+  clock network delay (propagated)                        0.29       4.04
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_out_1_reg_11_/CPN (sdcfq1)
+                                                          0.00       4.04 f
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_out_1_reg_11_/Q (sdcfq1)      0.32       4.36 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_11/Z (mx02d4)      0.71 *     5.08 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_DQ_out[11] (SDRAM_IF)         0.00       5.08 f
+  I_SDRAM_TOP/sd_DQ_out[11] (SDRAM_TOP)                   0.00       5.08 f
+  sd_DQ_out[11] (out)                                     0.01 *     5.08 f
+  data arrival time                                                  5.08
+
+  clock SD_DDR_CLK (rise edge)                            7.50       7.50
+  clock network delay (ideal)                             1.56       9.06
+  clock uncertainty                                      -0.05       9.01
+  output external delay                                  -2.00       7.01
+  data required time                                                 7.01
+  --------------------------------------------------------------------------
+  data required time                                                 7.01
+  data arrival time                                                 -5.08
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.92
+
+
+  Startpoint: I_PCI_TOP/I_PCI_CORE/pc_be_en_reg
+              (rising edge-triggered flip-flop clocked by PCI_CLK)
+  Endpoint: I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/LOCKUP
+            (negative level-sensitive latch clocked by PCI_CLK)
+  Path Group: PCI_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock PCI_CLK (rise edge)                               0.00       0.00
+  clock network delay (propagated)                        0.20       0.20
+  I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/CP (sdcrq4)           0.00       0.20 r
+  I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/Q (sdcrq4)            0.84       1.05 f
+  I_PCI_TOP/I_PCI_CORE/pc_be_en (PCI_CORE)                0.00       1.05 f
+  I_PCI_TOP/I_PCI_WRITE_FIFO/test_si7 (PCI_FIFO_1)        0.00       1.05 f
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/test_si7 (PCI_FIFO_1_DW_fifoctl_s2_sf_0)
+                                                          0.00       1.05 f
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/test_si5 (PCI_FIFO_1_DW_FIFOCTL_IF_0)
+                                                          0.00       1.05 f
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/LOCKUP/D (lanlq1)
+                                                          0.00 *     1.05 f
+  data arrival time                                                  1.05
+
+  clock PCI_CLK (fall edge)                               7.50       7.50
+  clock network delay (propagated)                        0.22       7.72
+  clock uncertainty                                      -0.30       7.42
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/LOCKUP/EN (lanlq1)
+                                                          0.00       7.42 f
+  time borrowed from endpoint                             0.00       7.42
+  data required time                                                 7.42
+  --------------------------------------------------------------------------
+  data required time                                                 7.42
+  data arrival time                                                 -1.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                        6.37
+
+  Time Borrowing Information
+  --------------------------------------------------------------
+  PCI_CLK nominal pulse width                             7.50   
+  clock latency difference                               -0.03   
+  library setup time                                     -0.07   
+  --------------------------------------------------------------
+  max time borrow                                         7.41   
+  actual time borrow                                      0.00   
+  --------------------------------------------------------------
+
+
+  Startpoint: I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_15_
+              (falling edge-triggered flip-flop clocked by SDRAM_CLK)
+  Endpoint: I_SDRAM_TOP/I_SDRAM_READ_FIFO/reg_array_reg_2__31_
+            (rising edge-triggered flip-flop clocked by SDRAM_CLK)
+  Path Group: SDRAM_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SDRAM_CLK (fall edge)                             3.75       3.75
+  clock network delay (propagated)                        0.29       4.04
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_15_/CPN (sdnfb1)     0.00       4.04 f
+  I_SDRAM_TOP/I_SDRAM_IF/DQ_in_1_reg_15_/Q (sdnfb1)       0.33       4.37 f
+  I_SDRAM_TOP/I_SDRAM_IF/sd_rfifo_DQ_out[31] (SDRAM_IF)
+                                                          0.00       4.37 f
+  I_SDRAM_TOP/I_SDRAM_READ_FIFO/fifo_data_in[31] (SDRAM_FIFO_0)
+                                                          0.00       4.37 f
+  I_SDRAM_TOP/I_SDRAM_READ_FIFO/U379/Z (an02d0)           0.27 *     4.64 f
+  I_SDRAM_TOP/I_SDRAM_READ_FIFO/reg_array_reg_2__31_/D (senrq1)
+                                                          0.00 *     4.64 f
+  data arrival time                                                  4.64
+
+  clock SDRAM_CLK (rise edge)                             7.50       7.50
+  clock network delay (propagated)                        0.25       7.75
+  clock uncertainty                                      -0.10       7.65
+  I_SDRAM_TOP/I_SDRAM_READ_FIFO/reg_array_reg_2__31_/CP (senrq1)
+                                                          0.00       7.65 r
+  library setup time                                     -0.43       7.22
+  data required time                                                 7.22
+  --------------------------------------------------------------------------
+  data required time                                                 7.22
+  data arrival time                                                 -4.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                        2.58
+
+
+  Startpoint: I_RISC_CORE/I_DATA_PATH/Oprnd_A_reg_4_
+              (rising edge-triggered flip-flop clocked by SYS_2x_CLK)
+  Endpoint: I_RISC_CORE/I_ALU/Zro_Flag_reg
+            (rising edge-triggered flip-flop clocked by SYS_2x_CLK)
+  Path Group: SYS_2x_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SYS_2x_CLK (rise edge)                            0.00       0.00
+  clock network delay (propagated)                        0.23       0.23
+  I_RISC_CORE/I_DATA_PATH/Oprnd_A_reg_4_/CP (senrq1)      0.00       0.23 r
+  I_RISC_CORE/I_DATA_PATH/Oprnd_A_reg_4_/Q (senrq1)       0.57       0.81 f
+  I_RISC_CORE/I_DATA_PATH/Oprnd_A[4] (DATA_PATH)          0.00       0.81 f
+  I_RISC_CORE/I_ALU/Oprnd_A[4] (ALU)                      0.00       0.81 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/A[4] (ALU_DW01_sub_2)
+                                                          0.00       0.81 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U123/ZN (nd02d1)
+                                                          0.14 *     0.95 r
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U56/ZN (oai21d1)
+                                                          0.27 *     1.21 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U145/ZN (aoi21d1)
+                                                          0.20 *     1.41 r
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U74/ZN (oai21d1)
+                                                          0.22 *     1.64 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U148/ZN (aoi21d1)
+                                                          0.22 *     1.86 r
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U109/ZN (oai21d1)
+                                                          0.23 *     2.08 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U121/CO (ad01d0)
+                                                          0.25 *     2.33 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U119/CO (ad01d0)
+                                                          0.26 *     2.59 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/U126/S (ad01d0)     0.34 *     2.93 f
+  I_RISC_CORE/I_ALU/sub_1_root_sub_92/DIFF[14] (ALU_DW01_sub_2)
+                                                          0.00       2.93 f
+  I_RISC_CORE/I_ALU/U146/Z (an12d1)                       0.12 *     3.04 f
+  I_RISC_CORE/I_ALU/U358/ZN (nr02d0)                      0.06 *     3.11 r
+  I_RISC_CORE/I_ALU/U43/Z (an03d1)                        0.15 *     3.26 r
+  I_RISC_CORE/I_ALU/U56/Z (an04d1)                        0.16 *     3.42 r
+  I_RISC_CORE/I_ALU/U40/Z (an02d1)                        0.10 *     3.52 r
+  I_RISC_CORE/I_ALU/U48/ZN (nd02d1)                       0.05 *     3.57 f
+  I_RISC_CORE/I_ALU/U59/ZN (nd12d0)                       0.06 *     3.64 r
+  I_RISC_CORE/I_ALU/Zro_Flag_reg/D (secrq4)               0.00 *     3.64 r
+  data arrival time                                                  3.64
+
+  clock SYS_2x_CLK (rise edge)                            4.00       4.00
+  clock network delay (propagated)                        0.21       4.21
+  clock uncertainty                                      -0.20       4.01
+  I_RISC_CORE/I_ALU/Zro_Flag_reg/CP (secrq4)              0.00       4.01 r
+  library setup time                                     -0.33       3.68
+  data required time                                                 3.68
+  --------------------------------------------------------------------------
+  data required time                                                 3.68
+  data arrival time                                                 -3.64
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.05
+
+
+  Startpoint: I_BLENDER_1/mega_shift_reg_1__27_
+              (rising edge-triggered flip-flop clocked by SYS_CLK)
+  Endpoint: I_BLENDER_1/mega_shift_reg_0__30_
+            (rising edge-triggered flip-flop clocked by SYS_CLK)
+  Path Group: SYS_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock SYS_CLK (rise edge)                               0.00       0.00
+  clock network delay (propagated)                        0.52       0.52
+  I_BLENDER_1/mega_shift_reg_1__27_/CP (sdcrq1)           0.00       0.52 r
+  I_BLENDER_1/mega_shift_reg_1__27_/Q (sdcrq1)            0.36       0.88 f
+  I_BLENDER_1/mult_50_L43980_C203/a[11] (BLENDER_DW_mult_uns_5)
+                                                          0.00       0.88 f
+  I_BLENDER_1/mult_50_L43980_C203/U681/ZN (inv0d0)        0.42 *     1.30 r
+  I_BLENDER_1/mult_50_L43980_C203/U210/ZN (nr02d0)        0.26 *     1.56 f
+  I_BLENDER_1/mult_50_L43980_C203/U344/S (ah01d0)         0.33 *     1.89 f
+  I_BLENDER_1/mult_50_L43980_C203/U688/S (ad01d0)         0.39 *     2.28 f
+  I_BLENDER_1/mult_50_L43980_C203/U691/ZN (nd02d0)        0.09 *     2.37 r
+  I_BLENDER_1/mult_50_L43980_C203/U655/Z (an02d0)         0.11 *     2.48 r
+  I_BLENDER_1/mult_50_L43980_C203/U668/ZN (nd02d0)        0.16 *     2.64 f
+  I_BLENDER_1/mult_50_L43980_C203/U765/S (ad01d0)         0.40 *     3.04 f
+  I_BLENDER_1/mult_50_L43980_C203/U725/S (ad01d0)         0.35 *     3.39 f
+  I_BLENDER_1/mult_50_L43980_C203/U660/ZN (nd02d0)        0.10 *     3.49 r
+  I_BLENDER_1/mult_50_L43980_C203/U717/ZN (inv0d0)        0.08 *     3.56 f
+  I_BLENDER_1/mult_50_L43980_C203/U715/ZN (aoi21d1)       0.21 *     3.77 r
+  I_BLENDER_1/mult_50_L43980_C203/U610/ZN (oai21d1)       0.20 *     3.97 f
+  I_BLENDER_1/mult_50_L43980_C203/U695/ZN (aoi21d1)       0.20 *     4.17 r
+  I_BLENDER_1/mult_50_L43980_C203/U631/ZN (oai21d1)       0.22 *     4.40 f
+  I_BLENDER_1/mult_50_L43980_C203/U705/CO (ad01d0)        0.25 *     4.64 f
+  I_BLENDER_1/mult_50_L43980_C203/U702/CO (ad01d0)        0.26 *     4.90 f
+  I_BLENDER_1/mult_50_L43980_C203/U703/CO (ad01d0)        0.26 *     5.17 f
+  I_BLENDER_1/mult_50_L43980_C203/U704/CO (ad01d0)        0.26 *     5.43 f
+  I_BLENDER_1/mult_50_L43980_C203/U729/CO (ad01d0)        0.26 *     5.69 f
+  I_BLENDER_1/mult_50_L43980_C203/U730/CO (ad01d0)        0.26 *     5.95 f
+  I_BLENDER_1/mult_50_L43980_C203/U731/CO (ad01d0)        0.26 *     6.22 f
+  I_BLENDER_1/mult_50_L43980_C203/U732/CO (ad01d0)        0.26 *     6.48 f
+  I_BLENDER_1/mult_50_L43980_C203/U733/CO (ad01d0)        0.26 *     6.74 f
+  I_BLENDER_1/mult_50_L43980_C203/U734/CO (ad01d0)        0.26 *     7.00 f
+  I_BLENDER_1/mult_50_L43980_C203/U669/CO (ad01d0)        0.26 *     7.27 f
+  I_BLENDER_1/mult_50_L43980_C203/U670/CO (ad01d0)        0.26 *     7.53 f
+  I_BLENDER_1/mult_50_L43980_C203/U826/CO (ad01d0)        0.26 *     7.79 f
+  I_BLENDER_1/mult_50_L43980_C203/U897/S (ad01d0)         0.33 *     8.12 r
+  I_BLENDER_1/mult_50_L43980_C203/product[30] (BLENDER_DW_mult_uns_5)
+                                                          0.00       8.12 r
+  I_BLENDER_1/mega_shift_reg_0__30_/D (sdcrq1)            0.00 *     8.12 r
+  data arrival time                                                  8.12
+
+  clock SYS_CLK (rise edge)                               8.00       8.00
+  clock network delay (propagated)                        0.51       8.51
+  clock uncertainty                                      -0.20       8.31
+  I_BLENDER_1/mega_shift_reg_0__30_/CP (sdcrq1)           0.00       8.31 r
+  library setup time                                     -0.18       8.13
+  data required time                                                 8.13
+  --------------------------------------------------------------------------
+  data required time                                                 8.13
+  data arrival time                                                 -8.12
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00

@@ -1,0 +1,17 @@
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:42:34 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+PCI_CLK              201       4         4         0.0287    0.2321      0             74.1321
+SYS_CLK              902       20        21        0.0566    0.5370      0            307.1187
+SYS_2x_CLK           254       5         5         0.0234    0.2424      0             89.2611
+SDRAM_CLK            643       13        14        0.0413    0.2971      0            329.8122
+SD_DDR_CLK           0         0         0         0.0000    0.0000      0              0.0000

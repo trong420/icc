@@ -1,0 +1,3514 @@
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/io_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/io_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_min.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_max.db'
+Loading db file '/home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_min.db'
+
+I am ready...
+
+
+
+icc_shell> open_mw_lib orca_lib.mw
+{orca_lib.mw}
+icc_shell> from to clock_optplace_opt copy_mw_cel
+Error: unknown command 'from' (CMD-005)
+icc_shell> from to clock_optplace_opt
+Error: unknown command 'from' (CMD-005)
+icc_shell> copy_mw_cel -from place_opt -to clock_opt
+1
+icc_shell> open_mw_cel clock_opt
+Warning: The library '/home/crazy/Work/IC_Compiler_2010.12-SP2/lab4_cts/orca_lib.mw' contains cells with older data model versions and must be updated with the convert_mw_lib command. (MW-308)
+Information: Performing CEL data model conversion. (MW-310)
+Warning: The cell clock_opt.CEL contains following references of child macro cells which need to be converted: 
+ram16x128.CEL   /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram16x128
+ram16x128.FRAM  /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram16x128
+ram8x64.FRAM    /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram8x64
+ram8x64.CEL     /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram8x64
+ (MW-365)
+Information: Performing data model conversion on cell "clock_opt.CEL". (MW-312)
+Information: The cell's data model has been updated from version 5.1 to 8.1. (MW-300)
+Information: Cannot enable UPF tracking feature for a design that is created by disabling the UPF tracking feature. (MV-774)
+Information: Opened "clock_opt.CEL;1" from "/home/crazy/Work/IC_Compiler_2010.12-SP2/lab4_cts/orca_lib.mw" library. (MWUI-068)
+{clock_opt}
+icc_shell> start_gui
+Information: Visibility is turned ON for cells and cell contents because the task is set to Block Implementation (GUI-026)
+Preparing data for query................... 
+icc_shell> report_clock -skew -attributes
+Loading db file '/opt/synopsys/icc_2016/libraries/syn/gtech.db'
+Information: linking reference library : /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/sc. (PSYN-878)
+Information: linking reference library : /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/io. (PSYN-878)
+Information: linking reference library : /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram8x64. (PSYN-878)
+Information: linking reference library : /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/mw_lib/ram16x128. (PSYN-878)
+Warning: Could not find a valid driver for the hierarchical Power net 'VDD'. (MWDC-285)
+Warning: Could not find a valid driver for the hierarchical Ground net 'VSS'. (MWDC-285)
+Information: Loading local_link_library attribute {sc_max.db}. (MWDC-290)
+
+  Linking design 'ORCA_TOP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (75 designs)              clock_opt.CEL, etc
+  cb13fs120_tsmc_max (library) /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/sc_max.db
+  cb13io320_tsmc_max (library) /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/io_max.db
+  ram8x64_max (library)       /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram8x64_max.db
+  ram16x128_max (library)     /home/crazy/Work/IC_Compiler_2010.12-SP2/ref/db/ram16x128_max.db
+
+# GUI Debug: Building dc from empty. -- Time: 4sec 190ms
+Information: Updating graph... (UID-83)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : clocks
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:50:21 2023
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+PCI_CLK         15.00   {0 7.5}                       {pclk}
+SDRAM_CLK        7.50   {0 3.75}                      {sdram_clk}
+SD_DDR_CLK       7.50   {0 3.75}            G         {sd_CK}
+SYS_2x_CLK       4.00   {0 2}                         {sys_2x_clk}
+SYS_CLK          8.00   {0 4}                         {sys_clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+SD_DDR_CLK    sdram_clk      {sd_CK}        SDRAM_CLK      divide_by(1)
+--------------------------------------------------------------------------------
+ 
+****************************************
+Report : clock_skew
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:50:21 2023
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+SYS_CLK             -         -         -         -      0.10      0.20
+PCI_CLK             -         -         -         -      0.20      0.30
+SYS_2x_CLK          -         -         -         -      0.10      0.20
+SDRAM_CLK           -         -         -         -      0.10      0.10
+SD_DDR_CLK       1.00      1.00      1.00      1.00      0.05      0.05
+1
+icc_shell> report_clock_tree -summary
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+ 
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:52:40 2023
+****************************************
+
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+PCI_CLK              201       0         0         0.0000    0.0000      0              0.0000
+SYS_CLK              902       0         1         0.1424    0.1424      0              0.0000
+SYS_2x_CLK           254       0         0         0.0000    0.0000      0              0.0000
+SDRAM_CLK            643       0         1         0.0000    0.0000      0              0.0000
+SD_DDR_CLK           0         0         0         0.0000    0.0000      0              0.0000
+1
+icc_shell> view report_constraint -all
+icc_shell> report_constraint -all
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:54:16 2023
+****************************************
+
+
+   min_delay/hold ('PCI_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[4]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[3]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[1]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[2]
+                                0.35           0.17 r        -0.18  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[1]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[5]
+                                0.35           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A1[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A2[0]
+                                0.34           0.17 r        -0.17  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_4_/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/almost_full_int_reg/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_3_/SD
+                                0.16           0.10 f        -0.06  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__11_/SD
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_3_/SD
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_0_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_valid_reg/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_3_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/sync_pcmd_out_reg_2_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/D
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_en_reg/D
+                                0.16           0.11 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/almost_empty_int_reg/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_6_/SD
+                                0.16           0.12 f        -0.05  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_0_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_3_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_1_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_2_/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_valid_reg/D
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/half_full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PARSER/r_pcmd_out_valid_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_0_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/almost_full_int_reg/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/this_addr_g_int_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__4_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_i_bus_reg_1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_9_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_17_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_22_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_20_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_13_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__2_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__14_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__10_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__6_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__5_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__15_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__11_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__11_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__7_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__13_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__8_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__0_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_3__1_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__9_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__3_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__12_/SD
+                                0.16           0.12 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__0_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__14_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__10_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_1__8_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_0__13_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_6_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__3_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__4_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__2_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__1_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__11_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__10_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__8_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/mega_shift_reg_4__15_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_3_/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/empty_int_reg/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/empty_int_reg/SD
+                                0.16           0.13 f        -0.04  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_6_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/half_full_int_reg/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_0_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_1_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_3_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/sync_reg_2_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/count_int_reg_2_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_1_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_3_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_5_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_6_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_5_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_15_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_4_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_0_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_8_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_14_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_9_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_7_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_1_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_10_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_12_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_11_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_13_/D
+                                0.16           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_CORE/pad_out_buf_reg_2_/D
+                                0.15           0.12 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/sync_reg_0_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_4_/SD
+                                0.16           0.13 f        -0.03  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_6_/SD
+                                0.16           0.14 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_0_/SD
+                                0.16           0.14 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/almost_empty_int_reg/SD
+                                0.16           0.15 f        -0.02  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_CTL/U1/count_int_reg_5_/SD
+                                0.16           0.16 f         0.00  (VIOLATED: increase significant digits)
+
+
+   min_delay/hold ('SYS_2x_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[4]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[6]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[5]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[3]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[4]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[6]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[5]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[3]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[2]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[2]
+                                0.25           0.15 r        -0.10  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[1]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[3]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[2]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[5]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[0]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[4]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A1[6]
+                                0.25           0.16 r        -0.09  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[1]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/A2[0]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[1]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM/A2[0]
+                                0.24           0.17 r        -0.08  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[5]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[4]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[6]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[2]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[3]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[0]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[5]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[4]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[6]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[2]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[3]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[0]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/A2[1]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+   I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/A2[1]
+                                0.25           0.19 r        -0.06  (VIOLATED)
+
+
+   min_delay/hold ('SYS_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[4]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[3]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[1]
+                                0.25           0.17 r        -0.08  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[2]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[1]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[5]
+                                0.25           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4/A2[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+   I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/A1[0]
+                                0.24           0.17 r        -0.07  (VIOLATED)
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   ORCA_TOP                     0.00       79310.61       -79310.61 (VIOLATED)
+
+
+1
+icc_shell> report_clock_tree -clock_tree [get_clocks SDRAM_CLK]
+ 
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 06:58:21 2023
+****************************************
+
+
+============ Global Skew Report ================
+
+Clock Tree Name                : "SDRAM_CLK"
+Clock Period                   : 7.50000        
+Clock Tree root pin            : "sdram_clk"
+Number of Levels               : 1
+Number of Sinks                : 643
+Number of CT Buffers           : 0
+Number of CTS added gates      : 0
+Number of Preexisting Gates    : 1
+Number of Preexisting Buf/Inv  : 0
+Total Number of Clock Cells    : 1
+Total Area of CT Buffers       : 0.00000        
+Total Area of CT cells         : 18.15480       
+Max Global Skew                : 0.00000   
+Number of MaxTran Violators    : 0
+Number of MaxCap Violators     : 0
+Number of MaxFanout Violators  : 0
+
+
+Operating Condition               worst
+Clock global Skew                 0.000
+Longest path delay                0.000
+Shortest path delay               0.000
+
+The longest path delay end pin: I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/data_out_reg_20_/CP
+The shortest path delay end pin: I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/data_out_reg_20_/CP
+
+The longest Path:
+Pin                                         Cap       Fanout    Trans     Incr      Arri
+----------------------------------------------------------------------------------------------------
+sdram_clk                                   0.000            1  0.000     0.000     0.000     r
+sdram_clk                                   0.000          661  0.000     0.000     0.000     r
+I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/data_out_reg_20_/CP
+                                            0.000            0  0.000     0.000     0.000     r
+[clock delay]                                                                       0.000
+----------------------------------------------------------------------------------------------------
+
+The Shortest Path:
+Pin                                         Cap       Fanout    Trans     Incr      Arri
+----------------------------------------------------------------------------------------------------
+sdram_clk                                   0.000            1  0.000     0.000     0.000     r
+sdram_clk                                   0.000          661  0.000     0.000     0.000     r
+I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/data_out_reg_20_/CP
+                                            0.000            0  0.000     0.000     0.000     r
+[clock delay]                                                                       0.000
+----------------------------------------------------------------------------------------------------
+
+icc_shell> 
+Loading db file '/opt/synopsys/icc_2016/libraries/syn/generic.sdb'
+icc_shell> clock_opt -only_cts -no_clock_route
+The options for clock_opt:
+--------------------------
+COPT:  Clock Tree Synthesis                 : Yes
+COPT:  Post CTS Optimization                : No
+COPT:  Concurrent Clock/Data Optimization   : No
+COPT:  Operation Condition                  : max
+COPT:  Balance Inter Clock Delay            : No
+COPT:  Route Clock Nets                     : No
+COPT:  Update Clock Latency                 : No
+COPT:  Optimize Power                       : No
+---------------------------------------------------
+
+Executing ICC clock_opt...
+medium
+*
+Building clock tree...
+Operating Condition is max
+Information: There is no scenario with cts_mode set to true, CTS will use old cts_scenario flow. (CTS-1115)
+CTS Operating Condition(s): MAX(Worst) 
+
+  Loading design 'ORCA_TOP'
+
+
+
+
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+Setting the GR Options
+
+TLU+ File = ../ref/tlup/cb13_6m_max.tluplus
+TLU+ File = ../ref/tlup/cb13_6m_min.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL : 1.9e-07 1.9e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL : 0.00065 0.00035 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 2.4e-07 2.4e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 2.4e-07 2.4e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 2e-07 1.9e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 2e-07 2e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00019 0.0001 (RCEX-011)
+Information: Library Derived Cap for layer METAL6 : 2.5e-07 2.5e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL6 : 5.8e-05 3.2e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 2.1e-07 2.1e-07 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00022 (RCEX-011)
+Information: Library Derived Vertical Cap : 2.3e-07 2.3e-07 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00028 0.00015 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.00061 0.00019 (RCEX-011)
+LR: Layer METAL3: Average tracks per gcell 9.0, utilization 0.48
+LR: Layer METAL4: Average tracks per gcell 7.2, utilization 0.46
+LR: Layer METAL5: Average tracks per gcell 4.6, utilization 0.40
+LR: Layer METAL6: Average tracks per gcell 3.8, utilization 0.41
+LR: Clock routing service standing by
+Using cts integrated global router
+CTS: Blockage Aware Algorithm
+Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+CTS: all inverters have too large rise/fall delay skew
+CTS: inverter inv0da: rise/fall delay skew = 0.204816 (> 0.200000) 
+CTS: all inverters have too large rise/fall delay skew
+CTS: inverter inv0da: rise/fall delay skew = 0.204816 (> 0.200000) 
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is macro. Will not treat as pad.
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+Warning: Net I_BLENDER_1/gclk is an Ideal Net, Removing the attribute. (CTS-260)
+Information: Replaced the library cell of I_BLENDER_1/U483 from ora21d1 to ora21d4. (CTS-152)
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+Warning: Net pclk is an Ideal Net, Removing the attribute. (CTS-260)
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net pclk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+Warning: Net sys_clk is an Ideal Net, Removing the attribute. (CTS-260)
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is macro. Will not treat as pad.
+CTS: Info: Found net sys_clk,  on cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is macro. Will not treat as pad.
+Warning: Net sys_2x_clk is an Ideal Net, Removing the attribute. (CTS-260)
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is macro. Will not treat as pad.
+CTS: Info: Found net sys_2x_clk,  on cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is macro. Will not treat as pad.
+Warning: Net sdram_clk is an Ideal Net, Removing the attribute. (CTS-260)
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_15/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_7/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_8/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_9/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_10/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_11/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_12/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_13/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_14/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_CK/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_0/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_1/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_2/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_3/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_4/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_5/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_dq_out_6/S is implicit ignore
+CTS: I_SDRAM_TOP/I_SDRAM_IF/sd_mux_CKn/S is implicit ignore
+Warning: Ignore net sd_CK since it has no synchronous pins. (CTS-231)
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning dl02d1 because of a gain of 57.14.
+    Pruning dl01d1 because of a gain of 31.04.
+    Pruning buffd1 because it is inferior (w/ power-considered) to bufbd1.
+    Pruning dl03d1 because of a gain of 69.69.
+    Pruning dl04d1 because of a gain of 69.77.
+    Pruning dl02d2 because of a gain of 93.3.
+    Pruning dl01d2 because of a gain of 60.48.
+    Pruning buffd2 because it is inferior (w/ power-considered) to bufbd2.
+    Pruning dl04d2 because of a gain of 110.45.
+    Pruning dl03d2 because of a gain of 110.45.
+    Pruning dl02d4 because of a gain of 110.45.
+    Pruning dl01d4 because of a gain of 83.6.
+    Pruning buffd3 because it is (w/ power-considered) inferior to bufbd4.
+    Pruning buffd4 because it is inferior (w/ power-considered) to bufbd4.
+    Pruning dl04d4 because of a gain of 110.45.
+    Pruning dl03d4 because of a gain of 110.45.
+    Pruning bufbd7 because it is inferior (w/ power-considered) to buffd7.
+    Pruning buffda because it is inferior (w/ power-considered) to bufbda.
+    Pruning bufbdk because of a gain of 32.04.
+    Final pruned buffer set (7 buffers):
+        bufbd1
+        bufbd2
+        bufbd3
+        bufbd4
+        buffd7
+        bufbda
+        bufbdf
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning inv0d2 because it is (w/ power-considered) inferior to invbd2.
+    Pruning inv0d4 because it is (w/ power-considered) inferior to invbd4.
+    Pruning inv0d7 because it is (w/ power-considered) inferior to invbd7.
+    Pruning inv0da because it is inferior (w/ power-considered) to invbda.
+    Final pruned buffer set (8 buffers):
+        inv0d0
+        inv0d1
+        invbd2
+        invbd4
+        invbd7
+        invbda
+        invbdf
+        invbdk
+CTS: BA: Net 'sdram_clk'
+CTS: BA: Root net includes 1 sinks.
+CTS: BA: Max delay at toplevel pins = 0.000000
+CTS: BA: Max skew at toplevel pins = 0.000000
+
+CTS: Starting clock tree synthesis ...
+CTS:   Conditions       = worst(1)
+CTS: Global design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]     GUI = worst[0.500 0.500]     SDC = undefined/ignored
+CTS:   leaf max trans   = worst[0.500 0.500]     GUI = worst[0.500 0.500]     SDC = undefined/ignored
+CTS:   max capacitance  = worst[0.600 0.600]     GUI = worst[0.600 0.600]     SDC = undefined/ignored
+CTS:   max fanout       = 2000                   GUI = 2000                   SDC = undefined/ignored
+CTS: Global timing/clock tree constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+CTS: Design infomation
+CTS:  total gate levels = 2
+CTS: Root clock net sdram_clk
+CTS:  clock gate levels = 1
+CTS:    clock sink pins = 643
+CTS:    level  1: gates = 1
+CTS: Buffer/Inverter list for CTS for clock net sdram_clk:
+CTS:   invbdk
+CTS:   bufbdk
+CTS:   invbdf
+CTS:   bufbdf
+CTS:   inv0da
+CTS:   bufbda
+CTS: Buffer/Inverter list for DelayInsertion for clock net sdram_clk:
+CTS:   invbdk
+CTS:   invbdf
+CTS:   inv0da
+CTS:   invbda
+CTS:   invbd7
+CTS:   inv0d7
+CTS:   bufbda
+CTS:   bufbdf
+CTS:   buffda
+CTS:   bufbd7
+CTS:   bufbdk
+CTS:   buffd7
+CTS:   invbd4
+CTS:   inv0d4
+CTS:   bufbd4
+CTS:   buffd4
+CTS:   bufbd3
+CTS:   buffd3
+CTS:   invbd2
+CTS:   inv0d2
+CTS:   bufbd2
+CTS:   buffd2
+CTS:   bufbd1
+CTS:   inv0d1
+CTS:   inv0d0
+CTS:   buffd1
+CTS:   dl01d4
+CTS:   dl01d2
+CTS:   dl01d1
+CTS:   dl02d4
+CTS:   dl02d2
+CTS:   dl02d1
+CTS:   dl03d4
+CTS:   dl03d2
+CTS:   dl03d1
+CTS:   dl04d4
+CTS:   dl04d2
+CTS:   dl04d1
+CTS: Root clock net sys_2x_clk
+CTS:  clock gate levels = 1
+CTS:    clock sink pins = 254
+CTS:    level  1: gates = 1
+CTS: Buffer/Inverter list for CTS for clock net sys_2x_clk:
+CTS:   invbdk
+CTS:   bufbdk
+CTS:   invbdf
+CTS:   bufbdf
+CTS:   inv0da
+CTS:   bufbda
+CTS: Buffer/Inverter list for DelayInsertion for clock net sys_2x_clk:
+CTS:   invbdk
+CTS:   invbdf
+CTS:   inv0da
+CTS:   invbda
+CTS:   invbd7
+CTS:   inv0d7
+CTS:   bufbda
+CTS:   bufbdf
+CTS:   buffda
+CTS:   bufbd7
+CTS:   bufbdk
+CTS:   buffd7
+CTS:   invbd4
+CTS:   inv0d4
+CTS:   bufbd4
+CTS:   buffd4
+CTS:   bufbd3
+CTS:   buffd3
+CTS:   invbd2
+CTS:   inv0d2
+CTS:   bufbd2
+CTS:   buffd2
+CTS:   bufbd1
+CTS:   inv0d1
+CTS:   inv0d0
+CTS:   buffd1
+CTS:   dl01d4
+CTS:   dl01d2
+CTS:   dl01d1
+CTS:   dl02d4
+CTS:   dl02d2
+CTS:   dl02d1
+CTS:   dl03d4
+CTS:   dl03d2
+CTS:   dl03d1
+CTS:   dl04d4
+CTS:   dl04d2
+CTS:   dl04d1
+CTS: Root clock net sys_clk
+CTS:  clock gate levels = 2
+CTS:    clock sink pins = 902
+CTS:    level  2: gates = 1
+CTS:    level  1: gates = 1
+CTS: Buffer/Inverter list for CTS for clock net sys_clk:
+CTS:   invbdk
+CTS:   bufbdk
+CTS:   invbdf
+CTS:   bufbdf
+CTS:   inv0da
+CTS:   bufbda
+CTS: Buffer/Inverter list for DelayInsertion for clock net sys_clk:
+CTS:   invbdk
+CTS:   invbdf
+CTS:   inv0da
+CTS:   invbda
+CTS:   invbd7
+CTS:   inv0d7
+CTS:   bufbda
+CTS:   bufbdf
+CTS:   buffda
+CTS:   bufbd7
+CTS:   bufbdk
+CTS:   buffd7
+CTS:   invbd4
+CTS:   inv0d4
+CTS:   bufbd4
+CTS:   buffd4
+CTS:   bufbd3
+CTS:   buffd3
+CTS:   invbd2
+CTS:   inv0d2
+CTS:   bufbd2
+CTS:   buffd2
+CTS:   bufbd1
+CTS:   inv0d1
+CTS:   inv0d0
+CTS:   buffd1
+CTS:   dl01d4
+CTS:   dl01d2
+CTS:   dl01d1
+CTS:   dl02d4
+CTS:   dl02d2
+CTS:   dl02d1
+CTS:   dl03d4
+CTS:   dl03d2
+CTS:   dl03d1
+CTS:   dl04d4
+CTS:   dl04d2
+CTS:   dl04d1
+CTS: Root clock net pclk
+CTS:  clock gate levels = 1
+CTS:    clock sink pins = 201
+CTS:    level  1: gates = 1
+CTS: Buffer/Inverter list for CTS for clock net pclk:
+CTS:   invbdk
+CTS:   bufbdk
+CTS:   invbdf
+CTS:   bufbdf
+CTS:   inv0da
+CTS:   bufbda
+CTS: Buffer/Inverter list for DelayInsertion for clock net pclk:
+CTS:   invbdk
+CTS:   invbdf
+CTS:   inv0da
+CTS:   invbda
+CTS:   invbd7
+CTS:   inv0d7
+CTS:   bufbda
+CTS:   bufbdf
+CTS:   buffda
+CTS:   bufbd7
+CTS:   bufbdk
+CTS:   buffd7
+CTS:   invbd4
+CTS:   inv0d4
+CTS:   bufbd4
+CTS:   buffd4
+CTS:   bufbd3
+CTS:   buffd3
+CTS:   invbd2
+CTS:   inv0d2
+CTS:   bufbd2
+CTS:   buffd2
+CTS:   bufbd1
+CTS:   inv0d1
+CTS:   inv0d0
+CTS:   buffd1
+CTS:   dl01d4
+CTS:   dl01d2
+CTS:   dl01d1
+CTS:   dl02d4
+CTS:   dl02d2
+CTS:   dl02d1
+CTS:   dl03d4
+CTS:   dl03d2
+CTS:   dl03d1
+CTS:   dl04d4
+CTS:   dl04d2
+CTS:   dl04d1
+Information: Removing clock transition on clock SDRAM_CLK ... (CTS-103)
+Information: Removing clock transition on clock SDRAM_CLK ... (CTS-103)
+Information: Removing clock transition on clock SYS_2x_CLK ... (CTS-103)
+Information: Removing clock transition on clock SYS_2x_CLK ... (CTS-103)
+Information: Removing clock transition on clock SYS_CLK ... (CTS-103)
+Information: Removing clock transition on clock SYS_CLK ... (CTS-103)
+Information: Removing clock transition on clock PCI_CLK ... (CTS-103)
+Information: Removing clock transition on clock PCI_CLK ... (CTS-103)
+
+CTS: gate level 1 clock tree synthesis
+CTS:          clock net = sdram_clk
+CTS:        driving pin = sdram_clk
+CTS: gate level 1 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 1 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+CTS: nominal transition = 0.1284
+
+CTS: gate level 1 clock tree synthesis
+CTS:          clock net = sys_2x_clk
+CTS:        driving pin = sys_2x_clk
+CTS: gate level 1 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 1 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+
+CTS: gate level 2 clock tree synthesis
+CTS:          clock net = I_BLENDER_1/gclk
+CTS:        driving pin = I_BLENDER_1/U483/Z
+CTS: gate level 2 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 2 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   levels per net   = 400
+
+CTS: gate level 1 clock tree synthesis
+CTS:          clock net = sys_clk
+CTS:        driving pin = sys_clk
+CTS: gate level 1 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 1 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+
+CTS: gate level 1 clock tree synthesis
+CTS:          clock net = pclk
+CTS:        driving pin = pclk
+CTS: gate level 1 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 1 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+
+CTS: Clock tree synthesis completed successfully
+CTS:   CPU time:     1 seconds
+CTS: Reporting clock tree violations ...
+CTS:   Global design rules:
+CTS:     maximum transition delay [rise,fall] = [0.5,0.5]
+CTS:     maximum capacitance = 0.6
+CTS:     maximum fanout = 2000
+CTS:     maximum buffer levels per net = 400
+CTS:  
+CTS: Summary of clock tree violations: 
+CTS:  Total number of transition violations  = 0 
+CTS:  Total number of capacitance violations = 0 
+CTS: ------------------------------------------------
+CTS: Clock Tree Synthesis Summary
+CTS: ------------------------------------------------
+CTS:       4 clock domain synthesized
+CTS:       5 gated clock nets synthesized
+CTS:       5 buffer trees inserted
+CTS:      42 buffers used (total size = 918.33)
+CTS:      47 clock nets total capacitance = worst[7.470 7.470]
+CTS: ------------------------------------------------
+CTS: Clock-by-Clock Summary
+CTS: ------------------------------------------------
+CTS: Root clock net sdram_clk
+CTS:       1 gated clock nets synthesized
+CTS:       1 buffer trees inserted
+CTS:      13 buffers used (total size = 332.838)
+CTS:      14 clock nets total capacitance = worst[2.356 2.356]
+CTS: Root clock net sys_2x_clk
+CTS:       1 gated clock nets synthesized
+CTS:       1 buffer trees inserted
+CTS:       5 buffers used (total size = 102.877)
+CTS:       6 clock nets total capacitance = worst[0.981 0.981]
+CTS: Root clock net sys_clk
+CTS:       2 gated clock nets synthesized
+CTS:       2 buffer trees inserted
+CTS:      20 buffers used (total size = 399.406)
+CTS:      22 clock nets total capacitance = worst[3.348 3.348]
+CTS: Root clock net pclk
+CTS:       1 gated clock nets synthesized
+CTS:       1 buffer trees inserted
+CTS:       4 buffers used (total size = 83.2095)
+CTS:       5 clock nets total capacitance = worst[0.785 0.785]
+
+CTS: ==================================================
+CTS:   Elapsed time: 2 seconds
+CTS:   CPU time:     1 seconds on crazy_one
+CTS: ==================================================
+CTS: Reporting clock tree violations ...
+CTS:   Global design rules:
+CTS:     maximum transition delay [rise,fall] = [0.5,0.5]
+CTS:     maximum capacitance = 0.6
+CTS:     maximum fanout = 2000
+CTS:     maximum buffer levels per net = 400
+CTS:  
+CTS: Summary of clock tree violations: 
+CTS:  Total number of transition violations  = 0 
+CTS:  Total number of capacitance violations = 0 
+CTS: ==================================================
+CTS: Start DRC fixing beyond exceptions
+CTS: Blockage Aware Algorithm
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+CTS: all inverters have too large rise/fall delay skew
+CTS: inverter inv0da: rise/fall delay skew = 0.204816 (> 0.200000) 
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+CTS: I_SDRAM_TOP/I_SDRAM_IF/bufbdk_G1IP/I is implicit ignore
+CTS: bufbdk_G1IP/I is implicit ignore
+Warning: Ignore net sd_CK since it has no synchronous pins. (CTS-231)
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning dl02d1 because of a gain of 57.14.
+    Pruning dl01d1 because of a gain of 31.04.
+    Pruning buffd1 because it is inferior (w/ power-considered) to bufbd1.
+    Pruning dl03d1 because of a gain of 69.69.
+    Pruning dl04d1 because of a gain of 69.77.
+    Pruning dl02d2 because of a gain of 93.3.
+    Pruning dl01d2 because of a gain of 60.48.
+    Pruning buffd2 because it is inferior (w/ power-considered) to bufbd2.
+    Pruning dl04d2 because of a gain of 110.45.
+    Pruning dl03d2 because of a gain of 110.45.
+    Pruning dl02d4 because of a gain of 110.45.
+    Pruning dl01d4 because of a gain of 83.6.
+    Pruning buffd3 because it is (w/ power-considered) inferior to bufbd4.
+    Pruning buffd4 because it is inferior (w/ power-considered) to bufbd4.
+    Pruning dl04d4 because of a gain of 110.45.
+    Pruning dl03d4 because of a gain of 110.45.
+    Pruning bufbd7 because it is inferior (w/ power-considered) to buffd7.
+    Pruning buffda because it is inferior (w/ power-considered) to bufbda.
+    Pruning bufbdk because of a gain of 32.04.
+    Final pruned buffer set (7 buffers):
+        bufbd1
+        bufbd2
+        bufbd3
+        bufbd4
+        buffd7
+        bufbda
+        bufbdf
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning inv0d2 because it is (w/ power-considered) inferior to invbd2.
+    Pruning inv0d4 because it is (w/ power-considered) inferior to invbd4.
+    Pruning inv0d7 because it is (w/ power-considered) inferior to invbd7.
+    Pruning inv0da because it is inferior (w/ power-considered) to invbda.
+    Final pruned buffer set (8 buffers):
+        inv0d0
+        inv0d1
+        invbd2
+        invbd4
+        invbd7
+        invbda
+        invbdf
+        invbdk
+CTS: Prepare sources for clock domain SD_DDR_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+Information: Removing clock transition on clock SD_DDR_CLK ... (CTS-103)
+Information: Removing clock source latency on clock SD_DDR_CLK ... (CTS-289)
+Information: Removing clock transition on clock SDRAM_CLK ... (CTS-103)
+Information: Removing clock transition on clock SDRAM_CLK ... (CTS-103)
+
+CTS: fixing DRC beyond exception pins under clock sdram_clk
+
+CTS: gate level 2 DRC fixing (exception level 1)
+CTS:          clock net = sdram_clk_G1IP
+CTS:        driving pin = bufbdk_G1IP/Z
+CTS: gate level 2 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+
+CTS: gate level 3 DRC fixing (exception level 2)
+CTS:          clock net = I_SDRAM_TOP/I_SDRAM_IF/sd_CK
+CTS:        driving pin = I_SDRAM_TOP/I_SDRAM_IF/sd_mux_CK/Z
+CTS: gate level 3 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+
+CTS: ------------------------------------------------
+CTS: Summary of DRC fixing beyond exception pins
+CTS: ------------------------------------------------
+CTS:       1 clock domain completed
+CTS:       2 gated clock nets beyond exception pins
+CTS:       0 buffer trees inserted
+CTS:       0 buffers used (total size = 0)
+CTS: ------------------------------------------------
+CTS: Clock-by-Clock Summary
+CTS: ------------------------------------------------
+CTS: Root clock net sdram_clk
+CTS:       2 gated clock nets beyond exception pins
+CTS:       0 buffer trees inserted
+CTS:       0 buffers used (total size = 0)
+
+CTS: Reporting DRC violations beyond exception pins ...
+CTS:   Global design rules:
+CTS:     maximum transition delay [rise,fall] = [0.5,0.5]
+CTS:     maximum capacitance = 0.6
+CTS:     maximum fanout = 2000
+CTS:     maximum buffer levels per net = 400
+CTS: 
+CTS: Summary of DRC violations beyond exception pins
+CTS:   Total number of transition violations  = 0
+CTS:   Total number of capacitance violations = 0
+
+CTS: ==================================================
+CTS: DRC fixing beyond exceptions completed successfully
+CTS:   Elapsed time: 1 seconds
+CTS:   CPU time:     1 seconds on crazy_one
+CTS: ==================================================
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL : 1.9e-07 1.9e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL : 0.00065 0.00035 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 2.4e-07 2.4e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 2.4e-07 2.4e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 2e-07 1.9e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00039 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 2e-07 2e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00019 0.0001 (RCEX-011)
+Information: Library Derived Cap for layer METAL6 : 2.5e-07 2.5e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL6 : 5.8e-05 3.2e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 2.1e-07 2.1e-07 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00022 (RCEX-011)
+Information: Library Derived Vertical Cap : 2.3e-07 2.3e-07 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00028 0.00015 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.00061 0.00019 (RCEX-011)
+ CTS Successful 
+Optimizing clock tree...
+Operating Condition is max
+No valid clocks specified, all clocks will be optimized
+CTS: CTS Operating Condition(s): MAX(Worst) 
+Clock name : SDRAM_CLK 
+Clock name : SYS_2x_CLK 
+Clock name : SYS_CLK 
+Clock name : PCI_CLK 
+enable delay detour in ctdn
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+ Cannot find specified mesh net 
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+CTS: all inverters have too large rise/fall delay skew
+CTS: inverter inv0da: rise/fall delay skew = 0.204816 (> 0.200000) 
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain PCI_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: Prepare sources for clock domain PCI_CLK
+CTS: Prepare sources for clock domain SDRAM_CLK
+CTS: Prepare sources for clock domain SYS_2x_CLK
+CTS: Prepare sources for clock domain SYS_CLK
+CTS: I_SDRAM_TOP/I_SDRAM_IF/bufbdk_G1IP/I is implicit ignore
+CTS: bufbdk_G1IP/I is implicit ignore
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning dl02d1 because of a gain of 57.14.
+    Pruning dl01d1 because of a gain of 31.04.
+    Pruning buffd1 because it is inferior (w/ power-considered) to bufbd1.
+    Pruning dl03d1 because of a gain of 69.69.
+    Pruning dl04d1 because of a gain of 69.77.
+    Pruning dl02d2 because of a gain of 93.3.
+    Pruning dl01d2 because of a gain of 60.48.
+    Pruning buffd2 because it is inferior (w/ power-considered) to bufbd2.
+    Pruning dl04d2 because of a gain of 110.45.
+    Pruning dl03d2 because of a gain of 110.45.
+    Pruning dl02d4 because of a gain of 110.45.
+    Pruning dl01d4 because of a gain of 83.6.
+    Pruning buffd3 because it is (w/ power-considered) inferior to bufbd4.
+    Pruning buffd4 because it is inferior (w/ power-considered) to bufbd4.
+    Pruning dl04d4 because of a gain of 110.45.
+    Pruning dl03d4 because of a gain of 110.45.
+    Pruning bufbd7 because it is inferior (w/ power-considered) to buffd7.
+    Pruning buffda because it is inferior (w/ power-considered) to bufbda.
+    Pruning bufbdk because of a gain of 32.04.
+    Final pruned buffer set (7 buffers):
+        bufbd1
+        bufbd2
+        bufbd3
+        bufbd4
+        buffd7
+        bufbda
+        bufbdf
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.000354075.
+    Pruning inv0d2 because it is (w/ power-considered) inferior to invbd2.
+    Pruning inv0d4 because it is (w/ power-considered) inferior to invbd4.
+    Pruning inv0d7 because it is (w/ power-considered) inferior to invbd7.
+    Pruning inv0da because it is inferior (w/ power-considered) to invbda.
+    Final pruned buffer set (8 buffers):
+        inv0d0
+        inv0d1
+        invbd2
+        invbd4
+        invbd7
+        invbda
+        invbdf
+        invbdk
+CTO-ID:    
+Choosing the following cells for CTO Delay Insertion and ICDB: 
+CTO-  :     bufbd1, 
+CTO-  :     bufbd3, 
+CTO-  :     bufbd7, 
+CTO-  :     bufbda, 
+CTO-  :     buffd1, 
+CTO-  :     buffd3, 
+CTO-  :     buffd7, 
+CTO-  :     buffda, 
+CTO-  :     dl01d1, 
+CTO-  :     dl02d1, 
+CTO-  :     dl03d1, 
+CTO-  :     dl04d1, 
+CTO-  :     inv0d0, 
+CTO-  :     inv0d1, 
+CTO-  :     inv0d2, 
+CTO-  :     inv0d4, 
+CTO-  :     inv0d7, 
+CTO-  :     inv0da, 
+CTO-  :     invbd2, 
+CTO-  :     invbd4, 
+CTO-  :     bufbd2, 
+CTO-  :     bufbd4, 
+CTO-  :     bufbdf, 
+CTO-  :     bufbdk, 
+CTO-  :     buffd2, 
+CTO-  :     buffd4, 
+CTO-  :     dl01d2, 
+CTO-  :     dl01d4, 
+CTO-  :     dl02d2, 
+CTO-  :     dl02d4, 
+CTO-  :     dl03d2, 
+CTO-  :     dl03d4, 
+CTO-  :     dl04d2, 
+CTO-  :     dl04d4, 
+CTO-  :     invbd7, 
+CTO-  :     invbda, 
+CTO-  :     invbdf, 
+CTO-  :     invbdk, 
+CTO-  :     
+
+Initializing multicorner optimizer...
+Using primary buffers equivalent to 'bufbd1'.
+Using primary inverters equivalent to 'inv0d1'.
+Technology-based gate delay scale factors (normalized to the highest):
+  Corner 'max': 1.000
+Technology-based wire delay scale factors (normalized to the highest):
+  Corner 'max': 1.000
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+Information: Float pin scale factor for the 'min' operating condition of scenario 'default' is set to 0.496 (CTS-375)
+Using the following scale factors for float pins:
+  Corner 'max': 1.000
+Worst clock corner:  max
+Worst RC delay corner:  max
+Using normal effort optimization
+Using pre-route mode
+Using non-mv_mode
+Target max transition = 0.256800
+Using the CTS integrated router
+
+Selecting library cells for optimization
+    Pruning slow or multistage gate dl02d1.
+    Pruning slow or multistage gate dl01d1.
+    Pruning slow or multistage gate dl03d1.
+    Pruning slow or multistage gate dl04d1.
+    Pruning slow or multistage gate dl02d2.
+    Pruning slow or multistage gate dl01d2.
+    Pruning slow or multistage gate dl04d2.
+    Pruning slow or multistage gate dl03d2.
+    Pruning slow or multistage gate dl02d4.
+    Pruning slow or multistage gate dl01d4.
+    Pruning slow or multistage gate dl04d4.
+    Pruning slow or multistage gate dl03d4.
+    Pruning slow or multistage gate bufbdk.
+    Final pruned buffer set (13 buffers):
+        bufbd1
+        buffd1
+        bufbd2
+        buffd2
+        bufbd3
+        buffd3
+        bufbd4
+        buffd4
+        buffd7
+        bufbd7
+        bufbda
+        buffda
+        bufbdf
+
+    Final pruned inverter set (12 inverters):
+        inv0d0
+        inv0d1
+        inv0d2
+        invbd2
+        inv0d4
+        invbd4
+        inv0d7
+        invbd7
+        invbda
+        inv0da
+        invbdf
+        invbdk
+
+
+Initializing parameters for clock SD_DDR_CLK:
+Root pin: sd_CK
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock SD_DDR_CLK: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.078 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+
+
+Initializing parameters for clock SDRAM_CLK:
+Root pin: sdram_clk
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock SDRAM_CLK: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.078 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+
+
+Initializing parameters for clock SYS_2x_CLK:
+Root pin: sys_2x_clk
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock SYS_2x_CLK: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.078 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+
+
+Initializing parameters for clock SYS_CLK:
+Root pin: sys_clk
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock SYS_CLK: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.078 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+
+
+Initializing parameters for clock PCI_CLK:
+Root pin: pclk
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock PCI_CLK: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.078 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SD_DDR_CLK : 0.500 ns
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SDRAM_CLK : 0.500 ns
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_2x_CLK : 0.500 ns
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_CLK : 0.500 ns
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock PCI_CLK : 0.500 ns
+
+
+Starting optimization for clock SD_DDR_CLK.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SD_DDR_CLK : 0.500 ns
+
+***********************************************
+* Preoptimization report (clock 'SD_DDR_CLK') *
+***********************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.000 0.000 0.000)
+    Estimated Insertion Delay (r/f/b) = ( -inf  -inf  -inf)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.000 0.000 0.000)
+    Estimated Insertion Delay (r/f/b) = ( -inf  -inf  -inf)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 0.0 pf
+  Max transition = 0.000 ns
+  Cells = 1 (area=0.000000)
+
+Report DRC violations for clock SD_DDR_CLK (initial)
+Total 0 DRC violations for clock SD_DDR_CLK (initial)
+RC optimization for clock 'SD_DDR_CLK'
+100%   
+100%   
+Coarse optimization for clock 'SD_DDR_CLK'
+100%   
+100%   
+100%   
+100%   
+ No back-to-back buffer chains found
+Detailed optimization for clock 'SD_DDR_CLK'
+100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SD_DDR_CLK : 0.500 ns
+Starting optimization pass for clock SD_DDR_CLK:
+Start path based optimization 
+100%   
+Start area recovery: (inf, -inf)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SD_DDR_CLK : 0.500 ns
+Switch to low metal layer for clock 'SD_DDR_CLK':
+
+ Total 0 out of 0 nets switched to low metal layer for clock 'SD_DDR_CLK' with largest cap change 0.00 percent
+Switch metal layer for area recovery: (inf, -inf)
+Buffer removal for area recovery: (inf, -inf)
+Area recovery optimization for clock 'SD_DDR_CLK':
+100%   
+Sizing for area recovery: (inf, -inf)
+
+ Total 0 buffers removed (all paths) for clock 'SD_DDR_CLK'
+Path buffer removal for area recovery: (inf, -inf)
+Buffer pair removal for area recovery: (inf, -inf)
+End area recovery: (inf, -inf)
+
+********************************************************
+* Multicorner optimization report (clock 'SD_DDR_CLK') *
+********************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.000 0.000 0.000)
+    Estimated Insertion Delay (r/f/b) = ( -inf  -inf  -inf)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.000 0.000 0.000)
+    Estimated Insertion Delay (r/f/b) = ( -inf  -inf  -inf)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 0.0 pf
+  Max transition = 0.000 ns
+  Cells = 1 (area=0.000000)
+
+
+++ Longest path for clock SD_DDR_CLK in corner 'max':
+No path.
+
+
+++ Shortest path for clock SD_DDR_CLK in corner 'max':
+No path.
+
+
+++ Longest path for clock SD_DDR_CLK in corner 'RC-ONLY':
+No path.
+
+
+++ Shortest path for clock SD_DDR_CLK in corner 'RC-ONLY':
+No path.
+
+Report DRC violations for clock SD_DDR_CLK (final)
+Total 0 DRC violations for clock SD_DDR_CLK (final)
+
+
+Starting optimization for clock SDRAM_CLK.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SDRAM_CLK : 0.500 ns
+
+**********************************************
+* Preoptimization report (clock 'SDRAM_CLK') *
+**********************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.020 0.044 0.044)
+    Estimated Insertion Delay (r/f/b) = (0.287 0.298 0.298)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.004 0.002 0.004)
+    Estimated Insertion Delay (r/f/b) = (0.006 0.004 0.006)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 2.4 pf
+  Max transition = 0.271 ns
+  Cells = 13 (area=48.750000)
+  Buffers = 12 (area=48.750000)
+  Buffer Types
+  ============
+    bufbdf: 5
+    buffd7: 5
+    bufbda: 2
+
+Report DRC violations for clock SDRAM_CLK (initial)
+Total 0 DRC violations for clock SDRAM_CLK (initial)
+ Start (0.254, 0.299), End (0.254, 0.299) 
+
+RC optimization for clock 'SDRAM_CLK'
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+Coarse optimization for clock 'SDRAM_CLK'
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+ No back-to-back buffer chains found
+ Start (0.238, 0.293), End (0.238, 0.293) 
+
+Detailed optimization for clock 'SDRAM_CLK'
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SDRAM_CLK : 0.500 ns
+Starting optimization pass for clock SDRAM_CLK:
+Start path based optimization 
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ iteration 1: (0.054734, 0.291848) [0]
+ Total 1 cells sized on clock SDRAM_CLK (LP) (corner 0)
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ Start (0.237, 0.292), End (0.237, 0.292) 
+
+ iteration 2: (0.050609, 0.292617) [0]
+ iteration 3: (0.048482, 0.293410) [0]
+ iteration 4: (0.044298, 0.293218) [0]
+ iteration 5: (0.043787, 0.293020) [0]
+ iteration 6: (0.039475, 0.292636) [0]
+ iteration 7: (0.037372, 0.292239) [0]
+ iteration 8: (0.036780, 0.292043) [0]
+ Total 7 cells sized on clock SDRAM_CLK (SP) (corner 0)
+ Start (0.237, 0.292), End (0.255, 0.292) 
+
+Start area recovery: (0.255263, 0.292043)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SDRAM_CLK : 0.500 ns
+Switch to low metal layer for clock 'SDRAM_CLK':
+
+ Total 8 out of 13 nets switched to low metal layer for clock 'SDRAM_CLK' with largest cap change 0.00 percent
+Switch metal layer for area recovery: (0.255263, 0.292043)
+ Start (0.255, 0.292), End (0.255, 0.292) 
+
+Buffer removal for area recovery: (0.255263, 0.292043)
+Area recovery optimization for clock 'SDRAM_CLK':
+15%   23%   30%   46%   53%   61%   76%   84%   92%   100%   
+Sizing for area recovery: (0.255263, 0.292043)
+
+ Total 0 buffers removed (all paths) for clock 'SDRAM_CLK'
+Path buffer removal for area recovery: (0.255263, 0.292043)
+Buffer pair removal for area recovery: (0.255263, 0.292043)
+End area recovery: (0.255263, 0.292043)
+
+*******************************************************
+* Multicorner optimization report (clock 'SDRAM_CLK') *
+*******************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.033 0.037 0.037)
+    Estimated Insertion Delay (r/f/b) = (0.289 0.292 0.292)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.004 0.004 0.004)
+    Estimated Insertion Delay (r/f/b) = (0.006 0.006 0.006)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 2.4 pf
+  Max transition = 0.240 ns
+  Cells = 13 (area=45.500000)
+  Buffers = 12 (area=45.500000)
+  Buffer Types
+  ============
+    bufbdf: 2
+    bufbda: 6
+    buffd7: 4
+
+
+++ Longest path for clock SDRAM_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sdram_clk (port)                               32   0    0 f ( 440  748) 
+ sdram_clk (port)                              156  63   63 f ( 440  748) 
+ sdram_clk (net)                       14 107                 
+ I_SDRAM_TOP/bufbda_G1B1I11/I (bufbda)         157   4   67 f ( 684  719) 
+ I_SDRAM_TOP/bufbda_G1B1I11/Z (bufbda)         223 222  289 f ( 680  720) 
+ I_SDRAM_TOP/sdram_clk_G1B1I11 (net)   68 238                 
+ I_SDRAM_TOP/I_SDRAM_IF/DQ_out_1_reg_1_/CPN (sdcfq1)
+                                               223   3  292 f ( 712  671) 
+
+
+++ Shortest path for clock SDRAM_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sdram_clk (port)                               32   0    0 f ( 440  748) 
+ sdram_clk (port)                              156  63   63 f ( 440  748) 
+ sdram_clk (net)                       14 107                 
+ I_SDRAM_TOP/bufbdf_G1B1I8/I (bufbdf)          157   3   65 f ( 299  471) 
+ I_SDRAM_TOP/bufbdf_G1B1I8/Z (bufbdf)          118 189  255 f ( 303  471) 
+ I_SDRAM_TOP/sdram_clk_G1B1I8 (net)    36 126                 
+ I_SDRAM_TOP/I_SDRAM_IF/mega_shift_1_reg_4__6_/CPN (sdcfq1)
+                                               118   0  255 f ( 295  471) 
+
+
+++ Longest path for clock SDRAM_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sdram_clk (port)                               32   0    0 r ( 440  748) 
+ sdram_clk (port)                                0   0    0 r ( 440  748) 
+ sdram_clk (net)                       14 107                 
+ I_SDRAM_TOP/buffd7_G1B1I10/I (bufbda)           6   2    2 r ( 536  557) 
+ I_SDRAM_TOP/buffd7_G1B1I10/Z (bufbda)           0   0    2 r ( 532  557) 
+ I_SDRAM_TOP/sdram_clk_G1B1I10 (net)   59 207                 
+ I_SDRAM_TOP/I_SDRAM_READ_FIFO/reg_array_reg_3__8_/CP (senrq1)
+                                                13   4    6 r ( 521  520) 
+
+
+++ Shortest path for clock SDRAM_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sdram_clk (port)                               32   0    0 r ( 440  748) 
+ sdram_clk (port)                                0   0    0 r ( 440  748) 
+ sdram_clk (net)                       14 107                 
+ I_SDRAM_TOP/buffd7_G1B1I2/I (buffd7)            5   1    1 r ( 505  560) 
+ I_SDRAM_TOP/buffd7_G1B1I2/Z (buffd7)            0   0    1 r ( 508  559) 
+ I_SDRAM_TOP/sdram_clk_G1B1I2 (net)    56 196                 
+ I_SDRAM_TOP/I_SDRAM_READ_FIFO/reg_array_reg_2__4_/CP (senrq1)
+                                                 1   0    2 r ( 511  560) 
+
+Report DRC violations for clock SDRAM_CLK (final)
+Total 0 DRC violations for clock SDRAM_CLK (final)
+
+
+Starting optimization for clock SYS_2x_CLK.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_2x_CLK : 0.500 ns
+
+***********************************************
+* Preoptimization report (clock 'SYS_2x_CLK') *
+***********************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.043 0.000 0.043)
+    Estimated Insertion Delay (r/f/b) = (0.259 0.226 0.259)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.011 0.000 0.011)
+    Estimated Insertion Delay (r/f/b) = (0.013 0.002 0.013)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 1.0 pf
+  Max transition = 0.288 ns
+  Cells = 6 (area=17.000000)
+  Buffers = 5 (area=17.000000)
+  Buffer Types
+  ============
+    bufbdf: 1
+    bufbda: 2
+    bufbd2: 1
+    buffd7: 1
+
+Report DRC violations for clock SYS_2x_CLK (initial)
+Total 0 DRC violations for clock SYS_2x_CLK (initial)
+ Start (0.216, 0.264), End (0.216, 0.264) 
+
+RC optimization for clock 'SYS_2x_CLK'
+Corner sensitivity to RC skew (normalized to the first corner):
+  Corner 'max': +0.000
+16%   33%   50%   66%   83%   100%   
+16%   33%   50%   66%   83%   100%   
+Coarse optimization for clock 'SYS_2x_CLK'
+16%   33%   50%   66%   83%   100%   
+16%   33%   50%   66%   83%   100%   
+16%   33%   50%   66%   83%   100%   
+16%   33%   50%   66%   83%   100%   
+ No back-to-back buffer chains found
+ Start (0.209, 0.254), End (0.209, 0.254) 
+
+Detailed optimization for clock 'SYS_2x_CLK'
+16%   33%   50%   66%   83%   100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_2x_CLK : 0.500 ns
+Starting optimization pass for clock SYS_2x_CLK:
+Start path based optimization 
+ Start (0.209, 0.254), End (0.209, 0.254) 
+
+ iteration 1: (0.026128, 0.234615) [0]
+ Total 1 cells sized on clock SYS_2x_CLK (LP) (corner 0)
+ Start (0.209, 0.254), End (0.208, 0.235) 
+
+16%   33%   50%   66%   83%   100%   
+ Start (0.208, 0.235), End (0.208, 0.235) 
+
+ Start (0.208, 0.235), End (0.208, 0.235) 
+
+ Start (0.208, 0.235), End (0.208, 0.235) 
+
+ Start (0.208, 0.235), End (0.208, 0.235) 
+
+ Start (0.208, 0.235), End (0.208, 0.235) 
+
+ iteration 2: (0.020509, 0.235576) [0]
+ iteration 3: (0.020120, 0.235336) [0]
+ Total 2 cells sized on clock SYS_2x_CLK (SP) (corner 0)
+ Start (0.208, 0.235), End (0.215, 0.235) 
+
+Start area recovery: (0.215216, 0.235336)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_2x_CLK : 0.500 ns
+Switch to low metal layer for clock 'SYS_2x_CLK':
+
+ Total 5 out of 6 nets switched to low metal layer for clock 'SYS_2x_CLK' with largest cap change 0.00 percent
+Switch metal layer for area recovery: (0.215216, 0.235336)
+ Start (0.215, 0.235), End (0.215, 0.235) 
+
+Buffer removal for area recovery: (0.215216, 0.235336)
+Area recovery optimization for clock 'SYS_2x_CLK':
+16%   33%   50%   66%   83%   100%   
+Sizing for area recovery: (0.215216, 0.235336)
+
+ Total 0 buffers removed (all paths) for clock 'SYS_2x_CLK'
+Path buffer removal for area recovery: (0.215216, 0.235336)
+Buffer pair removal for area recovery: (0.215216, 0.235336)
+End area recovery: (0.215216, 0.235336)
+
+********************************************************
+* Multicorner optimization report (clock 'SYS_2x_CLK') *
+********************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.020 0.000 0.020)
+    Estimated Insertion Delay (r/f/b) = (0.235 0.226 0.235)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.005 0.000 0.005)
+    Estimated Insertion Delay (r/f/b) = (0.006 0.002 0.006)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 1.0 pf
+  Max transition = 0.287 ns
+  Cells = 6 (area=15.500000)
+  Buffers = 5 (area=15.500000)
+  Buffer Types
+  ============
+    bufbda: 1
+    buffd7: 2
+    bufbd2: 1
+    buffda: 1
+
+
+++ Longest path for clock SYS_2x_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sys_2x_clk (port)                              32   0    0 r ( 500    0) 
+ sys_2x_clk (port)                              82  21   21 r ( 500    0) 
+ sys_2x_clk (net)                       5  34                 
+ I_RISC_CORE/bufbda_G1B1I4/I (buffda)           83   2   24 r ( 461  405) 
+ I_RISC_CORE/bufbda_G1B1I4/Z (buffda)          243 205  229 r ( 464  404) 
+ I_RISC_CORE/sys_2x_clk_G1B1I4 (net)   80 287                 
+ I_RISC_CORE/I_INSTRN_LAT/Crnt_Instrn_1_reg_15_/CP (senrq1)
+                                               243   7  235 r ( 369  468) 
+
+
+++ Shortest path for clock SYS_2x_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sys_2x_clk (port)                              32   0    0 r ( 500    0) 
+ sys_2x_clk (port)                              82  21   21 r ( 500    0) 
+ sys_2x_clk (net)                       5  34                 
+ I_RISC_CORE/bufbdf_G1B1I1/I (bufbda)           83   3   24 r ( 589  416) 
+ I_RISC_CORE/bufbdf_G1B1I1/Z (bufbda)          177 190  215 r ( 586  417) 
+ I_RISC_CORE/sys_2x_clk_G1B1I1 (net)   51 179                 
+ I_RISC_CORE/I_PRGRM_CNT_TOP/I_PRGRM_FSM/Current_State_reg_1_/CP (sdcrq1)
+                                               177   0  215 r ( 589  412) 
+
+
+++ Longest path for clock SYS_2x_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sys_2x_clk (port)                              32   0    0 r ( 500    0) 
+ sys_2x_clk (port)                               0   0    0 r ( 500    0) 
+ sys_2x_clk (net)                       5  34                 
+ I_RISC_CORE/bufbda_G1B1I4/I (buffda)            5   1    1 r ( 461  405) 
+ I_RISC_CORE/bufbda_G1B1I4/Z (buffda)            0   0    1 r ( 464  404) 
+ I_RISC_CORE/sys_2x_clk_G1B1I4 (net)   80 287                 
+ I_RISC_CORE/I_INSTRN_LAT/Crnt_Instrn_1_reg_15_/CP (senrq1)
+                                                16   5    6 r ( 369  468) 
+
+
+++ Shortest path for clock SYS_2x_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sys_2x_clk (port)                              32   0    0 r ( 500    0) 
+ sys_2x_clk (port)                               0   0    0 r ( 500    0) 
+ sys_2x_clk (net)                       5  34                 
+ I_RISC_CORE/bufbd2_G1B1I3/I (bufbd2)            2   1    1 r ( 500  198) 
+ I_RISC_CORE/bufbd2_G1B1I3/Z (bufbd2)            0   0    1 r ( 501  198) 
+ I_RISC_CORE/sys_2x_clk_G1B1I3 (net)    7  66                 
+ I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM/CE1 (ram16x128)
+                                                 1   0    1 r ( 483  188) 
+
+Report DRC violations for clock SYS_2x_CLK (final)
+Total 0 DRC violations for clock SYS_2x_CLK (final)
+
+
+Starting optimization for clock SYS_CLK.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_CLK : 0.500 ns
+
+********************************************
+* Preoptimization report (clock 'SYS_CLK') *
+********************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.038 0.128 0.139)
+    Estimated Insertion Delay (r/f/b) = (0.575 0.564 0.575)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.006 0.002 0.006)
+    Estimated Insertion Delay (r/f/b) = (0.007 0.003 0.007)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 3.3 pf
+  Max transition = 0.282 ns
+  Cells = 22 (area=68.750000)
+  Buffers = 20 (area=66.000000)
+  Others = 1 (area=2.750000)
+  Buffer Types
+  ============
+    bufbd4: 5
+    bufbda: 7
+    bufbdf: 4
+    buffd7: 3
+    bufbd2: 1
+  Other Cells
+  ===========
+    ora21d4: 1
+
+Report DRC violations for clock SYS_CLK (initial)
+Total 0 DRC violations for clock SYS_CLK (initial)
+Deleting cell bufbda_G1B4I1 and output net sys_clk_G1B1I1.
+ iteration 1: (0.135599, 0.561342) [1]
+ Total 1 buffers removed on clock SYS_CLK  (corner 1)
+ Start (0.435, 0.574), End (0.426, 0.561) 
+
+RC optimization for clock 'SYS_CLK'
+Corner sensitivity to RC skew (normalized to the first corner):
+  Corner 'max': +0.000
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+Coarse optimization for clock 'SYS_CLK'
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+ No back-to-back buffer chains found
+ Start (0.409, 0.548), End (0.409, 0.548) 
+
+Detailed optimization for clock 'SYS_CLK'
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_CLK : 0.500 ns
+Starting optimization pass for clock SYS_CLK:
+Start path based optimization 
+ Start (0.410, 0.549), End (0.410, 0.549) 
+
+ iteration 1: (0.131198, 0.540816) [0]
+ iteration 2: (0.128983, 0.538601) [0]
+ iteration 3: (0.127867, 0.537484) [0]
+ iteration 4: (0.125087, 0.534705) [0]
+ iteration 5: (0.122590, 0.532207) [0]
+ Total 5 cells sized on clock SYS_CLK (LP) (corner 0)
+ Start (0.410, 0.549), End (0.410, 0.532) 
+
+14%   23%   33%   42%   52%   61%   71%   80%   90%   100%   
+ Start (0.410, 0.532), End (0.410, 0.532) 
+
+ Start (0.410, 0.532), End (0.410, 0.532) 
+
+ Start (0.410, 0.532), End (0.410, 0.532) 
+
+ Start (0.410, 0.532), End (0.410, 0.532) 
+
+ iteration 6: (0.117644, 0.532207) [0]
+ iteration 7: (0.114229, 0.532207) [0]
+ iteration 8: (0.112561, 0.532207) [0]
+ iteration 9: (0.065951, 0.532207) [0]
+ iteration 10: (0.059476, 0.532207) [0]
+ Total 1 delay buffers added on clock SYS_CLK (SP) (corner 0)
+ Total 4 cells sized on clock SYS_CLK (SP) (corner 0)
+ Start (0.410, 0.532), End (0.473, 0.532) 
+
+ iteration 11: (0.057819, 0.534091) [0]
+ Total 1 cells sized on clock SYS_CLK (SP) (corner 0)
+ Start (0.473, 0.532), End (0.476, 0.534) 
+
+Start area recovery: (0.476272, 0.534091)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock SYS_CLK : 0.500 ns
+Switch to low metal layer for clock 'SYS_CLK':
+
+ Total 17 out of 22 nets switched to low metal layer for clock 'SYS_CLK' with largest cap change 10.38 percent
+Switch metal layer for area recovery: (0.476938, 0.534091)
+ Start (0.477, 0.534), End (0.477, 0.534) 
+
+Buffer removal for area recovery: (0.476938, 0.534091)
+Area recovery optimization for clock 'SYS_CLK':
+13%   22%   31%   40%   50%   63%   72%   81%   90%   100%   
+Sizing for area recovery: (0.476938, 0.533271)
+
+ Total 0 buffers removed (all paths) for clock 'SYS_CLK'
+Path buffer removal for area recovery: (0.476938, 0.533271)
+Buffer pair removal for area recovery: (0.476938, 0.533271)
+End area recovery: (0.476938, 0.533271)
+
+*****************************************************
+* Multicorner optimization report (clock 'SYS_CLK') *
+*****************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.055 0.005 0.056)
+    Estimated Insertion Delay (r/f/b) = (0.533 0.482 0.533)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.006 0.000 0.006)
+    Estimated Insertion Delay (r/f/b) = (0.006 0.003 0.006)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 3.3 pf
+  Max transition = 0.375 ns
+  Cells = 22 (area=53.250000)
+  Buffers = 20 (area=51.000000)
+  Others = 1 (area=2.250000)
+  Buffer Types
+  ============
+    bufbd4: 2
+    buffd4: 2
+    buffd7: 6
+    buffda: 2
+    bufbd7: 2
+    bufbd3: 3
+    buffd2: 1
+    buffd3: 2
+  Other Cells
+  ===========
+    ora21d2: 1
+
+
+++ Longest path for clock SYS_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sys_clk (port)                                 32   0    0 r ( 312  748) 
+ sys_clk (port)                                 52   5    5 r ( 312  748) 
+ sys_clk (net)                          2   8                 
+ bufbd2_G1B2I1/I (buffd3)                       52   0    5 r ( 315  571) 
+ bufbd2_G1B2I1/Z (buffd3)                       52  95  100 r ( 313  571) 
+ sys_clk_G1B2I1 (net)                   1   4                 
+ CTS_SYS_CLK_CTO_delay26/I (bufbd3)             52   0  100 r ( 315  530) 
+ CTS_SYS_CLK_CTO_delay26/Z (bufbd3)            177 156  256 r ( 317  530) 
+ CTS_SYS_CLK_CTO_delay261 (net)        10  56                 
+ bufbdf_G1B1I8/I (buffd3)                      177   0  257 r ( 381  475) 
+ bufbdf_G1B1I8/Z (buffd3)                      374 274  530 r ( 380  476) 
+ sys_clk_G1B3I8 (net)                  46 161                 
+ I_PARSER/r_pcmd_reg_2_/CP (sdnrn1)            374   3  533 r ( 384  527) 
+
+
+++ Shortest path for clock SYS_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ sys_clk (port)                                 32   0    0 f ( 312  748) 
+ sys_clk (port)                                 46   5    5 f ( 312  748) 
+ sys_clk (net)                          2   8                 
+ I_BLENDER_1/U483/A (ora21d2)                   46   0    5 f ( 265  261) 
+ I_BLENDER_1/U483/Z (ora21d2)                  245 207  212 f ( 262  261) 
+ I_BLENDER_1/gclk (net)                 8  52                 
+ I_BLENDER_1/bufbda_G2B1I8/I (buffda)          245   2  214 f ( 209  379) 
+ I_BLENDER_1/bufbda_G2B1I8/Z (buffda)          237 262  476 f ( 206  380) 
+ I_BLENDER_1/gclk_G2B1I8 (net)         70 245                 
+ I_BLENDER_1/LOCKUP/EN (lanlq1)                237   1  477 f ( 155  401) 
+
+
+++ Longest path for clock SYS_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sys_clk (port)                                 32   0    0 r ( 312  748) 
+ sys_clk (port)                                  0   0    0 r ( 312  748) 
+ sys_clk (net)                          2   8                 
+ bufbd2_G1B2I1/I (buffd3)                        0   0    0 r ( 315  571) 
+ bufbd2_G1B2I1/Z (buffd3)                        0   0    0 r ( 313  571) 
+ sys_clk_G1B2I1 (net)                   1   4                 
+ CTS_SYS_CLK_CTO_delay26/I (bufbd3)              0   0    0 r ( 315  530) 
+ CTS_SYS_CLK_CTO_delay26/Z (bufbd3)              0   0    0 r ( 317  530) 
+ CTS_SYS_CLK_CTO_delay261 (net)        10  56                 
+ buffd7_G1B1I6/I (bufbd7)                        2   1    1 r ( 187  431) 
+ buffd7_G1B1I6/Z (bufbd7)                        0   0    1 r ( 184  432) 
+ sys_clk_G1B3I6 (net)                  53 206                 
+ I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/reg_array_reg_7__24_/CP (senrq1)
+                                                19   6    6 r ( 229  449) 
+
+
+++ Shortest path for clock SYS_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ sys_clk (port)                                 32   0    0 r ( 312  748) 
+ sys_clk (port)                                  0   0    0 r ( 312  748) 
+ sys_clk (net)                          2   8                 
+ bufbd2_G1B2I1/I (buffd3)                        0   0    0 r ( 315  571) 
+ bufbd2_G1B2I1/Z (buffd3)                        0   0    0 r ( 313  571) 
+ sys_clk_G1B2I1 (net)                   1   4                 
+ CTS_SYS_CLK_CTO_delay26/I (bufbd3)              0   0    0 r ( 315  530) 
+ CTS_SYS_CLK_CTO_delay26/Z (bufbd3)              0   0    0 r ( 317  530) 
+ CTS_SYS_CLK_CTO_delay261 (net)        10  56                 
+ bufbdf_G1B1I8/I (buffd3)                        1   0    0 r ( 381  475) 
+ bufbdf_G1B1I8/Z (buffd3)                        0   0    0 r ( 380  476) 
+ sys_clk_G1B3I8 (net)                  46 161                 
+ I_PARSER/i_reg_reg_15_/CP (sdnrn1)              0   0    0 r ( 377  476) 
+
+Report DRC violations for clock SYS_CLK (final)
+Total 0 DRC violations for clock SYS_CLK (final)
+
+
+Starting optimization for clock PCI_CLK.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock PCI_CLK : 0.500 ns
+
+********************************************
+* Preoptimization report (clock 'PCI_CLK') *
+********************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.027 0.000 0.027)
+    Estimated Insertion Delay (r/f/b) = (0.238 0.223 0.238)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.003 0.000 0.003)
+    Estimated Insertion Delay (r/f/b) = (0.004 0.002 0.004)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 0.8 pf
+  Max transition = 0.249 ns
+  Cells = 5 (area=13.750000)
+  Buffers = 4 (area=13.750000)
+  Buffer Types
+  ============
+    bufbda: 1
+    bufbd4: 1
+    buffd7: 1
+    bufbdf: 1
+
+Report DRC violations for clock PCI_CLK (initial)
+Total 0 DRC violations for clock PCI_CLK (initial)
+ Start (0.213, 0.240), End (0.213, 0.240) 
+
+RC optimization for clock 'PCI_CLK'
+Corner sensitivity to RC skew (normalized to the first corner):
+  Corner 'max': +0.000
+20%   40%   60%   80%   100%   
+20%   40%   60%   80%   100%   
+Coarse optimization for clock 'PCI_CLK'
+20%   40%   60%   80%   100%   
+20%   40%   60%   80%   100%   
+20%   40%   60%   80%   100%   
+20%   40%   60%   80%   100%   
+ No back-to-back buffer chains found
+ Start (0.202, 0.239), End (0.202, 0.239) 
+
+Detailed optimization for clock 'PCI_CLK'
+20%   40%   60%   80%   100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock PCI_CLK : 0.500 ns
+Starting optimization pass for clock PCI_CLK:
+Start path based optimization 
+ Start (0.201, 0.238), End (0.201, 0.238) 
+
+ iteration 1: (0.032324, 0.232476) [0]
+ iteration 2: (0.031105, 0.231591) [0]
+ Total 2 cells sized on clock PCI_CLK (LP) (corner 0)
+ Start (0.201, 0.238), End (0.200, 0.232) 
+
+20%   40%   60%   80%   100%   
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+Start area recovery: (0.200486, 0.231591)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock PCI_CLK : 0.500 ns
+Switch to low metal layer for clock 'PCI_CLK':
+
+ Total 3 out of 5 nets switched to low metal layer for clock 'PCI_CLK' with largest cap change 0.00 percent
+Switch metal layer for area recovery: (0.200486, 0.231591)
+ Start (0.200, 0.232), End (0.200, 0.232) 
+
+Buffer removal for area recovery: (0.200486, 0.231591)
+Area recovery optimization for clock 'PCI_CLK':
+20%   40%   60%   80%   100%   
+Sizing for area recovery: (0.200486, 0.231591)
+
+ Total 0 buffers removed (all paths) for clock 'PCI_CLK'
+Path buffer removal for area recovery: (0.200486, 0.231591)
+Buffer pair removal for area recovery: (0.200486, 0.231591)
+End area recovery: (0.200486, 0.231591)
+
+*****************************************************
+* Multicorner optimization report (clock 'PCI_CLK') *
+*****************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.020 0.000 0.031)
+    Estimated Insertion Delay (r/f/b) = (0.220 0.232 0.232)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.003 0.000 0.003)
+    Estimated Insertion Delay (r/f/b) = (0.004 0.003 0.004)
+  Wire capacitance =  0.0 pf
+  Total capacitance = 0.8 pf
+  Max transition = 0.256 ns
+  Cells = 5 (area=12.500000)
+  Buffers = 4 (area=12.500000)
+  Buffer Types
+  ============
+    buffd7: 2
+    buffda: 1
+    buffd4: 1
+
+
+++ Longest path for clock PCI_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ pclk (port)                                    32   0    0 f ( 328  748) 
+ pclk (port)                                    68  17   17 f ( 328  748) 
+ pclk (net)                             4  27                 
+ I_PCI_TOP/bufbd4_G1B1I1/I (buffd4)             68   1   18 f ( 225  726) 
+ I_PCI_TOP/bufbd4_G1B1I1/Z (buffd4)            256 210  228 f ( 227  726) 
+ I_PCI_TOP/pclk_G1B1I1 (net)           31 108                 
+ I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/LOCKUP/EN (lanlq1)
+                                               256   4  232 f ( 137  700) 
+
+
+++ Shortest path for clock PCI_CLK in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ pclk (port)                                    32   0    0 r ( 328  748) 
+ pclk (port)                                    72  17   17 r ( 328  748) 
+ pclk (net)                             4  27                 
+ I_PCI_TOP/bufbd4_G1B1I1/I (buffd4)             72   1   18 r ( 225  726) 
+ I_PCI_TOP/bufbd4_G1B1I1/Z (buffd4)            217 180  197 r ( 227  726) 
+ I_PCI_TOP/pclk_G1B1I1 (net)           31 108                 
+ I_PCI_TOP/I_PCI_CORE/mega_shift_reg_2__10_/CP (sdcrq1)
+                                               218   3  200 r ( 145  719) 
+
+
+++ Longest path for clock PCI_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ pclk (port)                                    32   0    0 r ( 328  748) 
+ pclk (port)                                     0   0    0 r ( 328  748) 
+ pclk (net)                             4  27                 
+ buffd7_G1B1I2/I (buffd7)                        3   1    1 r ( 161  486) 
+ buffd7_G1B1I2/Z (buffd7)                        0   0    1 r ( 164  485) 
+ pclk_G1B1I2 (net)                     50 203                 
+ I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4/CE2 (ram8x64)
+                                                12   4    4 r ( 138  216) 
+
+
+++ Shortest path for clock PCI_CLK in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ pclk (port)                                    32   0    0 r ( 328  748) 
+ pclk (port)                                     0   0    0 r ( 328  748) 
+ pclk (net)                             4  27                 
+ buffd7_G1B1I2/I (buffd7)                        3   1    1 r ( 161  486) 
+ buffd7_G1B1I2/Z (buffd7)                        0   0    1 r ( 164  485) 
+ pclk_G1B1I2 (net)                     50 203                 
+ I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_21_/CP (sdcrq2)
+                                                 1   0    1 r ( 161  486) 
+
+Report DRC violations for clock PCI_CLK (final)
+Total 0 DRC violations for clock PCI_CLK (final)
+
+  Legalizing Placement
+  --------------------
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+ 
+****************************************
+  Report : Chip Summary
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:27:32 2023
+****************************************
+Std cell utilization: 79.89%  (142171/(333120-155172))
+(Non-fixed + Fixed)
+Std cell utilization: 79.83%  (141627/(333120-155716))
+(Non-fixed only)
+Chip area:            333120   sites, bbox (20.00 20.00 731.35 728.48) um
+Std cell area:        142171   sites, (non-fixed:141627 fixed:544)
+                      10713    cells, (non-fixed:10669  fixed:44)
+Macro cell area:      145612   sites
+                      12       cells
+Placement blockages:  155172   sites, (excluding fixed std cells)
+                      155716   sites, (include fixed std cells & chimney area)
+                      0        sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      7168     sites, (routing blockages and signal pre-route)
+Lib cell count:       75 
+Avg. std cell width:  5.51 um 
+Site array:           unit     (width: 0.41 um, height: 3.69 um, rows: 192)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:27:32 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL      none          ---         ---       via additive      ---
+METAL2     partial     7.38        1.84        via additive      ---
+METAL3     partial     10000.00    10000.00    via additive      ---
+METAL4     partial     10000.00    10000.00    via additive      ---
+METAL5     none          ---         ---       via additive      ---
+METAL6     none          ---         ---       via additive      ---
+Legalizing 53 illegal cells...
+Starting legalizer.
+Initial legalization:  10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0 sec)
+Optimizations pass 1: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.2 sec)
+Optimizations pass 2: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.1 sec)
+Optimizations pass 3: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.2 sec)
+Legalization complete (1 total sec)
+ 
+****************************************
+  Report : Legalize Displacement
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:27:34 2023
+****************************************
+
+avg cell displacement:    2.470 um ( 0.67 row height)
+max cell displacement:    8.992 um ( 2.44 row height)
+std deviation:            2.012 um ( 0.55 row height)
+number of cell moved:       472 cells (out of 10669 cells)
+
+Total 0 cells has large displacement (e.g. > 11.070 um or 3 row height)
+
+
+  Placement Legalization Complete
+  -------------------------------
+
+Information: Updating database...
+Unsetting the GR Options
+LR: 32 out of 46 clock nets rerouted
+LR: Clock routing service terminated
+Invalidate design extracted status
+Optimize clock tree Successful...
+clock_opt completed Successfully
+1
+icc_shell> clock_opt -only_psyn -no_clock_route
+Warning: Starting from the 2011.09-SP4 release, clock_opt will NOT perform congestion-driven placement by default. (PSYN-1111)
+
+The options for clock_opt:
+--------------------------
+COPT:  Clock Tree Synthesis                 : No
+COPT:  Post CTS Optimization                : Yes
+COPT:  Concurrent Clock/Data Optimization   : No
+COPT:  Route Clock Nets                     : No
+COPT:  Update Clock Latency                 : No
+COPT:  Optimize Hold for All Clocks         : No
+COPT:  Optimize Hold Timing Only            : No
+COPT:  Optimize DFT                         : No
+COPT:  Area Recovery                        : No
+COPT:  Size Only                            : No
+COPT:  In Place Size Only                   : No
+COPT:  Congestion removal                   : No
+COPT:  Optimize Power                       : No
+---------------------------------------------------
+
+Executing ICC clock_opt...
+medium
+*
+Performing optimization...
+
+  Loading design 'ORCA_TOP'
+
+
+
+
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+Warning: Cannot freeze clock timing since none of the clock nets are routed/extracted. (TIM-224)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL : 2e-07 2e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL : 0.00068 0.00037 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 2.5e-07 2.5e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.0004 0.00022 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 2.5e-07 2.5e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.0004 0.00021 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 2.1e-07 2e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00041 0.00022 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 2.1e-07 2.1e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.0002 0.00011 (RCEX-011)
+Information: Library Derived Cap for layer METAL6 : 2.7e-07 2.6e-07 (RCEX-011)
+Information: Library Derived Res for layer METAL6 : 6.1e-05 3.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 2.2e-07 2.2e-07 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00043 0.00023 (RCEX-011)
+Information: Library Derived Vertical Cap : 2.4e-07 2.4e-07 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00029 0.00015 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.00061 0.00019 (RCEX-011)
+
+  Design  WNS: 0.0301  TNS: 0.0301  Number of Violating Paths: 1
+
+  Nets with DRC Violations: 0
+  Total moveable cell area: 214267.5
+  Total fixed cell area: 215682.5
+  Total physical cell area: 429950.0
+  Core area: (20000 20000 731350 728480)
+
+
+                  Incremental high fanout optimization starts
+================================================================
+
+ Updating Timing ........ 
+ Done
+
+
+ Beginning Buffering Optimizations
+ ---------------------------------
+
+ Collecting Buffer Trees ... Found 13
+
+ Processing Buffer Trees ... 
+
+    [2]  10% ...
+    [4]  20% ...
+    [6]  30% ...
+    [8]  40% ...
+    [10]  50% ...
+    [12]  60% ...
+    [13] 100% Done ...
+
+
+Information: Automatic high-fanout synthesis deletes 2 cells. (HFS-802)
+Information: Automatic high-fanout synthesis adds 48 new cells. (PSYN-864)
+
+
+                  Incremental high fanout optimization completes
+================================================================
+
+
+  Design  WNS: 0.0301  TNS: 0.0301  Number of Violating Paths: 1
+
+  Nets with DRC Violations: 0
+  Total moveable cell area: 214751.6
+  Total fixed cell area: 215682.5
+  Total physical cell area: 430434.1
+  Core area: (20000 20000 731350 728480)
+
+
+  No hold constraints
+
+
+  Timing and DRC Optimization (Stage 1)
+  --------------------------------------
+
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:12   71127.3      0.03       0.0       1.3                          
+    0:00:13   71128.8      0.00       0.0       1.3                          
+
+
+  Beginning Phase 1 Design Rule Fixing  (max_transition)
+  ------------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:13   71128.8      0.00       0.0       1.3                          
+    0:00:15   71125.3      0.00       0.0      52.0                          
+    0:00:16   71118.3      0.00       0.0      52.0                          
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+    0:00:17   71078.3      0.00       0.0     506.0                          
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+
+  Placement Optimization (Stage 1)
+  -----------------------------------------------------
+
+Information: Running stand-alone coarse placer in a separate process using temp directory '/tmp'. (PSYN-605)
+Information: Executable name is '/opt/synopsys/icc_2016/linux64/syn/bin/rpsa_exec'.  (PSYN-877)
+43%...57%...71%...86%...100% done.
+Memory usage for placement task 68 Mbytes -- main task 423 Mbytes.
+
+Information: Analyzing channel congestion ... 
+LC: =      16233;  NCBT =          2;  CBI =         20;  CBT =          2;  OBT =        839;  PBT = 0.238379%;  ABI =        992;  PCBI = 2.016129%;  PCT = 0.123206%
+Information: Congestion analysis found 0 buffer-trees to rebuild
+
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+ 
+****************************************
+  Report : Chip Summary
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:34 2023
+****************************************
+Std cell utilization: 79.96%  (142295/(333120-155172))
+(Non-fixed + Fixed)
+Std cell utilization: 79.90%  (141751/(333120-155716))
+(Non-fixed only)
+Chip area:            333120   sites, bbox (20.00 20.00 731.35 728.48) um
+Std cell area:        142295   sites, (non-fixed:141751 fixed:544)
+                      10743    cells, (non-fixed:10699  fixed:44)
+Macro cell area:      145612   sites
+                      12       cells
+Placement blockages:  155172   sites, (excluding fixed std cells)
+                      155716   sites, (include fixed std cells & chimney area)
+                      0        sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      7168     sites, (routing blockages and signal pre-route)
+Lib cell count:       67 
+Avg. std cell width:  5.48 um 
+Site array:           unit     (width: 0.41 um, height: 3.69 um, rows: 192)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:34 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL      none          ---         ---       via additive      ---
+METAL2     partial     7.38        1.84        via additive      ---
+METAL3     partial     10000.00    10000.00    via additive      ---
+METAL4     partial     10000.00    10000.00    via additive      ---
+METAL5     none          ---         ---       via additive      ---
+METAL6     none          ---         ---       via additive      ---
+Legalizing 8672 illegal cells...
+Starting legalizer.
+Initial legalization:  10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0 sec)
+Optimizations pass 1: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.4 sec)
+Optimizations pass 2: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.2 sec)
+Optimizations pass 3: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.2 sec)
+Legalization complete (1 total sec)
+ 
+****************************************
+  Report : Legalize Displacement
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:35 2023
+****************************************
+
+avg cell displacement:    1.080 um ( 0.29 row height)
+max cell displacement:   12.359 um ( 3.35 row height)
+std deviation:            1.106 um ( 0.30 row height)
+number of cell moved:      8871 cells (out of 10699 cells)
+
+Largest displacement cells:
+  Cell: I_SDRAM_TOP/I_SDRAM_READ_FIFO/U435 (aoi2222d1)
+    Input location: (672.555 647.300)
+    Legal location: (678.050 658.370)
+    Displacement: 12.359 um, e.g. 3.35 row height.
+  Cell: I_BLENDER_1/sub_170/U22 (nd02d0)
+    Input location: (149.560 235.670)
+    Legal location: (156.530 245.090)
+    Displacement: 11.718 um, e.g. 3.18 row height.
+
+Total 2 cells has large displacement (e.g. > 11.070 um or 3 row height)
+
+
+  Placement Optimization Complete
+  -------------------------------
+
+
+  Design  WNS: 0.0000  TNS: 0.0000  Number of Violating Paths: 0
+
+  Nets with DRC Violations: 0
+  Total moveable cell area: 214455.1
+  Total fixed cell area: 215682.5
+  Total physical cell area: 430137.6
+  Core area: (20000 20000 731350 728480)
+
+
+  No hold constraints
+
+
+  Timing and DRC Optimization (Stage 2)
+  --------------------------------------
+
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:04   71078.3      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+    0:01:07   71077.1      0.00       0.0     506.0                          
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+Warning: Warning: Target library does not have any constant lib_cells so tool cannot replace virtual constants.  (OPT-223)
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+
+  Placement Optimization (Stage 2)
+  -----------------------------------------------------
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+ 
+****************************************
+  Report : Chip Summary
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:43 2023
+****************************************
+Std cell utilization: 79.96%  (142290/(333120-155172))
+(Non-fixed + Fixed)
+Std cell utilization: 79.90%  (141746/(333120-155716))
+(Non-fixed only)
+Chip area:            333120   sites, bbox (20.00 20.00 731.35 728.48) um
+Std cell area:        142290   sites, (non-fixed:141746 fixed:544)
+                      10742    cells, (non-fixed:10698  fixed:44)
+Macro cell area:      145612   sites
+                      12       cells
+Placement blockages:  155172   sites, (excluding fixed std cells)
+                      155716   sites, (include fixed std cells & chimney area)
+                      0        sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      7168     sites, (routing blockages and signal pre-route)
+Lib cell count:       67 
+Avg. std cell width:  5.48 um 
+Site array:           unit     (width: 0.41 um, height: 3.69 um, rows: 192)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:43 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL      none          ---         ---       via additive      ---
+METAL2     partial     7.38        1.84        via additive      ---
+METAL3     partial     10000.00    10000.00    via additive      ---
+METAL4     partial     10000.00    10000.00    via additive      ---
+METAL5     none          ---         ---       via additive      ---
+METAL6     none          ---         ---       via additive      ---
+ 
+****************************************
+  Report : Legalize Displacement
+  Design : ORCA_TOP
+  Version: L-2016.03-SP1
+  Date   : Sun May 14 07:39:43 2023
+****************************************
+
+No cell displacement.
+
+
+  Placement Optimization Complete
+  -------------------------------
+
+
+  Design  WNS: 0.0000  TNS: 0.0000  Number of Violating Paths: 0
+
+  Nets with DRC Violations: 0
+  Total moveable cell area: 214447.5
+  Total fixed cell area: 215682.5
+  Total physical cell area: 430130.0
+  Core area: (20000 20000 731350 728480)
+
+
+  No hold constraints
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 6 routable metal layers
+    This is considered as a 6-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 192 horizontal rows
+    24 route guides
+    1111 pre-routes for placement blockage/checking
+    1111 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 576 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+Warning: Die area is not integer multiples of min site height (3690), object's width and height(751760,748480). (PSYN-523)
+Warning: Die area is not integer multiples of min site width (410), object's width and height(751760,748480). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is not integer multiples of min site width (410), object's width and height(174160,162450). (PSYN-523)
+Warning: Cell I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM is not integer multiples of min site height (3690), object's width and height(162450,162450). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site width (410), object's width and height(104080,122130). (PSYN-523)
+Warning: Cell I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1 is not integer multiples of min site height (3690), object's width and height(122130,122130). (PSYN-523)
+
+**************************************************** 
+Check_legality: Report for Fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+**************************************************** 
+(fixed placement) Cells Not on Row            : 0
+(fixed placement) Cell Overlaps               : 0
+(fixed placement) Cells overlapping blockages : 0
+(fixed placement) Orientation Violations      : 0
+(fixed placement) Site Violations             : 0
+(fixed placement) Power Strap Violations      : 0
+****************************************************** 
+
+****************************************************** 
+Check_legality: Report for Non-fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+****************************************************** 
+Number of Cells Not on Row            : 0
+Number of Cell Overlaps               : 0
+Number of Cells overlapping blockages : 0
+Number of Orientation Violations      : 0
+Number of Site Violations             : 0
+Number of Power Strap Violations      : 0
+******************************************** 
+--------------------------------------------------
+QoR Report for physical synthesis (Final Placement)
+--------------------------------------------------
+CPU: 538, MEM: 447459328
+
+
+  Timing Path Group 'COMBO'
+  -----------------------------------
+  Levels of Logic:             2.0000
+  Critical Path Length:        1.3127
+  Critical Path Slack:         1.9510
+  Critical Path Clk Period:    7.5000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'INPUTS'
+  -----------------------------------
+  Levels of Logic:             0.0000
+  Critical Path Length:        0.0044
+  Critical Path Slack:         0.6868
+  Critical Path Clk Period:    7.5000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'OUTPUTS'
+  -----------------------------------
+  Levels of Logic:             1.0000
+  Critical Path Length:        1.0408
+  Critical Path Slack:         1.9230
+  Critical Path Clk Period:    7.5000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'PCI_CLK'
+  -----------------------------------
+  Levels of Logic:             0.0000
+  Critical Path Length:        0.8419
+  Critical Path Slack:         6.3769
+  Critical Path Clk Period:   15.0000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'SDRAM_CLK'
+  -----------------------------------
+  Levels of Logic:             1.0000
+  Critical Path Length:        0.5860
+  Critical Path Slack:         2.6116
+  Critical Path Clk Period:    7.5000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'SYS_2x_CLK'
+  -----------------------------------
+  Levels of Logic:            16.0000
+  Critical Path Length:        3.4000
+  Critical Path Slack:         0.0365
+  Critical Path Clk Period:    4.0000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+  Timing Path Group 'SYS_CLK'
+  -----------------------------------
+  Levels of Logic:            29.0000
+  Critical Path Length:        7.6062
+  Critical Path Slack:         0.0044
+  Critical Path Clk Period:    8.0000
+  Total Negative Slack:        0.0000
+  No. of Violating Paths:      0.0000
+  Worst Hold Violation:        0.0000
+  Total Hold Violation:        0.0000
+  No. of Hold Violations:      0.0000
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         74
+  Hierarchical Port Count:       5240
+  Leaf Cell Count:              10754
+  Buf/Inv Cell Count:            1190
+  Buf Cell Count:                 179
+  Inv Cell Count:                1011
+  CT Buf/Inv Cell Count:           42
+  Combinational Cell Count:      8766
+  Sequential Cell Count:         1988
+  Macro Count:                     12
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:      18508.7500
+  Noncombinational Area:   17056.2500
+  Buf/Inv Area:             1072.0000
+  Total Buffer Area:         313.7500
+  Total Inverter Area:       758.2500
+  Macro/Black Box Area:    35512.0605
+  Net Area:                 9672.4539
+  Net XLength        :    242105.9062
+  Net YLength        :    244163.6875
+  -----------------------------------
+  Cell Area:               71077.0605
+  Design Area:             80749.5145
+  Net Length        :     486269.5938
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         12750
+  Nets With Violations:            50
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  Max Fanout Violations:           50
+  -----------------------------------
+
+
+  Hostname: crazy_one
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                  0.0000
+  Logic Optimization:                0.0000
+  Mapping Optimization:             20.0959
+  -----------------------------------------
+  Overall Compile Time:             21.0578
+  Overall Compile Wall Clock Time:  23.1880
+
+
+
+Information: Updating database...
+clock_opt completed Successfully
+1
+icc_shell> set_clock_tree_references
+Error: Required argument '-references' was not found (CMD-007)
+icc_shell> 

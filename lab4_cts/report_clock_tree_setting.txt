@@ -1,0 +1,415 @@
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 09:24:16 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+Global Settings for clock trees
+-------------------------------
+Logic Level Balance: False
+OCV Aware Clustering: False
+OCV Path Sharing: True
+Advanced DRC fixing: False
+Insert Boundary cell: False
+Operating condition: max
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400.000000
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+Config file read: None
+Config file write: None
+Use default routing rule for sinks: Yes, for bottom level
+Use leaf routing rule for sinks: Not specified
+Global nondefault routing rule: CLOCK_DOUBLE_SPACING
+Global layer_list: METAL3 METAL5
+
+Clock Tree Settings for clock PCI_CLK at root pin pclk
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+
+Nets with nondefault routing rules for clock PCI_CLK at root pin pclk:
+pclk :   CLOCK_DOUBLE_SPACING
+pclk_G1B1I2 :   CLOCK_DOUBLE_SPACING
+pclk_G1B1I3 :   CLOCK_DOUBLE_SPACING
+I_PCI_TOP/pclk_G1B1I1 :   CLOCK_DOUBLE_SPACING
+I_PCI_TOP/I_PCI_CORE/pclk_G1B1I4 :   CLOCK_DOUBLE_SPACING
+ ---------- All other nets use DEFAULT routing rule -----------
+
+Layers Available for Clock Routing {
+    "METAL3"
+    "METAL5"
+     and all layers in between min and max layers if applicable.
+}
+Buffers Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/dl04d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl04d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl03d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl03d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl02d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl02d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl01d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl01d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/buffd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/bufbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/bufbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/bufbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/bufbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl04d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl03d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl02d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl01d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/clk2d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/buffd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/buffd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/buffd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/bufbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/bufbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/bufbd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/bufbd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+}
+Inverters Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/invbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/invbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/invbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/invbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/invbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/invbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0da"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/inv0d7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/inv0d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/inv0d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/inv0d0"  ( maxTrans: 3.000     , maxLoad: 0.175     , maxFanout: 18      )
+}
+Clock Tree Settings for clock SYS_CLK at root pin sys_clk
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+
+Nets with nondefault routing rules for clock SYS_CLK at root pin sys_clk:
+sys_clk :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B2I1 :   CLOCK_DOUBLE_SPACING
+CTS_SYS_CLK_CTO_delay261 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/I_SDRAM_READ_FIFO/sys_clk_G1B3I1 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I7 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I10 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I4 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I3 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I9 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I5 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I2 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I6 :   CLOCK_DOUBLE_SPACING
+sys_clk_G1B3I8 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I1 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I2 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I3 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I4 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I5 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I6 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I7 :   CLOCK_DOUBLE_SPACING
+I_BLENDER_1/gclk_G2B1I8 :   CLOCK_DOUBLE_SPACING
+ ---------- All other nets use DEFAULT routing rule -----------
+
+Layers Available for Clock Routing {
+    "METAL3"
+    "METAL5"
+     and all layers in between min and max layers if applicable.
+}
+Buffers Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/dl04d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl04d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl03d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl03d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl02d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl02d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl01d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl01d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/buffd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/bufbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/bufbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/bufbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/bufbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl04d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl03d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl02d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl01d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/clk2d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/buffd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/buffd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/buffd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/bufbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/bufbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/bufbd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/bufbd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+}
+Inverters Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/invbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/invbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/invbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/invbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/invbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/invbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0da"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/inv0d7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/inv0d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/inv0d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/inv0d0"  ( maxTrans: 3.000     , maxLoad: 0.175     , maxFanout: 18      )
+}
+Clock Tree Settings for clock SYS_2x_CLK at root pin sys_2x_clk
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+
+Nets with nondefault routing rules for clock SYS_2x_CLK at root pin sys_2x_clk:
+sys_2x_clk :   CLOCK_DOUBLE_SPACING
+I_RISC_CORE/sys_2x_clk_G1B1I3 :   CLOCK_DOUBLE_SPACING
+I_RISC_CORE/sys_2x_clk_G1B1I4 :   CLOCK_DOUBLE_SPACING
+I_RISC_CORE/sys_2x_clk_G1B1I1 :   CLOCK_DOUBLE_SPACING
+I_RISC_CORE/sys_2x_clk_G1B1I2 :   CLOCK_DOUBLE_SPACING
+I_RISC_CORE/sys_2x_clk_G1B1I5 :   CLOCK_DOUBLE_SPACING
+ ---------- All other nets use DEFAULT routing rule -----------
+
+Layers Available for Clock Routing {
+    "METAL3"
+    "METAL5"
+     and all layers in between min and max layers if applicable.
+}
+Buffers Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/dl04d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl04d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl03d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl03d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl02d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl02d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl01d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl01d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/buffd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/bufbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/bufbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/bufbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/bufbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl04d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl03d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl02d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl01d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/clk2d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/buffd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/buffd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/buffd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/bufbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/bufbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/bufbd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/bufbd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+}
+Inverters Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/invbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/invbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/invbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/invbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/invbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/invbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0da"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/inv0d7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/inv0d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/inv0d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/inv0d0"  ( maxTrans: 3.000     , maxLoad: 0.175     , maxFanout: 18      )
+}
+Clock Tree Settings for clock SDRAM_CLK at root pin sdram_clk
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+
+Nets with nondefault routing rules for clock SDRAM_CLK at root pin sdram_clk:
+sdram_clk :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I11 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I1 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I2 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I4 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I5 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I6 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I9 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I10 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I7 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/sdram_clk_G1B1I8 :   CLOCK_DOUBLE_SPACING
+sdram_clk_G1IP :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/I_SDRAM_IF/sd_CK :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/I_SDRAM_IF/sdram_clk_G1B1I3 :   CLOCK_DOUBLE_SPACING
+I_SDRAM_TOP/I_SDRAM_IF/sdram_clk_G1B1I12 :   CLOCK_DOUBLE_SPACING
+ ---------- All other nets use DEFAULT routing rule -----------
+
+Layers Available for Clock Routing {
+    "METAL3"
+    "METAL5"
+     and all layers in between min and max layers if applicable.
+}
+Buffers Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/dl04d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl04d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl03d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl03d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl02d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl02d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl01d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl01d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/buffd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/bufbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/bufbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/bufbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/bufbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl04d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl03d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl02d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl01d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/clk2d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/buffd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/buffd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/buffd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/bufbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/bufbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/bufbd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/bufbd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+}
+Inverters Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/invbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/invbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/invbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/invbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/invbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/invbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0da"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/inv0d7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/inv0d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/inv0d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/inv0d0"  ( maxTrans: 3.000     , maxLoad: 0.175     , maxFanout: 18      )
+}
+Clock Tree Settings for clock SD_DDR_CLK at root pin sd_CK
+Target skew: 0.000000
+Target early delay: 0.000000
+Max buffer levels: 400
+Max transition: 0.500000
+Leaf max transition: Not specified
+Use macro pin as leaf: Not specified
+Use exception pin as leaf: Not specified
+Max capacitance: 0.600000
+Max fanout: 2000
+Buffer relocation: Yes
+Buffer sizing: Yes
+Gate relocation: Yes
+Gate sizing: No
+
+Nets with nondefault routing rules for clock SD_DDR_CLK at root pin sd_CK:
+ ---------- All nets use DEFAULT routing rule ----------
+ -------------------------------------------------------
+
+Layers Available for Clock Routing {
+    "METAL3"
+    "METAL5"
+     and all layers in between min and max layers if applicable.
+}
+Buffers Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/dl04d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl04d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl03d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl03d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl02d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl02d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl01d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/dl01d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/buffd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/bufbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/bufbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/bufbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/bufbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/dl04d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl03d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl02d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/dl01d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/clk2d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/buffda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/buffd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/buffd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/buffd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/bufbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/bufbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/bufbd3"  ( maxTrans: 3.000     , maxLoad: 1.050     , maxFanout: 105     )
+    "cb13fs120_tsmc_max/bufbd1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+}
+Inverters Available for Clock Tree Synthesis {
+    "cb13fs120_tsmc_max/invbdk"  ( maxTrans: 3.000     , maxLoad: 7.000     , maxFanout: 700     )
+    "cb13fs120_tsmc_max/invbdf"  ( maxTrans: 3.000     , maxLoad: 5.250     , maxFanout: 525     )
+    "cb13fs120_tsmc_max/invbda"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/invbd7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/invbd4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/invbd2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0da"  ( maxTrans: 3.000     , maxLoad: 3.500     , maxFanout: 350     )
+    "cb13fs120_tsmc_max/inv0d7"  ( maxTrans: 3.000     , maxLoad: 2.450     , maxFanout: 245     )
+    "cb13fs120_tsmc_max/inv0d4"  ( maxTrans: 3.000     , maxLoad: 1.400     , maxFanout: 140     )
+    "cb13fs120_tsmc_max/inv0d2"  ( maxTrans: 3.000     , maxLoad: 0.700     , maxFanout: 70      )
+    "cb13fs120_tsmc_max/inv0d1"  ( maxTrans: 3.000     , maxLoad: 0.350     , maxFanout: 35      )
+    "cb13fs120_tsmc_max/inv0d0"  ( maxTrans: 3.000     , maxLoad: 0.175     , maxFanout: 18      )
+}

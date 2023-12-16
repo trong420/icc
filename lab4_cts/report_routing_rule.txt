@@ -1,0 +1,26 @@
+================================================================================
+
+Nondefault routing rule name ( CLOCK_DOUBLE_SPACING ):
+================================================================================
+
+   Layers:
+   ----------------------------------------------------------------------------
+   layer     width     spacing   Extension      shield_width   shield_spacing
+   ----------------------------------------------------------------------------
+   METAL     160       180       DEFAULT        N/A            N/A
+   METAL2    200       210       DEFAULT        N/A            N/A
+   METAL3    200       420       DEFAULT        N/A            N/A
+   METAL4    200       630       DEFAULT        N/A            N/A
+   METAL5    400       820       DEFAULT        N/A            N/A
+   METAL6    440       460       DEFAULT        N/A            N/A
+
+   Spacing weights:
+   ----------------------------------------------------------------------------
+   layer     spacing   weight    spc_len_thresh
+   ----------------------------------------------------------------------------
+   METAL     180       1.00      0
+   METAL2    210       1.00      0
+   METAL3    420       1.00      0
+   METAL4    630       1.00      0
+   METAL5    820       1.00      0
+   METAL6    460       1.00      0
