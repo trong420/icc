@@ -1,0 +1,12 @@
+*********************************************************
+route_opt strategy for the design:
+  Fix Hold Mode                         : route_base
+  Search-Repair loops                   : 10 
+  ECO Search-Repair loops               : 4 
+  Crosstalk Optimization loops          : 2 
+  Route Violation threshold             : 3000 
+  Route Violation threshold             : 3000 
+  Power Aware Optimization              : false 
+  Port Punching                         : false 
+  Fast PBA Analysis                     : false 
+*********************************************************

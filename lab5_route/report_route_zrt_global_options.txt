@@ -1,0 +1,14 @@
+-crosstalk_driven                                       :        true                
+-default                                                :        false               
+-effort                                                 :        medium              
+-double_pattern_utilization_by_layer_name               :        {}                  
+-exclude_blocked_gcells_from_congestion_report          :        false               
+-extra_blocked_layer_utilization_reduction              :        0                   
+-force_full_effort                                      :        false               
+-layer_based_congestion_map                             :        true                
+-macro_boundary_track_utilization                       :        100                 
+-macro_boundary_width                                   :        5                   
+-macro_corner_track_utilization                         :        100                 
+-timing_driven                                          :        false               
+-timing_driven_effort_level                             :        high                
+-voltage_area_corner_track_utilization                  :        100   

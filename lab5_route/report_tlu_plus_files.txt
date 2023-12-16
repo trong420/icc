@@ -1,0 +1,10 @@
+****************************************
+Report : tlu_plus_files
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 10:18:00 2023
+****************************************
+
+  Max TLU+ file: ../ref/tlup/cb13_6m_max.tluplus
+  Min TLU+ file: ../ref/tlup/cb13_6m_min.tluplus
+  Tech2ITF mapping file: ../ref/tlup/cb13_6m.map

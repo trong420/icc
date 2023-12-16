@@ -1,0 +1,32 @@
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.38V) above low
+                                   0.35 (0.38V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+ 
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 10:54:11 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+PCI_CLK              201       5         5         0.0207    0.2230      0            102.8772
+SYS_CLK              902       22        23        0.1193    0.5625      0            350.9928
+SYS_2x_CLK           254       7         7         0.0242    0.2344      0            128.5965
+SDRAM_CLK            661       14        14        0.0436    0.2947      0            364.6089
+SD_DDR_CLK           0         0         0         0.0000    0.0000      0              0.0000

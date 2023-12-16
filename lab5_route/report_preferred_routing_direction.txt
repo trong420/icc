@@ -1,0 +1,14 @@
+****************************************
+Report : Layers
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 10:16:46 2023
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL                        Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+METAL6                       Vertical            Vertical            Vertical

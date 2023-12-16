@@ -1,0 +1,47 @@
+****************************************
+Report : clock timing
+        -type skew
+        -nworst 1
+        -setup
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 10:55:58 2023
+****************************************
+
+  Clock: PCI_CLK
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  I_PCI_TOP/I_PCI_CORE/pc_be_en_reg/CP   0.22                          wrp-+
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_CTL/U2/this_addr_g_int_reg_6_/CP
+                                         0.19      -0.00     0.03      wrp-+
+----------------------------------------------------------------------------
+
+  Clock: SDRAM_CLK
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/data_out_reg_21_/CP
+                                         0.29                          wrp-+
+  I_SDRAM_TOP/I_SDRAM_IF/mega_shift_1_reg_4__5_/CPN
+                                         0.24      -0.00     0.04      wfp-+
+----------------------------------------------------------------------------
+
+  Clock: SD_DDR_CLK
+  No local skews.
+
+
+  Clock: SYS_2x_CLK
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  I_RISC_CORE/I_DATA_PATH/Oprnd_A_reg_2_/CP
+                                         0.23                          wrp-+
+  I_RISC_CORE/I_ALU/Lachd_Result_reg_4_/CP
+                                         0.20      -0.00     0.03      wrp-+
+----------------------------------------------------------------------------
+
+  Clock: SYS_CLK
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  I_BLENDER_1/result_reg_11_/CP          0.56                          wrp-+
+  I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2/CE1
+                                         0.42      -0.00     0.14      wrp-+
+----------------------------------------------------------------------------

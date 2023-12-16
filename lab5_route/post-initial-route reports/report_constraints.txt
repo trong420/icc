@@ -1,0 +1,31 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : ORCA_TOP
+Version: L-2016.03-SP1
+Date   : Sun May 14 10:57:29 2023
+****************************************
+
+        Parasitic source    : LPE
+        Parasitic mode      : RealRC
+        Extraction mode     : MIN_MAX
+        Extraction derating : -40/25/125
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   pstop_n_en                   2.00           2.10          -0.10  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE/d_out_p_bus_reg_13_/Q
+                                2.00           2.10          -0.10  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                  -0.10  
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   ORCA_TOP                     0.00       80553.33       -80553.33 (VIOLATED)
