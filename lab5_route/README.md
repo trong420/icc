@@ -196,6 +196,7 @@ route_zrt_eco
 ```bash
 report_design_physical -route
 ```
+- See this report: [report_design_physical_route](https://github.com/trong420/icc/blob/main/lab5_route/report_design_physical_route.txt)
 
 - Save the design as route_opt_final:
 ```bash
@@ -224,7 +225,7 @@ save_mw_cel -as route_opt_final
 ![image](https://github.com/trong420/icc/assets/90754954/6593b80a-f61a-480c-b8cb-785250542700)
 
 
-- See this report: [report_power](https://github.com/trong420/icc/blob/main/lab3_placement/power.txt)
+
 
 
 
