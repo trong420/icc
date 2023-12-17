@@ -54,8 +54,11 @@ all_high_fanout -nets -threshold 501
 report_preferred_routing_direction 
 report_tlu_plus_files
 ```
+- See this report: [report_preferred_routing_direction](https://github.com/trong420/icc/blob/main/lab5_route/report_preferred_routing_direction.txt)
 
+- See this report: [report_tlu_plus_files](https://github.com/trong420/icc/blob/main/lab5_route/report_tlu_plus_files.txt)
 
+  
 - Verify that all placements are legal:
 ```bash
 check_legality
@@ -111,6 +114,13 @@ report_route_zrt_global_options
 report_route_zrt_track_options
 report_route_zrt_detail_options
 ```
+
+- See this report: [report_routing_rules](https://github.com/trong420/icc/blob/main/lab5_route/report_routing_rules.txt)
+- See this report: [report_route_opt_strategy](https://github.com/trong420/icc/blob/main/lab5_route/report_route_opt_strategy.txt)
+- See this report: [report_route_zrt_common_options](https://github.com/trong420/icc/blob/main/lab5_route/report_route_zrt_common_options%20.txt)
+- See this report: [report_route_zrt_global_options](https://github.com/trong420/icc/blob/main/lab5_route/report_route_zrt_global_options.txt)
+- See this report: [report_route_zrt_detail_options](https://github.com/trong420/icc/blob/main/lab5_route/report_route_zrt_detail_options.txt)
+  
 ![image](https://github.com/trong420/icc/assets/90754954/0fd11546-8102-4857-8a8c-33ace0432e1f)
 
 - Perform initial routing, which includes global routing, track assignment and detail routing: 
@@ -129,6 +139,8 @@ report_clock_timing -type skew
 report_qor 
 report_constraints -all
 ```
+
+- See this report folder: [post-initial-route reports](https://github.com/trong420/icc/tree/main/lab5_route/post-initial-route%20reports)
 
 - Perform post-initial route optimization with -power to optimize for power. The -skip_initial_route option prevents the initial route from being completely ripped up and re-routed:
 
