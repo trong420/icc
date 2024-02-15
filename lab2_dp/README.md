@@ -238,4 +238,4 @@ write_def -version 5.6 -placed -all_vias -blockages \-routed_nets -rows_tracks_g
 - See this report: [report_qor](https://github.com/trong420/icc/blob/main/lab3_placement/report_qor.txt)
 ---
 NEXT
-- LAB3: [Design Planning](https://github.com/trong420/icc/tree/main/lab3_placement)
+- LAB3: [Placement](https://github.com/trong420/icc/tree/main/lab3_placement)
